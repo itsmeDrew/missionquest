@@ -1,0 +1,19 @@
+{
+    "name": "angular-wp",
+    "require": {
+        "johnpbloch/wordpress": "~4.2"
+    },
+    "authors": [
+        {
+            "name": "Drew Roberts",
+            "email": "drew@itsmedrew.com"
+        }
+    ],
+    "extra":{
+        "installer-paths":{
+            "public/api/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "public/api/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        },
+        "wordpress-install-dir": "public/api/wordpress"
+    }
+}

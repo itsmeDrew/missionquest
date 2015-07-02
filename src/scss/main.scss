@@ -1,4 +1,16 @@
+ // MissionQuest Website CSS
+
+// core
 @import 'core/mixins';
-body {
-  background: $red;
-}
+@import 'core/colors';
+@import 'core/variables';
+
+ // base
+@import 'base/reset';
+@import 'base/fonts';
+@import 'base/layout';
+
+// components
+@import 'components/header';
+@import 'components/nav';
+

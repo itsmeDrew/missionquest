@@ -1,5 +1,13 @@
+// fonts
+$font-family-sans-serif: "Roboto", "Helvetica Neue", "Arial", sans-serif;
+
 // breakpoints
 $breakpoint-small: 480px;
 $breakpoint-medium: 768px;
 $breakpoint-large: 970px;
 $breakpoint-xlarge: 1200px;
+
+// base variables
+$base-font-family: $font-family-sans-serif;
+$base-font-size: '16px';
+$base-color: $black;

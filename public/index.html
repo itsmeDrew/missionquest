@@ -2,15 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MissionQuest Site</title>
 
   <link rel="stylesheet" href="/assets/css/main.min.css">
 </head>
 <body>
-  <div ng-controller="MqController as ctrl">
-    <div ng-repeat="post in ctrl.postData">{{post.title}}{{post.meta.banjo_color}}</div>
-  </div>
+  <%- placeholder('headerZone') %>
+  <%- placeholder('heroZone') %>
+  <%- placeholder('contentZone') %>
+  <%- placeholder('footerZone') %>
 
   <script src="/assets/js/main.min.js"></script>
 </body>
 </html>
+
+<!--
+  ASK JAVIER - include normalize
+              - breaking html into components with his setup.

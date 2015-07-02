@@ -1,1 +1,1 @@
-define(['angular'], function(angular) { 'use strict'; return angular.module("App.Templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("test.tpl.html","<div>\n  Hello World\n</div>");}]);});
+define(['angular'], function(angular) { 'use strict'; return angular.module("App.Templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("test.tpl.html","<div>\n  Hello Worlds\n</div>");}]);});

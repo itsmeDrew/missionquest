@@ -15,8 +15,7 @@ define(
       'ui.router',
       'App.Templates',
       'App.MqService'
-        // 'App.MqDirective.Header'
-        ])
+    ])
     .controller('MqController', mqCtrl)
     .config(mqConfig);
 
@@ -33,11 +32,14 @@ define(
       $locationProvider.html5Mode(true);
 
       $stateProvider
-      .state('app', {
+      .state('state', {
         url: '/',
         views: {
           'header': {
             templateUrl: 'partials/_header.html'
+          },
+          'nav@state': {
+            templateUrl: 'partials/_nav-main.html'
           },
           'content': {
             templateUrl: 'home.tpl.html'
@@ -47,7 +49,7 @@ define(
           }
         }
       })
-      .state('app.products', {
+      .state('state.products', {
         url: 'products',
         views: {
           'content@': {
@@ -55,7 +57,7 @@ define(
           }
         }
       })
-      .state('app.home', {
+      .state('state.home', {
         url: 'home',
         views: {
           'content@': {

@@ -19,7 +19,6 @@ require.config({
     'app'
   ],
   callback: function(angular) {
-    // console.log('der');
     angular.bootstrap(document, [ 'App' ]);
   }
 });

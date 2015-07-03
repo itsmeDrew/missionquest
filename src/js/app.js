@@ -28,8 +28,9 @@ define(
       });
     }
 
-    function mqConfig ($stateProvider, $urlRouterProvider) {
+    function mqConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
       $urlRouterProvider.otherwise('/');
+      $locationProvider.html5Mode(true);
 
       $stateProvider
       .state('app', {
@@ -50,15 +51,15 @@ define(
         url: 'products',
         views: {
           'content@': {
-            templateUrl: 'products.html'
+            templateUrl: 'products.tpl.html'
           }
         }
       })
-      .state('app.default', {
-        url: 'default',
+      .state('app.home', {
+        url: 'home',
         views: {
           'content@': {
-            templateUrl: 'default.tpl.html'
+            templateUrl: 'home.tpl.html'
           }
         }
       });

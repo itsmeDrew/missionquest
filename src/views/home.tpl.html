@@ -1,1 +1,5 @@
-<p>home template</p>
+<div ng-controller="MqController as mq">
+  <div ng-repeat="post in mq.postData">
+    {{post.title}}
+  </div>
+</div>

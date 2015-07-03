@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MissionQuest Site</title>
+  <title>Angular Test</title>
 
   <link rel="stylesheet" href="/assets/css/main.min.css">
 </head>
 <body>
-  <%- placeholder('headerZone') %>
-  <%- placeholder('heroZone') %>
-  <%- placeholder('contentZone') %>
-  <%- placeholder('footerZone') %>
+
+<div ui-view="header"></div>
+<div ui-view="content"></div>
+<div ui-view="footer"></div>
+
+<mq-header></mq-header>
 
   <script src="/assets/js/main.min.js"></script>
 </body>

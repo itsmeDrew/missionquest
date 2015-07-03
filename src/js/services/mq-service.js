@@ -3,7 +3,7 @@
 define(
   [
     'angular',
-    'uiRouter',
+    'uiRouter'
   ],
   function(angular) {
     angular

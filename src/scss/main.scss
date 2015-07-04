@@ -1,5 +1,9 @@
  // MissionQuest Website CSS
 
+// vendor
+@import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
+@import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+
 // core
 @import 'core/mixins';
 @import 'core/colors';

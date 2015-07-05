@@ -7,12 +7,12 @@ define(
   ],
   function(angular) {
     angular
-      .module('App.MqService', [])
-      .service('MqService', function ($q, $http) {
+      .module('App.MqService.GetCategories', [])
+      .service('GetCategories', function ($q, $http) {
          //returns a promise
         var deferred = $q.defer();
 
-        $http.get('http://missionquest.dev/api/wp-json/posts')
+        $http.get('http://missionquest.dev/api/wp-json/taxonomies/category/terms')
           .success(function (result) {
               deferred.resolve(result);
           })

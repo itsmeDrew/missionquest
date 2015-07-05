@@ -1,4 +1,14 @@
-.nav-primary {
+.nav-main {
   background-color: $tar;
   color: $white;
+}
+.nav-main__link {
+  color: $white;
+  padding: $base-padding + 10;
+  display: block;
+  text-transform: uppercase;
+  font-size: $base-font-size - 3px;
+}
+.nav-main__list-item {
+  display: inline-block;
 }

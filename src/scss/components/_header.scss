@@ -1,6 +1,12 @@
-.mq_header--primary {
-  background: $tar;
+.header-main__top {
+  background: $white;
   padding: 2em .5em;
   display: block;
   width: 100%;
+}
+.header-main__bottom {
+  background: $tar;
+}
+.header-main__logo {
+  width: 200px;
 }

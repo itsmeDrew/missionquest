@@ -5,26 +5,27 @@ define(
   'angular',
   'uiRouter',
   'templates',
-  'services/mq-service',
-  'directives/mq-directive'
-
+  'services/mq-get-categories',
+  'services/mq-get-posts'
   ],
   function(angular) {
     angular
     .module('App', [
       'ui.router',
       'App.Templates',
-      'App.MqService'
+      'App.MqService.GetPosts',
+      'App.MqService.GetCategories'
     ])
     .controller('MqController', mqCtrl)
     .config(mqConfig);
 
-    function mqCtrl (MqService, $q) {
+    function mqCtrl (GetPosts, GetCategories, $q) {
       var vm = this;
-
-      MqService.then(function (response) {
+      GetPosts.then(function (response) {
         vm.postData = response;
       });
+
+      console.log(GetCategories);
     }
 
     function mqConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -39,7 +40,10 @@ define(
             templateUrl: 'partials/_header.html'
           },
           'nav@state': {
-            templateUrl: 'partials/_nav-main.html'
+            templateUrl: 'partials/_nav-main.html',
+            controller: function ($scope) {
+              console.log($scope, this)
+            }
           },
           'content': {
             templateUrl: 'home.tpl.html'
@@ -66,6 +70,6 @@ define(
         }
       });
     }
-    //end
+
   }
   );

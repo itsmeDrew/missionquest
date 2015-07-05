@@ -1,6 +1,11 @@
 <section class="header-main__bottom">
   <div class="container">
     <nav class="nav-main">
+      <ul>
+        <li ng-repeat="category in mq.categories">
+          <a ui-sref=".category({ catId: {{ category.ID }} })">{{category.name}}</a>
+        </li>
+      </ul>
     </nav>
   </div>
 </section>

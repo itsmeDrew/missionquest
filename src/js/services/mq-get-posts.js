@@ -8,7 +8,9 @@ define(
   function(angular) {
     angular
       .module('App.MqService.GetPosts', [])
-      .service('GetPosts', function ($q, $http) {
+      .service('GetPosts', getPostData);
+
+      function getPostData ($q, $http) {
          //returns a promise
         var deferred = $q.defer();
 
@@ -22,6 +24,6 @@ define(
 
         return deferred.promise;
       }
-    );
+
   }
 );

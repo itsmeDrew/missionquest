@@ -6,7 +6,8 @@ define(
   'uiRouter',
   'templates',
   'services/mq-get-categories',
-  'services/mq-get-posts'
+  'services/mq-get-posts',
+  'services/mq-get-category-posts'
   ],
   function(angular) {
     angular
@@ -14,18 +15,35 @@ define(
       'ui.router',
       'App.Templates',
       'App.MqService.GetPosts',
-      'App.MqService.GetCategories'
+      'App.MqService.GetCategories',
+      'App.MqService.GetCategoryPosts'
     ])
     .controller('MqController', mqCtrl)
+    .controller('CategoryController', catCtrl)
     .config(mqConfig);
 
-    function mqCtrl (GetPosts, GetCategories, $q) {
+    function mqCtrl (GetPosts, GetCategories) {
       var vm = this;
-      GetPosts.then(function (response) {
+
+      getPostsData(GetPosts, vm);
+      getAllCategories(GetCategories, vm);
+    }
+
+    function getPostsData (dataToGet, vm) {
+      dataToGet.then(function (response) {
         vm.postData = response;
       });
+    }
 
-      console.log(GetCategories);
+    function getAllCategories (dataToGet, vm) {
+      dataToGet.then(function (response) {
+        vm.categories = response;
+        console.log('categories:', vm.categories);
+      });
+    }
+
+    function catCtrl (GetCategoryPosts) {
+
     }
 
     function mqConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -40,10 +58,7 @@ define(
             templateUrl: 'partials/_header.html'
           },
           'nav@state': {
-            templateUrl: 'partials/_nav-main.html',
-            controller: function ($scope) {
-              console.log($scope, this)
-            }
+            templateUrl: 'partials/_nav-main.html'
           },
           'content': {
             templateUrl: 'home.tpl.html'
@@ -66,6 +81,22 @@ define(
         views: {
           'content@': {
             templateUrl: 'home.tpl.html'
+          }
+        }
+      })
+      .state('state.category', {
+        url: 'category/:catId',
+        views: {
+          'content@': {
+            templateUrl: 'category.tpl.html',
+            controller: function (GetCategoryPosts) {
+              newRequest = GetCategoryPosts.banjo();
+
+              newRequest.then(function (response) {
+                this.posts = response;
+                console.log('this.posts:', this.posts);
+              });
+            }
           }
         }
       });

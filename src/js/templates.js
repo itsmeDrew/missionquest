@@ -1,4 +1,4 @@
-define(['angular'], function(angular) { 'use strict'; return angular.module("App.Templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("category.tpl.html","<div ng-controller=\"CategoryController as cat\">\n  Post Here\n  <h2 ng-repeat=\"post in cat.posts\">Post Name: {{post.name}}</h2>\n</div>");
+define(['angular'], function(angular) { 'use strict'; return angular.module("App.Templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("category.tpl.html","<div ng-controller=\"CatController as cat\">\n  <li ng-repeat=\"post in cat.posts\">{{post.title}}</li>\n</div>");
 $templateCache.put("home.tpl.html","<div ng-repeat=\"post in mq.postData\">\n  {{post.title}}\n</div>");
 $templateCache.put("products.tpl.html","<p>products template</p>");
 $templateCache.put("partials/_footer.html","<p>footer</p>");

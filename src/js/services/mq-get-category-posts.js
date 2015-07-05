@@ -15,16 +15,14 @@ define(
         var deferred = $q.defer();
         catID = $stateParams.catId;
 
-        this.banjo = function () {
-          $http.get('http://missionquest.dev/api/wp-json/posts?filter[cat]=' + catID)
-          .success(function (result) {
-              deferred.resolve(result);
-          })
-          .error(function (result) {
-              deferred.reject(result);
-          });
-          return deferred.promise;
-        }
+        $http.get('http://missionquest.dev/api/wp-json/posts?filter[cat]=' + catID)
+        .success(function (result) {
+            deferred.resolve(result);
+        })
+        .error(function (result) {
+            deferred.reject(result);
+        });
+        return deferred.promise;
       }
 
   }

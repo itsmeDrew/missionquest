@@ -19,7 +19,7 @@ define(
       'App.MqService.GetCategoryPosts'
     ])
     .controller('MqController', mqCtrl)
-    .controller('CategoryController', catCtrl)
+    .controller('CatController', catCtrl)
     .config(mqConfig);
 
     function mqCtrl (GetPosts, GetCategories) {
@@ -38,12 +38,11 @@ define(
     function getAllCategories (dataToGet, vm) {
       dataToGet.then(function (response) {
         vm.categories = response;
-        console.log('categories:', vm.categories);
       });
     }
 
-    function catCtrl (GetCategoryPosts) {
-
+    function catCtrl () {
+      // category controller
     }
 
     function mqConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -88,15 +87,7 @@ define(
         url: 'category/:catId',
         views: {
           'content@': {
-            templateUrl: 'category.tpl.html',
-            controller: function (GetCategoryPosts) {
-              newRequest = GetCategoryPosts.banjo();
-
-              newRequest.then(function (response) {
-                this.posts = response;
-                console.log('this.posts:', this.posts);
-              });
-            }
+            templateUrl: 'category.tpl.html'
           }
         }
       });

@@ -1,4 +1,3 @@
-<div ng-controller="CategoryController as cat">
-  Post Here
-  <h2 ng-repeat="post in cat.posts">Post Name: {{post.name}}</h2>
+<div ng-controller="CatController as cat">
+  <li ng-repeat="post in cat.posts">{{post.title}}</li>
 </div>

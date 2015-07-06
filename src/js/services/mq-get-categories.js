@@ -2,26 +2,38 @@
 
 define(
   [
-    'angular',
-    'uiRouter'
+    'angular'
   ],
   function(angular) {
     angular
-      .module('App.MqService.GetCategories', [])
-      .service('GetCategories', function ($q, $http) {
-         //returns a promise
-        var deferred = $q.defer();
+      .module('App.MqService.Category', [])
+      .service('Category', Category);
 
-        $http.get('http://missionquest.dev/api/wp-json/taxonomies/category/terms')
-          .success(function (result) {
-              deferred.resolve(result);
-          })
-          .error(function (result) {
-              deferred.reject(result);
-          });
+      function Category($q, $http) {
+        var _categories = [];
 
-        return deferred.promise;
+        this.getAll = getAll;
+
+        function getAll() {
+          var deferred = $q.defer();
+
+          if (_categories.length) {
+            deferred.resolve(_categories);
+          } else {
+            $http.get('http://missionquest.dev/api/wp-json/taxonomies/category/terms')
+              .success(function(result) {
+                _categories = result;
+
+                deferred.resolve(result);
+              })
+              .error(function(result) {
+                 deferred.reject(result);
+              });
+          }
+
+          return deferred.promise;
+        }
       }
-    );
   }
 );
+

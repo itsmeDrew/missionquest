@@ -20,12 +20,12 @@ gulp.task('clean:images', function (cb) { return del('./public/assets/img', cb);
 gulp.task('clean:js', function (cb) { return del('./public/assets/js', cb); });
 gulp.task('clean:css', function (cb) { return del('./public/assets/css', cb); });
 
-gulp.task('copy:fonts', [ 'clean:fonts' ], function() {
+gulp.task('copy:fonts', function() {
   return gulp.src('./src/fonts/**/*')
     .pipe(gulp.dest('./public/assets/fonts'));
 });
 
-gulp.task('copy:images', [ 'clean:images' ], function() {
+gulp.task('copy:images', function() {
   return gulp.src('./src/img/**/*')
     .pipe(gulp.dest('./public/assets/img'));
 });
@@ -43,7 +43,7 @@ gulp.task('build:views', function() {
       });
 });
 
-gulp.task('build:js', [ 'clean:js' ], function(cb) {
+gulp.task('build:js', function(cb) {
   var options = {
     baseUrl: './src/js',
     mainConfigFile: './src/js/main.js',
@@ -109,7 +109,7 @@ gulp.task('watch', function() {
   gulp.watch('./src/fonts/**/*.scss', [ 'copy:fonts' ]);
 })
 
-gulp.task('build', [ 'clean:public' ], function(cb) {
+gulp.task('build', function(cb) {
   gulp.start([ 'build:views', 'build:css', 'copy:fonts', 'copy:images' ], cb);
 });
 

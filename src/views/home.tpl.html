@@ -1,3 +1,7 @@
-<div ng-repeat="post in mq.postData">
+<div ng-repeat="post in blog.posts.posts">
   {{post.title}}
 </div>
+
+<button ng-show="blog.page !== blog.posts.totalPages" ng-click="blog.nextPage()">Next</button>
+<button ng-show="blog.page > 1" ng-click="blog.prevPage()">Previous</button>
+<button ng-click="blog.updateLimit()">Update</button>

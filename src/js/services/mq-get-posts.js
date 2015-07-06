@@ -7,23 +7,59 @@ define(
   ],
   function(angular) {
     angular
-      .module('App.MqService.GetPosts', [])
-      .service('GetPosts', getPostData);
+      .module('App.MqService.Post', [])
+      .service('Post', Post);
 
-      function getPostData ($q, $http) {
-         //returns a promise
-        var deferred = $q.defer();
+      function Post($q, $http) {
+        var _postsPerPage = 1;
 
-        $http.get('http://missionquest.dev/api/wp-json/posts')
-          .success(function (result) {
-              deferred.resolve(result);
-          })
-          .error(function (result) {
-              deferred.reject(result);
-          });
+        this.getAll = getAll;
+        this.getByCategory = getByCategory;
+        this.getById = getById;
 
-        return deferred.promise;
+        function getById(id) {
+          var url = 'http://missionquest.dev/api/wp-json/posts/' + id;
+          return _makeRequest(url);
+        }
+
+        function getByCategory(cat, page) {
+          var url = 'http://missionquest.dev/api/wp-json/posts?filter[cat]=' + cat;
+          return _makeRequest(url);
+        }
+
+        function getAll(page, postsPerPage) {
+          var url = 'http://missionquest.dev/api/wp-json/posts';
+          var params = {
+            page: parseInt(page, 10),
+            'filter[posts_per_page]': parseInt(postsPerPage, 10)
+          };
+
+          return _makeRequest(url, params);
+        }
+
+        function _makeRequest(url, params) {
+          var deferred = $q.defer();
+
+          $http.get(url, { params: params || {} })
+            .success(function(result, status, headers) {
+              var response = {
+                posts: result,
+                totalPages: parseInt(headers('X-WP-TotalPages'), 10),
+                totalPosts: parseInt(headers('X-WP-Total'), 10)
+              };
+
+              console.log(response);
+
+              deferred.resolve(response);
+            })
+            .error(function(result) {
+                deferred.reject(result);
+            });
+
+          return deferred.promise;
+        }
       }
 
   }
 );
+

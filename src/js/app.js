@@ -6,91 +6,134 @@ define(
   'uiRouter',
   'templates',
   'services/mq-get-categories',
-  'services/mq-get-posts',
-  'services/mq-get-category-posts'
+  'services/mq-get-posts'
   ],
   function(angular) {
     angular
     .module('App', [
       'ui.router',
       'App.Templates',
-      'App.MqService.GetPosts',
-      'App.MqService.GetCategories',
-      'App.MqService.GetCategoryPosts'
+      'App.MqService.Post',
+      'App.MqService.Category'
     ])
     .controller('MqController', mqCtrl)
-    .controller('CatController', catCtrl)
+    .controller('CategoryController', CategoryController)
+    .controller('BlogController', BlogController)
+    .controller('NavController', NavController)
     .config(mqConfig);
 
-    function mqCtrl (GetPosts, GetCategories) {
+    function BlogController($location, Post) {
       var vm = this;
 
-      getPostsData(GetPosts, vm);
-      getAllCategories(GetCategories, vm);
+      vm.page = parseInt($location.search().page || 1, 10);
+      vm.perPage = parseInt($location.search().limit || 1, 10);
+      vm.updateLimit = updateLimit;
+      vm.nextPage = nextPage;
+      vm.prevPage = prevPage;
+
+      updatePosts();
+
+      function nextPage() {
+        vm.page++;
+
+        updatePosts();
+      }
+
+      function prevPage() {
+        vm.page--;
+
+        updatePosts();
+      }
+
+      function updateLimit() {
+        vm.perPage = 2;
+        vm.page = 1;
+
+        updatePosts();
+      }
+
+      function updatePosts() {
+        Post.getAll(vm.page, vm.perPage)
+          .then(function(result) {
+            vm.posts = result;
+            $location.search({
+              page: vm.page,
+              limit: vm.perPage
+            });
+          });
+      }
     }
 
-    function getPostsData (dataToGet, vm) {
-      dataToGet.then(function (response) {
-        vm.postData = response;
-      });
+    function mqCtrl(Category) {
+      var vm = this;
+
+      Category.getAll()
+        .then(function(result) {
+          vm.categories = result;
+        })
     }
 
-    function getAllCategories (dataToGet, vm) {
-      dataToGet.then(function (response) {
-        vm.categories = response;
-      });
+    function CategoryController(Post, $stateParams) {
+      var vm = this;
+
+      updatePosts();
+
+      function updatePosts() {
+        Post.getByCategory($stateParams.catId)
+          .then(function(result) {
+            vm.posts = result;
+          })
+      }
+
     }
 
-    function catCtrl () {
-      // category controller
+    function NavController() {
+
     }
 
-    function mqConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
-      $urlRouterProvider.otherwise('/');
+    function mqConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       $locationProvider.html5Mode(true);
 
       $stateProvider
-      .state('state', {
-        url: '/',
-        views: {
-          'header': {
-            templateUrl: 'partials/_header.html'
-          },
-          'nav@state': {
-            templateUrl: 'partials/_nav-main.html'
-          },
-          'content': {
-            templateUrl: 'home.tpl.html'
-          },
-          'footer': {
-            templateUrl: 'partials/_footer.html'
+        .state('home', {
+          url: '/',
+          views: {
+            'header': {
+              templateUrl: 'partials/_header.html'
+            },
+            'nav@home': {
+              templateUrl: 'partials/_nav-main.html',
+              controller: 'NavController',
+              controllerAs: 'nav'
+            },
+            'content': {
+              templateUrl: 'home.tpl.html',
+              controller: 'BlogController',
+              controllerAs: 'blog'
+            },
+            'footer': {
+              templateUrl: 'partials/_footer.html'
+            }
           }
-        }
-      })
-      .state('state.products', {
-        url: 'products',
-        views: {
-          'content@': {
-            templateUrl: 'products.tpl.html'
+        })
+        .state('home.products', {
+          url: 'products',
+          views: {
+            'content@': {
+              templateUrl: 'products.tpl.html'
+            }
           }
-        }
-      })
-      .state('state.home', {
-        url: 'home',
-        views: {
-          'content@': {
-            templateUrl: 'home.tpl.html'
+        })
+        .state('home.category', {
+          url: 'category/:catId',
+          views: {
+            'content@': {
+              templateUrl: 'category.tpl.html',
+              controller: 'CategoryController',
+              controllerAs: 'category'
+            }
           }
-        }
-      })
-      .state('state.category', {
-        url: 'category/:catId',
-        views: {
-          'content@': {
-            templateUrl: 'category.tpl.html'
-          }
-        }
-      });
+        });
     }
 
   }

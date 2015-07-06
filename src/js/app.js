@@ -27,8 +27,9 @@ define(
     function mqCtrl(Category) {
       var vm = this;
 
-      Category.getAll()
+      Category.getParent()
         .then(function(result) {
+          console.log(result);
           vm.categories = result;
         })
     }

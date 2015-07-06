@@ -22,9 +22,13 @@ define(
           return _makeRequest(url);
         }
 
-        function getByCategory(cat, page) {
+        function getByCategory(cat, page, postsPerPage) {
           var url = 'http://missionquest.dev/api/wp-json/posts?filter[cat]=' + cat;
-          return _makeRequest(url);
+          var params = {
+             page: parseInt(page, 10),
+            'filter[posts_per_page]': parseInt(postsPerPage, 10)
+          };
+          return _makeRequest(url, params);
         }
 
         function getAll(page, postsPerPage) {
@@ -47,8 +51,6 @@ define(
                 totalPages: parseInt(headers('X-WP-TotalPages'), 10),
                 totalPosts: parseInt(headers('X-WP-Total'), 10)
               };
-
-              console.log(response);
 
               deferred.resolve(response);
             })

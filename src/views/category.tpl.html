@@ -1,3 +1,8 @@
 <ul>
-  <li ng-repeat="post in category.posts">{{post.title}}</li>
+  <li ng-repeat="post in category.posts"> Title: {{ post.title }}</li>
 </ul>
+<button ng-show="category.page !== category.totalPosts" ng-click="category.nextPage()">Next Page</button>
+<button ng-show="category.page > 1" ng-click="category.prevPage()">Prev Page</button>
+<div ng-show="category.totalPosts === 0">
+  <h2>no results to show</h2>
+</div>

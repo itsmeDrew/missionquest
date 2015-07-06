@@ -24,12 +24,11 @@ define(
     ])
     .controller('MqController', mqCtrl);
 
-    function mqCtrl(Category) {
+    function mqCtrl(Category, $stateParams) {
       var vm = this;
 
-      Category.getParent()
+      Category.getChildren(2)
         .then(function(result) {
-          console.log(result);
           vm.categories = result;
         })
     }

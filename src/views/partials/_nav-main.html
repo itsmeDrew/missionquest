@@ -2,8 +2,13 @@
   <div class="container">
     <nav class="nav-main">
       <ul>
-        <li ng-repeat="category in mq.categories">
-          <a ng-click="category.updatePosts()" ui-sref=".category({ catId: {{ category.ID }} })">{{category.name}}</a>
+        <li ng-repeat="category in nav.categories">
+          <a
+          ng-init="nav.getChildren(category.ID)"
+          ng-click="category.updatePosts()"
+          ui-sref=".category({ catId: {{ category.ID }} })">
+              {{category.name}}
+          </a>
         </li>
       </ul>
     </nav>

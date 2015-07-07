@@ -9,7 +9,9 @@ define(
   'services/mq-get-categories',
   'services/mq-get-posts',
   'controllers/category',
-  'controllers/blog'
+  'controllers/blog',
+  'controllers/nav',
+  'controllers/search'
   ],
   function(angular) {
     angular
@@ -20,17 +22,14 @@ define(
       'App.MqService.Post',
       'App.MqService.Category',
       'App.MqController.Category',
-      'App.MqController.Blog'
+      'App.MqController.Blog',
+      'App.MqController.Nav',
+      'App.MqController.Search'
     ])
     .controller('MqController', mqCtrl);
 
-    function mqCtrl(Category, $stateParams) {
+    function mqCtrl() {
       var vm = this;
-
-      Category.getChildren(2)
-        .then(function(result) {
-          vm.categories = result;
-        })
     }
 
   }

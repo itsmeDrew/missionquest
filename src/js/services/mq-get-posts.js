@@ -16,6 +16,7 @@ define(
         this.getAll = getAll;
         this.getByCategory = getByCategory;
         this.getById = getById;
+        this.searchAll = searchAll;
 
         function getById(id) {
           var url = 'http://missionquest.dev/api/wp-json/posts/' + id;
@@ -40,6 +41,15 @@ define(
 
           return _makeRequest(url, params);
         }
+
+      function searchAll(term) {
+        var url = 'http://missionquest.dev/api/wp-json/posts';
+        var params = {
+          'filter[s]': term
+        };
+
+        return _makeRequest(url, params);
+      }
 
         function _makeRequest(url, params) {
           var deferred = $q.defer();

@@ -13,6 +13,7 @@ define(
 
       function Category($q, $http) {
         var _categories = [];
+        var _childCategories = [];
 
         this.getAll = getAll;
         this.getParent = getParent;
@@ -60,27 +61,8 @@ define(
           return deferred.promise;
         }
 
-        function getChildren(catID) {
-          var deferred = $q.defer();
+        function getChildren(paramID) {
 
-          if (_categories.length) {
-            deferred.resolve(_categories);
-          } else {
-            $http.get('http://missionquest.dev/api/wp-json/taxonomies/category/terms')
-              .success(function(result) {
-
-                for (var i = result.length - 1; i >= 0; i--) {
-                  if (result[i].parent && result[i].parent.ID === catID) {
-                    _categories.push(result[i]);
-                  }
-                };
-                deferred.resolve(_categories);
-              })
-              .error(function(result) {
-                 deferred.reject(result);
-              });
-          }
-          return deferred.promise;
         }
 
       }

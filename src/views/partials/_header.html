@@ -4,5 +4,10 @@
       <img class="header-main__logo" src="../assets/img/logo.jpg" alt="">
     </div>
   </section>
+  <section class="search-main">
+    <input type="text" ng-model="search.term">
+    <button ng-click="search.submit(search.term)">search
+  </section>
   <section ui-view="nav"></section>
+
 </header>

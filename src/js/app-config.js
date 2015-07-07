@@ -17,10 +17,14 @@ define(
           url: '/',
           views: {
             'header': {
-              templateUrl: 'partials/_header.html'
+              templateUrl: 'partials/_header.html',
+              controller: 'SearchController',
+              controllerAs: 'search'
             },
             'nav@home': {
-              templateUrl: 'partials/_nav-main.html'
+              templateUrl: 'partials/_nav-main.html',
+              controller: 'NavController',
+              controllerAs: 'nav'
             },
             'content': {
               templateUrl: 'home.tpl.html',
@@ -29,6 +33,16 @@ define(
             },
             'footer': {
               templateUrl: 'partials/_footer.html'
+            }
+          }
+        })
+        .state('home.results', {
+          url: 'results?term',
+          views: {
+            'content@': {
+              templateUrl: 'results.tpm.html',
+              controller: 'SearchController',
+              controllerAs: 'search'
             }
           }
         })

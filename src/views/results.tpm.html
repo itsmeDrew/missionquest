@@ -1,6 +1,7 @@
-<h2>search results for {{ search.term }}</h2>
+<h2>we found {{search.totalResults}} result[s] for {{ search.term }}</h2>
 <ul>
   <li ng-repeat="result in search.results">
     Post Title: {{ result.title }}
   </li>
 </ul>
+<div ng-show="!search.totalResults">no results were found. try searching again.</div>

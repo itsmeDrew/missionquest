@@ -9,22 +9,17 @@ define(
       .module('App.MqController.Search', [])
       .controller('SearchController', SearchController);
 
-    function SearchController(Post, $stateParams, $state) {
+    function SearchController(Post, $location, $stateParams, $state) {
       var vm = this;
+      vm.term = $location.$$search.terms;
 
-      vm.submit = submit;
-
-      function submit(term) {
-        $state.go('home.results');
-
-        Post.searchAll(term)
+      console.log('location', $location, 'stateParams', $stateParams)
+      Post.searchAll(vm.term)
           .then(function (result) {
             vm.results = result.posts;
-            vm.term = term;
-            console.log(vm.results);
+            vm.totalResults = vm.results.length;
+            console.log(vm.results.length, vm.results)
           });
-      }
-
     }
 
   }

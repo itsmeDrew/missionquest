@@ -18,8 +18,8 @@ define(
           views: {
             'header': {
               templateUrl: 'partials/_header.html',
-              controller: 'SearchController',
-              controllerAs: 'search'
+              controller: 'HeaderController',
+              controllerAs: 'header'
             },
             'nav@home': {
               templateUrl: 'partials/_nav-main.html',
@@ -37,7 +37,7 @@ define(
           }
         })
         .state('home.results', {
-          url: 'results?term',
+          url: 'search?terms',
           views: {
             'content@': {
               templateUrl: 'results.tpm.html',

@@ -8,10 +8,11 @@ define(
   'templates',
   'services/mq-get-categories',
   'services/mq-get-posts',
+  'controllers/header',
+  'controllers/search',
   'controllers/category',
   'controllers/blog',
-  'controllers/nav',
-  'controllers/search'
+  'controllers/nav'
   ],
   function(angular) {
     angular
@@ -21,10 +22,11 @@ define(
       'App.MqConfig',
       'App.MqService.Post',
       'App.MqService.Category',
+      'App.MqController.Header',
+      'App.MqController.Search',
       'App.MqController.Category',
       'App.MqController.Blog',
-      'App.MqController.Nav',
-      'App.MqController.Search'
+      'App.MqController.Nav'
     ])
     .controller('MqController', mqCtrl);
 

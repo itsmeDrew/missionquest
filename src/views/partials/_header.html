@@ -1,12 +1,18 @@
 <header class="header-main">
   <section class="header-main__top">
     <div class="container">
-      <img class="header-main__logo" src="../assets/img/logo.jpg" alt="">
+      <div class="header-main__left--wrapper">
+        <img class="header-main__logo" src="../assets/img/logo.jpg" alt="">
+      </div>
+      <div class="header-main__right--wrapper">
+        <span class="header-main__phone">{{ mq.phone }}</span>
+        <div class="header-main__search--wrapper">
+          <form ng-submit="header.submit(search.term)">
+            <input class="header-main__search--input" type="text" placeholder="find a product..." ng-model="search.term">
+          </form>
+        </div>
+      </div>
     </div>
-  </section>
-  <section class="search-main">
-    <input type="text" ng-model="search.term">
-    <button ng-click="header.submit(search.term)">search
   </section>
   <section ui-view="nav"></section>
 

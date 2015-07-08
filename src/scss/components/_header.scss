@@ -10,3 +10,19 @@
 .header-main__logo {
   width: 200px;
 }
+.header-main__left--wrapper {
+  float: left;
+}
+.header-main__right--wrapper {
+  float: right;
+}
+.header-main__search--wrapper {
+  width: 255px;
+}
+.header-main__search--input {
+  padding: .5rem 1rem;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: $input-grey;
+}

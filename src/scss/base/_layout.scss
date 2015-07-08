@@ -19,3 +19,8 @@ a {
 a:hover {
   color: lighten($mq-blue, 10%);
 }
+.clearfix:after {
+  clear: both;
+  display: block;
+  content: "";
+}

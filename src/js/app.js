@@ -32,6 +32,10 @@ define(
 
     function mqCtrl() {
       var vm = this;
+
+      vm.phone = "941.555.5555";
+      vm.address = "P Sherman 42 Wallabe Way, Sydney";
+      vm.email = "tom@missionquestadv.com";
     }
 
   }

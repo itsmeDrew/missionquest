@@ -1,28 +1,52 @@
+.header-main {
+  margin-bottom: 30px;
+  position: relative;
+}
 .header-main__top {
   background: $white;
-  padding: 2em .5em;
+  padding: 1.5em .5em;
   display: block;
   width: 100%;
 }
-.header-main__bottom {
-  background: $tar;
+.header-main__logo--large {
+  width: 100%;
+  max-width: 225px;
 }
-.header-main__logo {
-  width: 200px;
+.header-main__logo--small {
+  width: 50px;
 }
 .header-main__left--wrapper {
   float: left;
 }
 .header-main__right--wrapper {
   float: right;
+  padding: 14px 0;
+}
+.header-main__contact-section {
+  float: left;
+  display: block;
+  position: relative;
+  margin-right: 50px;
+  transform: translateY(50%);
+  color: $ash;
+}
+.header-main__phone {
+  padding-right: 20px;
+  margin-right: 20px;
+  border-right: 1px solid $header-rule;
+}
+.header-main__mail--link {
+  color: $ash;
 }
 .header-main__search--wrapper {
   width: 255px;
+  float: left;
 }
 .header-main__search--input {
-  padding: .5rem 1rem;
+  padding: .75rem 1rem;
   width: 100%;
   text-transform: uppercase;
   font-weight: 400;
   color: $input-grey;
+  font-size: $base-font-size - 4;
 }

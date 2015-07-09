@@ -1,14 +1,28 @@
-.nav-main {
-  background-color: $tar;
-  color: $white;
+.nav-main--wrapper {
+  background: $tar;
+  padding: $nav-wrapper-padding;
 }
-.nav-main__link {
-  color: $white;
-  padding: $base-padding + 10;
+.nav-main__list-item--link {
+  color: $nav-link-color;
+  padding: 0 $nav-wrapper-padding;
   display: block;
   text-transform: uppercase;
   font-size: $base-font-size - 3px;
 }
+.nav-main__list-item--link:active,
+.nav-main__list-item--link:hover {
+  color: $nav-link-hover-color;
+}
 .nav-main__list-item {
   display: inline-block;
+}
+.nav-mobile__hamburger {
+  position: absolute;
+  top: 25%;
+  bottom: 75%;
+  right: $base-padding;
+}
+.nav-mobile__hamburger--link {
+  color: red;
+  font-size: $base-hamburger-size;
 }

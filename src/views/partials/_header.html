@@ -1,11 +1,15 @@
 <header class="header-main">
-  <section class="header-main__top">
+  <section class="header-main__top row clearfix">
     <div class="container">
       <div class="header-main__left--wrapper">
-        <img class="header-main__logo" src="../assets/img/logo.jpg" alt="">
+        <img class="header-main__logo--large hidden--mobile" src="../assets/img/logo.jpg" alt="">
+        <img class="header-main__logo--small hidden--desktop" src="../assets/img/logo-small.png" alt="">
       </div>
       <div class="header-main__right--wrapper">
-        <span class="header-main__phone">{{ mq.phone }}</span>
+        <div class="header-main__contact-section">
+          <span class="header-main__phone">{{ mq.phone }}</span>
+          <a class="header-main__mail--link" href="mailto:{{mq.email}}"><i class="fa fa-envelope-o"></i></a>
+        </div>
         <div class="header-main__search--wrapper">
           <form ng-submit="header.submit(search.term)">
             <input class="header-main__search--input" type="text" placeholder="find a product..." ng-model="search.term">

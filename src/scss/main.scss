@@ -1,8 +1,8 @@
  // MissionQuest Website CSS
 
 // vendor
-@import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
-@import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+@import '../../bower_components/font-awesome-sass/assets/stylesheets/font-awesome-sprockets';
+@import '../../bower_components/font-awesome-sass/assets/stylesheets/font-awesome';
 
 // core
 @import 'core/mixins';
@@ -10,8 +10,9 @@
 @import 'core/variables';
 
  // base
-// @import 'base/reset';
+@import 'base/reset';
 @import 'base/fonts';
+@import 'base/typography';
 @import 'base/layout';
 
 // components

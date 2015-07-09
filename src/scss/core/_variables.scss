@@ -10,5 +10,12 @@ $breakpoint-xlarge: 1200px;
 // base variables
 $base-font-family: $font-family-sans-serif;
 $base-font-size: 16px;
-$base-color: $black;
+$base-font-color: $black;
 $base-padding: 10px;
+$base-line-height: $base-font-size * 1.5;
+$base-hamburger-size: $base-font-size + 20;
+
+// nav variables
+$nav-wrapper-padding: 20px;
+$nav-link-color: $white;
+$nav-link-hover-color: $mq-red;

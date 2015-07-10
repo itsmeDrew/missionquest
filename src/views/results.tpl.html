@@ -8,6 +8,8 @@
   <div ng-show="! search.totalResults">no results were found. try searching again.</div>
 </div>
 
-<div ng-hide="search.loaded">
-  <i class="fa fa-cog fa-spin"></i>
+<div class="loading-container" ng-hide="search.loaded">
+  <div class="loading-container__wrapper--icon">
+    <i class="loading-container__icon fa fa-cog fa-spin"></i>
+  </div>
 </div>

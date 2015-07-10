@@ -20,6 +20,7 @@
     "almond": "~0.3.1",
     "bootstrap-sass": "~3.3.5",
     "font-awesome-sass": "~4.3.1",
-    "slick": "*"
+    "slick": "*",
+    "bedrock": "jscarmona/bedrock"
   }
 }

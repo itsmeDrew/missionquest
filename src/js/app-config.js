@@ -40,7 +40,7 @@ define(
           url: 'search?terms',
           views: {
             'content@': {
-              templateUrl: 'results.tpm.html',
+              templateUrl: 'results.tpl.html',
               controller: 'SearchController',
               controllerAs: 'search'
             }

@@ -3,10 +3,15 @@
   position: relative;
 }
 .header-main__top {
-  background: $white;
-  padding: 1.5em .5em;
+  background: $header-background;
   display: block;
   width: 100%;
+  border-bottom:1px solid $light-grey;
+  padding: .5em .5em;
+
+  @include breakpointLargerThan($breakpoint-medium) {
+    padding: 1.5em .5em;
+  }
 }
 .header-main__logo--large {
   width: 100%;
@@ -15,18 +20,9 @@
 .header-main__logo--small {
   width: 50px;
 }
-.header-main__left--wrapper {
-  float: left;
-}
-.header-main__right--wrapper {
-  float: right;
-  padding: 14px 0;
-}
 .header-main__contact-section {
-  float: left;
   display: block;
   position: relative;
-  margin-right: 50px;
   transform: translateY(50%);
   color: $ash;
 }
@@ -38,15 +34,15 @@
 .header-main__mail--link {
   color: $ash;
 }
-.header-main__search--wrapper {
-  width: 255px;
-  float: left;
-}
 .header-main__search--input {
   padding: .75rem 1rem;
   width: 100%;
   text-transform: uppercase;
   font-weight: 400;
-  color: $input-grey;
+  color: $light-grey;
   font-size: $base-font-size - 4;
+}
+.header-main__wrapper--right {
+  position: relative;
+  transform: translateY(50%);
 }

@@ -12,7 +12,9 @@ define(
   'controllers/search',
   'controllers/category',
   'controllers/blog',
-  'controllers/nav'
+  'controllers/nav',
+  'directives/loading',
+  'directives/nav'
   ],
   function(angular) {
     angular
@@ -26,7 +28,9 @@ define(
       'App.MqController.Search',
       'App.MqController.Category',
       'App.MqController.Blog',
-      'App.MqController.Nav'
+      'App.MqController.Nav',
+      'App.MqDirective.Loading',
+      'App.MqDirective.Nav'
     ])
     .controller('MqController', mqCtrl);
 

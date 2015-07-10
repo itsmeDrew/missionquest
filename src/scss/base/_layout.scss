@@ -14,14 +14,6 @@ a {
 a:hover {
   color: lighten($mq-blue, 10%);
 }
-.container {
-  width: 90%;
-  margin: 0 auto;
-
- @include breakpointSmallerThan($breakpoint-medium) {
-    width: 100%;
-  }
-}
 .text--left {
   text-align: left;
 }
@@ -31,13 +23,18 @@ a:hover {
 .text--center {
   text-align: center;
 }
-.hidden--mobile {
-  @include breakpointSmallerThan($breakpoint-small) {
+.hidden--sm {
+  @include breakpointSmallerThan($breakpoint-medium) {
     display: none;
   }
 }
-.hidden--desktop {
-  @include breakpointLargerThan($breakpoint-small) {
+.hidden--md {
+  @include breakpointSmallerThan($breakpoint-large) {
+    display: none;
+  }
+}
+.hidden--lg {
+  @include breakpointLargerThan($breakpoint-medium) {
     display: none;
   }
 }

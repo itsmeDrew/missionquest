@@ -1,16 +1,16 @@
 <header class="header-main">
   <section class="header-main__top row clearfix">
-    <div class="container">
-      <div class="header-main__left--wrapper">
-        <img class="header-main__logo--large hidden--mobile" src="../assets/img/logo.jpg" alt="">
-        <img class="header-main__logo--small hidden--desktop" src="../assets/img/logo-small.png" alt="">
+    <div class="container header-main__container row">
+      <div class="header-main__wrapper--left col--sm-4">
+        <img class="header-main__logo--large hidden--sm" src="../assets/img/logo.jpg" alt="">
+        <img class="header-main__logo--small hidden--lg" src="../assets/img/logo-small.png" alt="">
       </div>
-      <div class="header-main__right--wrapper">
-        <div class="header-main__contact-section">
+      <div class="header-main__wrapper--right col--sm-8 col--lg-6 col--lg-push-2 hidden--sm">
+        <div class="header-main__contact-section col--sm-5 hidden--sm">
           <span class="header-main__phone">{{ mq.phone }}</span>
           <a class="header-main__mail--link" href="mailto:{{mq.email}}"><i class="fa fa-envelope-o"></i></a>
         </div>
-        <div class="header-main__search--wrapper">
+        <div class="header-main__search--wrapper col--sm-7">
           <form ng-submit="header.submit(search.term)">
             <input class="header-main__search--input" type="text" placeholder="find a product..." ng-model="search.term">
           </form>

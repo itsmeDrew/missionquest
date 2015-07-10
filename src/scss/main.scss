@@ -1,6 +1,7 @@
  // MissionQuest Website CSS
 
 // vendor
+@import '../../bower_components/bedrock/src/scss/bedrock';
 @import '../../bower_components/font-awesome-sass/assets/stylesheets/font-awesome-sprockets';
 @import '../../bower_components/font-awesome-sass/assets/stylesheets/font-awesome';
 
@@ -13,10 +14,11 @@
 @import 'base/reset';
 @import 'base/fonts';
 @import 'base/typography';
-@import 'base/layout';
 
 // components
 @import 'components/header';
 @import 'components/nav';
 @import 'components/results';
 
+
+@import 'base/layout';

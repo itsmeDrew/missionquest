@@ -2,11 +2,12 @@
 
 define(
   [
-    'angular'
+    'angular',
+    '../directives/nav'
   ],
   function(angular) {
     angular
-      .module('App.MqController.Nav', [])
+      .module('App.MqController.Nav', ['App.MqDirective.Nav'])
       .controller('NavController', NavController);
 
     function NavController($location, Category) {

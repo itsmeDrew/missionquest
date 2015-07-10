@@ -1,20 +1,2 @@
-<section class="nav-main--wrapper">
-  <div class="container">
-    <nav class="nav-main">
-      <div class="nav-mobile__hamburger hidden--desktop">
-        <a class="nav-mobile__hamburger--link" href="#"><i class="fa fa-bars"></i></a>
-      </div>
-      <ul class="hidden-xs">
-        <li class="nav-main__list-item" ng-repeat="category in nav.categories">
-          <a
-          class="nav-main__list-item--link"
-          ng-init="nav.getChildren(category.ID)"
-          ng-click="category.updatePosts()"
-          ui-sref=".category({ catId: {{ category.ID }} })">
-              {{category.name}}
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</section>
+<nav-desktop class="hidden--sm"></nav-desktop>
+<nav-mobile class="hidden--lg"></nav-mobile>

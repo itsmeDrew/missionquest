@@ -3,17 +3,21 @@
 define(
   [
     'angular',
-    '../directives/nav'
+    'directives/nav'
   ],
   function(angular) {
     angular
       .module('App.MqController.Nav', ['App.MqDirective.Nav'])
       .controller('NavController', NavController);
 
-    function NavController($location, Category) {
+    function NavController($scope, $location, Category) {
       var vm = this;
 
+      vm.categories = [];
       vm.getChildren = getChildren;
+      vm.toggleMenu = function() {
+        $scope.$emit('menu.toggle');
+      };
 
       updateCategories();
 

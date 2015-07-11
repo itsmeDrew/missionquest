@@ -34,12 +34,17 @@ define(
     ])
     .controller('MqController', mqCtrl);
 
-    function mqCtrl() {
+    function mqCtrl($scope) {
       var vm = this;
 
       vm.phone = "941.555.5555";
       vm.address = "P Sherman 42 Wallabe Way, Sydney";
       vm.email = "tom@missionquestadv.com";
+      vm.menuOpen = false;
+
+      $scope.$on('menu.toggle', function() {
+        vm.menuOpen = ! vm.menuOpen;
+      });
     }
 
   }

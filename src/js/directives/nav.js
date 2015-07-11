@@ -2,28 +2,39 @@
 
 define(
   [
-    'angular'
+    'angular',
+    'jquery'
   ],
   function(angular) {
     angular
       .module('App.MqDirective.Nav', [])
-      .directive('navDesktop', navDesktop)
+      .directive('navMain', getNav)
       .directive('navMobile', navMobile);
 
-    function navDesktop () {
+    function getNav () {
       return {
         restrict: 'E',
-        templateUrl: 'partials/_nav-desktop.html'
+        templateUrl: 'partials/_nav.html'
       }
     }
 
-    function navMobile () {
+    function navMobile() {
       return {
         restrict: 'E',
-        templateUrl: 'partials/_nav-mobile.html'
+        templateUrl: 'partials/_header-mobile.html',
+        link: function(scope, element) {
+          scope.toggleMenu = function() {
+            scope.$emit('menu.toggle');
+          }
+        }
       }
+
+
     }
+
+
 
   }
+
 );
 

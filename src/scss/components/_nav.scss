@@ -1,28 +1,58 @@
+/**
+ * MAIN NAV
+ */
+
 .nav-main__wrapper {
-  background: $navbar-color;
-  padding: $nav-wrapper-padding;
+  @include breakpointLargerThan($breakpoint-medium) {
+    background: $navbar-color;
+    padding: $nav-wrapper-padding;
+  }
+
+  @include breakpointSmallerThan($breakpoint-medium) {
+    background: $mq-blue;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: height $base-transition-time, opacity $base-transition-time;
+    position: absolute;
+    left: 0;
+  }
 }
+
 .nav-main__list-item--link {
   color: $nav-link-color;
   padding: 0 $nav-wrapper-padding;
   display: block;
   text-transform: uppercase;
   font-size: $base-font-size - 3px;
+
+  @include breakpointSmallerThan($breakpoint-medium) {
+    font-size: $base-font-size + 9;
+  }
 }
+
 .nav-main__list-item--link:active,
 .nav-main__list-item--link:hover {
   color: $nav-link-hover-color;
 }
+
 .nav-main__list-item {
   display: inline-block;
+
+  @include breakpointSmallerThan($breakpoint-medium) {
+      display: block;
+      text-align: center;
+      padding: 1em;
+  }
 }
-.nav-mobile__hamburger {
-  position: absolute;
-  top: 25%;
-  bottom: 75%;
-  right: $base-padding;
-}
-.nav-mobile__hamburger--link {
-  color: red;
-  font-size: $base-hamburger-size;
+
+/**
+ * MOBILE NAV
+ */
+.mobile-menu--active .nav-main__wrapper {
+  visibility: visible;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  opacity: 1;
 }

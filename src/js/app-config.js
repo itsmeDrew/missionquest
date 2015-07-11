@@ -22,12 +22,12 @@ define(
               controllerAs: 'header'
             },
             'nav@home': {
-              templateUrl: 'partials/_nav-main.html',
+              templateUrl: 'templates/nav.tpl.html',
               controller: 'NavController',
               controllerAs: 'nav'
             },
             'content': {
-              templateUrl: 'home.tpl.html',
+              templateUrl: 'templates/home.tpl.html',
               controller: 'BlogController',
               controllerAs: 'blog'
             },
@@ -40,7 +40,7 @@ define(
           url: 'search?terms',
           views: {
             'content@': {
-              templateUrl: 'results.tpl.html',
+              templateUrl: 'templates/results.tpl.html',
               controller: 'SearchController',
               controllerAs: 'search'
             }
@@ -50,7 +50,7 @@ define(
           url: 'products',
           views: {
             'content@': {
-              templateUrl: 'products.tpl.html'
+              templateUrl: 'templates/products.tpl.html'
             }
           }
         })
@@ -58,7 +58,7 @@ define(
           url: 'category/:catId',
           views: {
             'content@': {
-              templateUrl: 'category.tpl.html',
+              templateUrl: 'templates/category.tpl.html',
               controller: 'CategoryController',
               controllerAs: 'category'
             }

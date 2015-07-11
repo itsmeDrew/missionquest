@@ -5,19 +5,21 @@
         <img class="header-main__logo--large hidden--sm" src="../assets/img/logo.jpg" alt="">
         <img class="header-main__logo--small hidden--lg" src="../assets/img/logo-small.png" alt="">
       </div>
-      <div class="header-main__wrapper--right col--sm-8 col--lg-6 col--lg-push-2 hidden--sm">
+      <!-- ** end left-->
+      <div class="header-main__wrapper--right col--sm-4 col--sm-push-4 col--md-7 col--md-push-1 col--lg-6 col--lg-push-2">
         <div class="header-main__contact-section col--sm-5 hidden--sm">
           <span class="header-main__phone">{{ mq.phone }}</span>
-          <a class="header-main__mail--link" href="mailto:{{mq.email}}"><i class="fa fa-envelope-o"></i></a>
+          <a class="header-main__mail--link" href="mailto:{{ mq.email }}"><i class="fa fa-envelope-o"></i></a>
         </div>
-        <div class="header-main__search--wrapper col--sm-7">
+        <div class="header-main__search--wrapper col--sm-6 col--sm-push-1 hidden--sm">
           <form ng-submit="header.submit(search.term)">
             <input class="header-main__search--input" type="text" placeholder="find a product..." ng-model="search.term">
           </form>
         </div>
+        <nav-mobile class="col--sm-6 col--sm-push-6 hidden--lg"></nav-mobile>
       </div>
+      <!-- ** end right-->
     </div>
   </section>
   <section ui-view="nav"></section>
-
 </header>

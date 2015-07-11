@@ -1,6 +1,5 @@
 .header-main {
   margin-bottom: 30px;
-  position: relative;
 }
 .header-main__top {
   background: $header-background;
@@ -45,4 +44,8 @@
 .header-main__wrapper--right {
   position: relative;
   transform: translateY(50%);
+}
+.header-mobile__wrapper--icon a {
+  color: $black;
+  font-size: $base-mobile-icon-size;
 }

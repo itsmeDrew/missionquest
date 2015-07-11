@@ -35,7 +35,6 @@ define(
               page: vm.page,
               limit: vm.perPage
             });
-
           })
       }
 

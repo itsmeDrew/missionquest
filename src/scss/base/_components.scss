@@ -1,0 +1,21 @@
+/**
+ * BASE SITE COMPONENTS
+ */
+
+.loading-container {
+  background-color: $loading-background;
+  opacity: $loading-opacity;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.loading-container__wrapper--icon {
+  position: absolute;
+  transform: translateY(-50%);
+  left: 50%;
+  top: 50%;
+  font-size: 120px;
+  color: $loading-icon;
+}

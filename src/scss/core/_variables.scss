@@ -1,28 +1,50 @@
-// fonts
+/**
+ * FONTS
+ */
 $font-family-sans-serif: "Roboto", "Helvetica Neue", "Arial", sans-serif;
 
-// breakpoints
+/**
+ * BREAKPOINTS
+ */
 $breakpoint-small: 480px;
 $breakpoint-medium: 768px;
 $breakpoint-large: 970px;
 $breakpoint-xlarge: 1200px;
 
-// base variables
+/**
+ * BASE
+ */
+// ** fonts
 $base-font-family: $font-family-sans-serif;
 $base-font-size: 16px;
 $base-font-color: $black;
+  // ** spacing
 $base-padding: 10px;
 $base-line-height: $base-font-size * 1.5;
+  // ** icons
 $base-hamburger-size: $base-font-size + 20;
 $base-mobile-icon-size: $base-font-size + 10;
+  // ** transitions
 $base-transition-time: .2s;
 
-// header variables
+
+/**
+ * HEADER
+ */
 $header-background: $white;
 
-// nav variables
+/**
+ * NAV
+ */
 $navbar-color: $tar;
 $nav-wrapper-padding: 20px;
 $nav-link-color: $white;
 $nav-link-hover-color: $mq-red;
+
+/**
+ * LOADING
+ */
+$loading-background: $white;
+$loading-icon: $mq-blue;
+$loading-opacity: 0.9;
 

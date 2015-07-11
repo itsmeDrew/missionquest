@@ -1,6 +1,7 @@
 .header-main {
   margin-bottom: 30px;
 }
+
 .header-main__top {
   background: $header-background;
   display: block;
@@ -12,27 +13,33 @@
     padding: 1.5em .5em;
   }
 }
+
 .header-main__logo--large {
   width: 100%;
   max-width: 225px;
 }
+
 .header-main__logo--small {
   width: 50px;
 }
+
 .header-main__contact-section {
   display: block;
   position: relative;
   transform: translateY(50%);
   color: $ash;
 }
+
 .header-main__phone {
   padding-right: 20px;
   margin-right: 20px;
   border-right: 1px solid $header-rule;
 }
+
 .header-main__mail--link {
   color: $ash;
 }
+
 .header-main__search--input {
   padding: .75rem 1rem;
   width: 100%;
@@ -41,11 +48,27 @@
   color: $light-grey;
   font-size: $base-font-size - 4;
 }
+
 .header-main__wrapper--right {
   position: relative;
   transform: translateY(50%);
+
+  @include breakpointSmallerThan($breakpoint-small) {
+    position: absolute;
+    top: .5rem;
+    right: 0;
+  }
 }
-.header-mobile__wrapper--icon a {
+
+.header-mobile__wrapper--icon {
+  @include breakpointSmallerThan($breakpoint-small) {
+    float: left;
+    margin-right: 2rem;
+  }
+}
+
+.header-mobile__icon--link {
   color: $black;
   font-size: $base-mobile-icon-size;
+  float: right;
 }

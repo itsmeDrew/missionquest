@@ -24,6 +24,7 @@ define(
         templateUrl: 'partials/_header-mobile.html',
         link: function(scope, element) {
           scope.toggleMenu = function() {
+            console.log(scope, element);
             scope.$emit('menu.toggle');
           }
         }

@@ -11,7 +11,6 @@ define(
 
     function CategoryController($location, Post, $stateParams) {
       var vm = this;
-      var $bodyEl = $('body');
 
       vm.totalPosts = 0;
       vm.page = parseInt($location.search().page || 1, 10);

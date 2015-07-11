@@ -39,11 +39,15 @@ define(
       vm.address = "P Sherman 42 Wallabe Way, Sydney";
       vm.email = "tom@missionquestadv.com";
       vm.menuOpen = false;
+      vm.searchOpen = false;
 
       $scope.$on('menu.toggle', function() {
-        console.log('3');
         vm.menuOpen = ! vm.menuOpen;
       });
+
+      $scope.$on('search.toggle', function() {
+        vm.searchOpen = ! vm.searchOpen;
+      })
     }
 
   }

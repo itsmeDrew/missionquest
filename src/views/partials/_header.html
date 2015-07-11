@@ -11,14 +11,15 @@
           <span class="header-main__phone">{{ mq.phone }}</span>
           <a class="header-main__mail--link" href="mailto:{{ mq.email }}"><i class="fa fa-envelope-o"></i></a>
         </div>
-        <div class="header-main__search--wrapper col--sm-6 col--sm-push-1 hidden--sm">
+        <div class="js-search-bar header-main__search--wrapper col--sm-6 col--sm-push-1 hidden--sm">
           <form ng-submit="header.submit(search.term)">
             <input class="header-main__search--input" type="text" placeholder="find a product..." ng-model="search.term">
           </form>
         </div>
-        <section class="header-mobile__wrapper hidden--lg">
+      </div>
+      <section class="header-mobile__wrapper hidden--lg">
           <div class="header-mobile__wrapper--icon col--sm-6">
-            <a href="#" class="header-mobile__icon--link">
+            <a href="#" class="header-mobile__icon--link" ng-click="header.toggleSearch()">
               <i class="header-mobile__icon--search fa fa-search"></i>
             </a>
           </div>
@@ -28,8 +29,12 @@
             </a>
           </div>
         </section>
-      </div>
       <!-- ** end right-->
+    </div>
+    <div class="header-mobile__wrapper--search hidden--sm">
+      <form ng-submit="header.submit(search.term)">
+        <input class="header-mobile__search--input" type="text" placeholder="find a product..." ng-model="search.term">
+      </form>
     </div>
   </section>
   <section ui-view="nav"></section>

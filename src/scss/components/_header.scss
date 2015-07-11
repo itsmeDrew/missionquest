@@ -1,3 +1,8 @@
+/**
+ * HEADER DEFAULT / DESKTOP
+ * there are 2 seperate headers
+ */
+
 .header-main {
   margin-bottom: 30px;
 }
@@ -8,6 +13,7 @@
   width: 100%;
   border-bottom:1px solid $light-grey;
   padding: .5em .5em;
+  position: relative;
 
   @include breakpointLargerThan($breakpoint-medium) {
     padding: 1.5em .5em;
@@ -40,22 +46,36 @@
   color: $ash;
 }
 
-.header-main__search--input {
+.header-main__search--input,
+.header-mobile__search--input {
   padding: .75rem 1rem;
   width: 100%;
   text-transform: uppercase;
   font-weight: 400;
   color: $light-grey;
   font-size: $base-font-size - 4;
-}
-
-.header-main__wrapper--right {
-  position: relative;
-  transform: translateY(50%);
 
   @include breakpointSmallerThan($breakpoint-small) {
+    padding: 2rem 1rem;
+    font-size: $base-font-size;
+    background: $mq-blue;
+    border: none;
+  }
+}
+.header-main__wrapper--right {
+  transform: translateY(50%);
+}
+
+/**
+ * MOBILE HEADER
+ * there are 2 seperate headers
+ */
+
+.header-mobile__wrapper {
+  @include breakpointSmallerThan($breakpoint-small) {
     position: absolute;
-    top: .5rem;
+    top: 50%;
+    transform: translateY(-50%);
     right: 0;
   }
 }
@@ -71,4 +91,14 @@
   color: $black;
   font-size: $base-mobile-icon-size;
   float: right;
+}
+
+.header-mobile__wrapper--search {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  left: 0;
+}
+.mobile-search--active .header-mobile__wrapper--search {
+  display: block;
 }

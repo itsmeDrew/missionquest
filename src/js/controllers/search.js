@@ -20,7 +20,9 @@ define(
             vm.totalResults = vm.results.length;
             vm.loaded = true;
 
+
             $scope.$emit('search.toggle');
+            $scope.$emit('menu.toggle');
 
           });
     }

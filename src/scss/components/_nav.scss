@@ -16,6 +16,7 @@
     transition: height $base-transition-time, opacity $base-transition-time;
     position: absolute;
     left: 0;
+    z-index: 1000;
   }
 }
 

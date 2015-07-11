@@ -16,7 +16,18 @@
             <input class="header-main__search--input" type="text" placeholder="find a product..." ng-model="search.term">
           </form>
         </div>
-        <nav-mobile class="col--sm-6 col--sm-push-6 hidden--lg"></nav-mobile>
+        <section class="header-mobile__wrapper hidden--lg">
+          <div class="header-mobile__wrapper--icon col--sm-6">
+            <a href="#">
+              <i class="header-mobile__icon--search fa fa-search"></i>
+            </a>
+          </div>
+          <div class="header-mobile__wrapper--icon col--sm-6">
+            <a href="#" ng-click="header.toggleMenu()">
+              <i class="js-mobile-menu header-mobile__icon--bars fa fa-bars"></i>
+            </a>
+          </div>
+        </section>
       </div>
       <!-- ** end right-->
     </div>

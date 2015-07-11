@@ -13,8 +13,7 @@ define(
   'controllers/category',
   'controllers/blog',
   'controllers/nav',
-  'directives/loading',
-  'directives/nav'
+  'directives/loading'
   ],
   function(angular) {
     angular
@@ -29,8 +28,7 @@ define(
       'App.MqController.Category',
       'App.MqController.Blog',
       'App.MqController.Nav',
-      'App.MqDirective.Loading',
-      'App.MqDirective.Nav'
+      'App.MqDirective.Loading'
     ])
     .controller('MqController', mqCtrl);
 
@@ -43,6 +41,7 @@ define(
       vm.menuOpen = false;
 
       $scope.$on('menu.toggle', function() {
+        console.log('3');
         vm.menuOpen = ! vm.menuOpen;
       });
     }

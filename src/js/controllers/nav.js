@@ -3,12 +3,11 @@
 define(
   [
     'angular',
-    'jquery',
-    'directives/nav'
+    'jquery'
   ],
   function(angular) {
     angular
-      .module('App.MqController.Nav', ['App.MqDirective.Nav'])
+      .module('App.MqController.Nav', [])
       .controller('NavController', NavController);
 
     function NavController($scope, $rootScope, $location, Category) {

@@ -1,0 +1,55 @@
+/**
+ * DEFAULT SLICK SLIDER
+ */
+
+.slick-dots {
+  bottom: 15px;
+}
+
+.slick-dots li button:before {
+  font-size: $base-font-size + 5;
+  color: $black;
+}
+
+.slick-dots li.slick-active button:before {
+  color: $mq-blue;
+}
+
+/**
+ * HOME SLIDER
+ */
+
+.home-slider__slide {
+  position: relative;
+  @include breakpointLargerThan($breakpoint-medium) {
+    height: 425px;
+  }
+  @include breakpointSmallerThan($breakpoint-medium) {
+    height: 225px;
+  }
+}
+
+.home-slider__wrapper--heading {
+  @include breakpointLargerThan($breakpoint-small) {
+    position: absolute;
+    top: 40%;
+    left: 150px;
+    transform: translateY(-50%);
+    width: 400px;
+  }
+
+}
+
+.home-slider__heading {
+  @include breakpointLargerThan($breakpoint-small) {
+    text-transform: uppercase;
+    font-size: $base-font-size * 4;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+}
+
+.home-slider__image {
+  width: 100%;
+  min-height: 100%;
+}

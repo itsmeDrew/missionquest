@@ -1,6 +1,10 @@
-<div class="js-home-slider">
+<div class="js-home-slider home-slider__wrapper">
   <div class="home-slider__slide" ng-repeat="slide in home.sliderImages">
-    <h2>{{ slide.slide_text }}</h2>
-    <img src="{{ slide.slide_image }}" width="100%" alt="">
+    <div class="container">
+      <div class="home-slider__wrapper--heading">
+        <h2 class="home-slider__heading" style="color: {{ slide.slide_text_color }}">{{ slide.slide_text }}</h2>
+      </div>
+    </div>
+    <img class="home-slider__image" src="{{ slide.slide_image.url }}" alt="{{ slide.slide_image.alt }}">
   </div>
 </div>

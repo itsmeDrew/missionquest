@@ -25,6 +25,11 @@ gulp.task('copy:fonts', function() {
     .pipe(gulp.dest('./public/assets/fonts'));
 });
 
+gulp.task('copy:slick-fonts', function() {
+  return gulp.src('./bower_components/slick-carousel/slick/fonts/**/*')
+    .pipe(gulp.dest('./public/assets/fonts'));
+});
+
 gulp.task('copy:images', function() {
   return gulp.src('./src/img/**/*')
     .pipe(gulp.dest('./public/assets/img'));
@@ -110,7 +115,7 @@ gulp.task('watch', function() {
 })
 
 gulp.task('build', function(cb) {
-  gulp.start([ 'build:views', 'build:css', 'copy:fonts', 'copy:images' ], cb);
+  gulp.start([ 'build:views', 'build:css', 'copy:fonts', 'copy:slick-fonts', 'copy:images' ], cb);
 });
 
 gulp.task('default', [ 'build' ], function() {

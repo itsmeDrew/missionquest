@@ -5,6 +5,7 @@
 @import '../../bower_components/font-awesome-sass/assets/stylesheets/font-awesome-sprockets';
 @import '../../bower_components/font-awesome-sass/assets/stylesheets/font-awesome';
 @import '../../bower_components/slick-carousel/slick/slick';
+$slick-font-path: "../fonts/";
 @import '../../bower_components/slick-carousel/slick/slick-theme';
 
 // core
@@ -21,6 +22,7 @@
 // components
 @import 'components/header';
 @import 'components/nav';
+@import 'components/sliders';
 @import 'components/results';
 
 

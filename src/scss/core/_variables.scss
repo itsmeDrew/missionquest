@@ -1,11 +1,14 @@
 /**
  * FONTS
  */
+
+$slick-font-path: "../fonts/" !default;
 $font-family-sans-serif: "Roboto", "Helvetica Neue", "Arial", sans-serif;
 
 /**
  * BREAKPOINTS
  */
+
 $breakpoint-small: 480px;
 $breakpoint-medium: 768px;
 $breakpoint-large: 970px;
@@ -14,6 +17,9 @@ $breakpoint-xlarge: 1200px;
 /**
  * BASE
  */
+
+// ** body
+$base-body-color: $sand;
 // ** fonts
 $base-font-family: $font-family-sans-serif;
 $base-font-size: 16px;
@@ -31,11 +37,13 @@ $base-transition-time: .2s;
 /**
  * HEADER
  */
+
 $header-background: $white;
 
 /**
  * NAV
  */
+
 $navbar-color: $tar;
 $nav-wrapper-padding: 20px;
 $nav-link-color: $white;
@@ -44,6 +52,7 @@ $nav-link-hover-color: $mq-red;
 /**
  * LOADING
  */
+
 $loading-background: $white;
 $loading-icon: $mq-blue;
 $loading-opacity: 0.9;

@@ -354,7 +354,7 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-//add acf to json
+//add acf posts to json
 function wp_api_encode_acf($data,$post,$context){
     $customMeta = (array) get_fields($post['ID']);
 

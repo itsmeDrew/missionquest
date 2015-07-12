@@ -48,7 +48,7 @@ define(
             $http.get('http://missionquest.dev/api/wp-json/taxonomies/category/terms')
               .success(function(result) {
                 for (var i = result.length - 1; i >= 0; i--) {
-                  if (! result[i].parent) {
+                  if (! result[i].parent && result[i].slug !== 'uncategorized') {
                     _categories.push(result[i]);
                   }
                 };

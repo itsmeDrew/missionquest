@@ -1,5 +1,6 @@
 <div class="js-home-slider">
-  <div class="home-slider__slide"><img src="http://www.cydcor.com/blog/wp-content/uploads/2011/02/Aaron-Rodgers-Green-Bay2_1182055.jpg" width="100%" alt=""></div>
-  <div class="home-slider__slide"><img src="http://www.cydcor.com/blog/wp-content/uploads/2011/02/Aaron-Rodgers-Green-Bay2_1182055.jpg" width="100%" alt=""></div>
-  <div class="home-slider__slide"><img src="http://www.cydcor.com/blog/wp-content/uploads/2011/02/Aaron-Rodgers-Green-Bay2_1182055.jpg" width="100%" alt=""></div>
+  <div class="home-slider__slide" ng-repeat="slide in home.sliderImages">
+    <h2>{{ slide.slide_text }}</h2>
+    <img src="{{ slide.slide_image }}" width="100%" alt="">
+  </div>
 </div>

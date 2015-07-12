@@ -56,7 +56,7 @@ define(
       }
 
       function updateCategories () {
-        Category.getAll()
+        Category.getParent()
           .then(function (result) {
             vm.categories = result;
           })

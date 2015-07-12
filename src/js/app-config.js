@@ -28,8 +28,8 @@ define(
             },
             'content': {
               templateUrl: 'templates/home.tpl.html',
-              controller: 'BlogController',
-              controllerAs: 'blog'
+              controller: 'HomeController',
+              controllerAs: 'home'
             },
             'footer': {
               templateUrl: 'partials/_footer.html'

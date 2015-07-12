@@ -2,8 +2,8 @@
   <section class="header-main__top row clearfix">
     <div class="container header-main__container row">
       <div class="header-main__wrapper--left col--sm-4">
-        <img class="header-main__logo--large hidden--sm" src="../assets/img/logo.jpg" alt="">
-        <img class="header-main__logo--small hidden--lg" src="../assets/img/logo-small.png" alt="">
+        <a ui-sref="home" href="#"><img class="header-main__logo--large hidden--sm" src="../assets/img/logo.jpg" alt=""></a>
+        <a ui-sref="home" href=""><img class="header-main__logo--small hidden--lg" src="../assets/img/logo-small.png" alt=""></a>
       </div>
       <!-- ** end left-->
       <div class="header-main__wrapper--right col--sm-4 col--sm-push-4 col--md-7 col--md-push-1 col--lg-6 col--lg-push-2">
@@ -18,12 +18,12 @@
         </div>
       </div>
       <section class="header-mobile__wrapper hidden--lg">
-          <div class="header-mobile__wrapper--icon col--sm-6">
+          <div class="header-mobile__wrapper--icon">
             <a href="#" class="header-mobile__icon--link" ng-click="header.toggleSearch()">
               <i class="header-mobile__icon--search fa fa-search"></i>
             </a>
           </div>
-          <div class="header-mobile__wrapper--icon col--sm-6">
+          <div class="header-mobile__wrapper--icon">
             <a href="#" class="header-mobile__icon--link" ng-click="header.toggleMenu()">
               <i class="js-mobile-menu header-mobile__icon--bars fa fa-bars"></i>
             </a>
@@ -31,7 +31,7 @@
         </section>
       <!-- ** end right-->
     </div>
-    <div class="header-mobile__wrapper--search hidden--sm">
+    <div class="header-mobile__wrapper--search hidden--lg">
       <form ng-submit="header.submit(search.term)">
         <input class="header-mobile__search--input" type="text" placeholder="find a product..." ng-model="search.term">
       </form>

@@ -20,7 +20,7 @@
     "almond": "~0.3.1",
     "bootstrap-sass": "~3.3.5",
     "font-awesome-sass": "~4.3.1",
-    "slick": "*",
-    "bedrock": "jscarmona/bedrock"
+    "bedrock": "jscarmona/bedrock",
+    "slick-carousel": "https://github.com/kenwheeler/slick.git#~1.5.6"
   }
 }

@@ -14,10 +14,9 @@ define(
 
       vm.submit = submit;
       vm.toggleMenu = toggleMenu;
-      vm.toggleSearch = toggleSearch
+      vm.toggleSearch = toggleSearch;
 
       function submit(term) {
-        vm.searchOpen = !vm.searchOpen;
         $state.go('home.results', { terms: term } );
       }
 

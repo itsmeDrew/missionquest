@@ -4,16 +4,20 @@ define(
   [
   'angular',
   'uiRouter',
+  'jquery',
+  'slick',
   'app-config',
   'templates',
   'services/mq-get-categories',
   'services/mq-get-posts',
   'controllers/header',
   'controllers/search',
+  'controllers/home',
   'controllers/category',
   'controllers/blog',
   'controllers/nav',
-  'directives/loading'
+  'directives/loading',
+  'directives/sliders'
   ],
   function(angular) {
     angular
@@ -25,10 +29,12 @@ define(
       'App.MqService.Category',
       'App.MqController.Header',
       'App.MqController.Search',
+      'App.MqController.Home',
       'App.MqController.Category',
       'App.MqController.Blog',
       'App.MqController.Nav',
-      'App.MqDirective.Loading'
+      'App.MqDirective.Loading',
+      'App.MqDirective.Sliders'
     ])
     .controller('MqController', mqCtrl);
 
@@ -47,7 +53,8 @@ define(
 
       $scope.$on('search.toggle', function() {
         vm.searchOpen = ! vm.searchOpen;
-      })
+      });
+
     }
 
   }

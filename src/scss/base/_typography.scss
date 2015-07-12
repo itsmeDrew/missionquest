@@ -14,7 +14,7 @@ h2 {
   font-family: $font-family-sans-serif;
   line-height: $base-line-height;
   color: $base-font-color;
-  font-size: $base-font-size + 10;
+  font-size: $base-font-size * 2.625;
 }
 h3 {
   font-family: $font-family-sans-serif;
@@ -25,4 +25,18 @@ h4 {
   font-family: $font-family-sans-serif;
   line-height: $base-line-height;
   color: $base-font-color;
+}
+.heading--rule {
+  text-transform: uppercase;
+  line-height: 1;
+  font-weight: 600;
+}
+.heading--rule:after {
+  display: block;
+  content: "";
+  width: 20%;
+  height: 1px;
+  margin-top: 5px;
+  background-color: $black;
+  margin-bottom: 1rem;
 }

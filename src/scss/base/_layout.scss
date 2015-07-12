@@ -1,39 +1,49 @@
 * {
   box-size:border-box;
 }
+
 body {
   font-family: $base-font-family;
   color: $base-font-color;
   background-color: $base-body-color;
 }
+
 a, a:hover, a:focus {
   text-decoration: none;
 }
+
 a {
   color: $mq-blue;
 }
+
 a:hover {
   color: lighten($mq-blue, 10%);
 }
+
 .text--left {
   text-align: left;
 }
+
 .text--right {
   text-align: right;
 }
+
 .text--center {
   text-align: center;
 }
+
 .hidden--sm {
   @include breakpointSmallerThan($breakpoint-medium) {
     display: none;
   }
 }
+
 .hidden--md {
   @include breakpointSmallerThan($breakpoint-large) {
     display: none;
   }
 }
+
 .hidden--lg {
   @include breakpointLargerThan($breakpoint-medium) {
     display: none;

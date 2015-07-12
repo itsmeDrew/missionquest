@@ -35,13 +35,13 @@ $base-transition-time: .2s;
 
 
 /**
- * HEADER
+ * HEADER MAIN
  */
 
 $header-background: $white;
 
 /**
- * NAV
+ * NAV MAIN
  */
 
 $navbar-color: $tar;
@@ -50,10 +50,29 @@ $nav-link-color: $white;
 $nav-link-hover-color: $mq-red;
 
 /**
+ * FOOTER MAIN
+ */
+
+$footer-main--background: $white;
+$footer-main--color: $black;
+
+/**
  * LOADING
  */
 
 $loading-background: $white;
 $loading-icon: $mq-blue;
 $loading-opacity: 0.9;
+
+/**
+ * HERO SLIDER DEFAULTS
+ * powered by slick
+ */
+
+$slider-heading-width: 400px;
+$slider-height--small: 225px;
+$slider-height--large: 425px;
+$slider-margin-bottom: 5rem;
+$slider-dots-inactive--color: $black;
+$slider-dots-active--color: $mq-blue;
 

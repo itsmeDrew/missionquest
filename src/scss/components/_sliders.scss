@@ -8,24 +8,28 @@
 
 .slick-dots li button:before {
   font-size: $base-font-size + 5;
-  color: $black;
+  color: $slider-dots-inactive--color;
 }
 
 .slick-dots li.slick-active button:before {
-  color: $mq-blue;
+  color: $slider-dots-active--color;
 }
 
 /**
  * HOME SLIDER
  */
 
+.home-slider__wrapper {
+  margin-bottom: $slider-margin-bottom;
+}
+
 .home-slider__slide {
   position: relative;
   @include breakpointLargerThan($breakpoint-medium) {
-    height: 425px;
+    height: $slider-height--large;
   }
   @include breakpointSmallerThan($breakpoint-medium) {
-    height: 225px;
+    height: $slider-height--small;
   }
 }
 
@@ -35,7 +39,7 @@
     top: 40%;
     left: 150px;
     transform: translateY(-50%);
-    width: 400px;
+    width: $slider-heading-width;
   }
 
 }

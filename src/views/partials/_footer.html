@@ -1,5 +1,20 @@
 <footer class="footer-main__wrapper col--sm-12 row">
   <div class="container">
-    <div>footer</div>
+    <div class="col--md-4">
+      <ul>
+        <li><a href="#">Specials</a></li>
+        <li><a href="#">Our Mission</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="col--md-4">
+      <h2>products</h2>
+      <ul>
+        <li ng-repeat="category in nav.categories"><a ui-sref=".category({ catId: {{ category.ID }} })">{{ category.name }}</a></li>
+      </ul>
+    </div>
+    <div class="col--md-4">
+
+    </div>
   </div>
 </footer>

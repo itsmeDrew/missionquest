@@ -1,0 +1,13 @@
+.button-primary--lines {
+  padding: 1rem 2rem;
+  border: 1px solid $black;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: $base-font-size - 3;
+  color: $black;
+}
+
+.button-primary--lines:hover {
+  color: $mq-blue;
+  border-color: $mq-blue;
+}

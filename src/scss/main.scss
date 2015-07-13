@@ -17,7 +17,8 @@ $slick-font-path: "../fonts/";
 @import 'base/reset';
 @import 'base/fonts';
 @import 'base/typography';
-@import 'base/components';
+@import 'base/loading';
+@import 'base/buttons';
 
 // components
 @import 'components/header';

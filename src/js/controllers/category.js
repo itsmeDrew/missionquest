@@ -12,6 +12,8 @@ define(
     function CategoryController($location, Post, $stateParams) {
       var vm = this;
 
+        console.log('$stateParams:', $stateParams);
+
       vm.totalPosts = 0;
       vm.page = parseInt($location.search().page || 1, 10);
       vm.perPage = parseInt($location.search().limit || 1, 10);
@@ -23,7 +25,6 @@ define(
       function updatePosts() {
         vm.loaded = false;
         vm.count = 0;
-
         Post.getByCategory($stateParams.catId, vm.page, vm.perPage)
           .then(function(result) {
             vm.posts = result.posts;
@@ -34,8 +35,10 @@ define(
               page: vm.page,
               limit: vm.perPage
             });
+
           })
       }
+
 
       function nextPage() {
         vm.page++;

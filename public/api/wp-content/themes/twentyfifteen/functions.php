@@ -358,7 +358,10 @@ require get_template_directory() . '/inc/customizer.php';
 function wp_api_encode_acf($data,$post,$context){
     $customMeta = (array) get_fields($post['ID']);
 
-    $data['meta'] = array_merge($data['meta'], $customMeta );
+    $data['custom_fields'] = array_filter($customMeta, function($key, $value) {
+    	return $key != '';
+    }, ARRAY_FILTER_USE_BOTH);
+
     return $data;
 }
 

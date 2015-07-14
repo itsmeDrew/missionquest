@@ -4,7 +4,6 @@
       <ul class="nav-main__list">
         <li class="nav-main__list-item" ng-repeat="category in nav.categories">
           <a class="nav-main__list-item--link"
-            ng-init="nav.getChildren(category.ID)"
             ng-click="nav.toggleMenu()"
             ui-sref=".category({ catId: {{ category.ID }} })">
               {{category.name}}

@@ -63,6 +63,16 @@ define(
               controllerAs: 'category'
             }
           }
+        })
+        .state('home.category.post', {
+          url: '/post/:postId',
+          views: {
+            'content@': {
+              templateUrl: 'templates/post.tpl.html',
+              controller: 'PostController',
+              controllerAs: 'post'
+            }
+          }
         });
     }
 

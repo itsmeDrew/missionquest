@@ -57,3 +57,14 @@
   width: 100%;
   min-height: 100%;
 }
+
+.home-slider__cta {
+  padding: 1rem 2rem;
+  color: $white;
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.home-slider__cta:hover {
+  color: darken($white, 25%);
+}

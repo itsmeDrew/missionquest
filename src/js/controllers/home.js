@@ -19,7 +19,7 @@ define(
         Post.getById(30)
           .then(function (result) {
             vm.post = result.posts;
-            vm.sliderImages = result.posts.meta.slider_images;
+            vm.sliderImages = result.posts.custom_fields.slider_images;
           })
       }
 

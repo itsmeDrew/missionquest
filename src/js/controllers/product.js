@@ -17,7 +17,7 @@ define(
 
       function updatePost() {
         vm.loaded = false;
-        Post.getById($stateParams.postId)
+        Post.getById($stateParams.postID)
           .then(function(result) {
             vm.item = result.posts;
           })

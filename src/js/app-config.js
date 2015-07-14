@@ -55,7 +55,7 @@ define(
           }
         })
         .state('home.category', {
-          url: 'category/:catId',
+          url: 'category/:catSlug?catID',
           views: {
             'content@': {
               templateUrl: 'templates/category.tpl.html',
@@ -65,7 +65,7 @@ define(
           }
         })
         .state('home.category.product', {
-          url: '/product/:postSlug?postId',
+          url: '/:postSlug?postID',
           views: {
             'content@': {
               templateUrl: 'templates/products.tpl.html',

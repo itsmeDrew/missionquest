@@ -12,33 +12,35 @@ define(
     function CategoryController($location, Post, $stateParams) {
       var vm = this;
 
-        console.log('location:', $location);
-        console.log('$stateParams:', $stateParams);
+        console.log('ran');
 
       vm.totalPosts = 0;
       vm.page = parseInt($location.search().page || 1, 10);
       vm.perPage = parseInt($location.search().limit || 1, 10);
+      vm.catID = $stateParams.catID;
+      vm.slug = $stateParams.catSlug;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
-      vm.slug =
 
       updatePosts();
 
       function updatePosts() {
         vm.loaded = false;
+
         vm.count = 0;
-        Post.getByCategory($stateParams.catId, vm.page, vm.perPage)
+
+        Post.getByCategory(vm.catID, vm.page, vm.perPage)
           .then(function(result) {
             vm.posts = result.posts;
             vm.totalPosts = result.totalPosts;
             vm.loaded = !vm.loaded;
-
-            $location.search({
-              page: vm.page,
-              slug: vm.slug
-            });
-
           })
+
+        $location.search({
+          page: vm.page,
+          catID: vm.catID
+        });
+
       }
 
 

@@ -11,7 +11,7 @@ define(
 
     function mqConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       $locationProvider.html5Mode(true);
-
+      console.log($stateProvider);
       $stateProvider
         .state('home', {
           url: '/',
@@ -64,13 +64,13 @@ define(
             }
           }
         })
-        .state('home.category.post', {
-          url: '/post/:postId',
+        .state('home.category.product', {
+          url: '/product/:postSlug?postId',
           views: {
             'content@': {
-              templateUrl: 'templates/post.tpl.html',
-              controller: 'PostController',
-              controllerAs: 'post'
+              templateUrl: 'templates/products.tpl.html',
+              controller: 'ProductController',
+              controllerAs: 'product'
             }
           }
         });

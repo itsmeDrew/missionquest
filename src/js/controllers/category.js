@@ -12,6 +12,7 @@ define(
     function CategoryController($location, Post, $stateParams) {
       var vm = this;
 
+        console.log('location:', $location);
         console.log('$stateParams:', $stateParams);
 
       vm.totalPosts = 0;
@@ -19,6 +20,7 @@ define(
       vm.perPage = parseInt($location.search().limit || 1, 10);
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
+      vm.slug =
 
       updatePosts();
 
@@ -33,7 +35,7 @@ define(
 
             $location.search({
               page: vm.page,
-              limit: vm.perPage
+              slug: vm.slug
             });
 
           })

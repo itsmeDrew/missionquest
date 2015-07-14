@@ -6,11 +6,12 @@ define(
   ],
   function(angular) {
     angular
-      .module('App.MqController.Post', [])
-      .controller('PostController', PostController);
+      .module('App.MqController.Product', [])
+      .controller('ProductController', ProductController);
 
-    function PostController(Post, $stateParams) {
+    function ProductController(Post, $location, $stateParams, $state) {
       var vm = this;
+      console.log('$stateParams:', $stateParams);
 
       updatePost();
 
@@ -18,7 +19,7 @@ define(
         vm.loaded = false;
         Post.getById($stateParams.postId)
           .then(function(result) {
-            vm.post = result.posts;
+            vm.item = result.posts;
           })
       }
 

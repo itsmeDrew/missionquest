@@ -13,8 +13,6 @@ define(
       var vm = this;
       var $bodyEl = $('body');
 
-      console.log($scope);
-
       vm.searchOpen = $scope.$parent.mq.searchOpen;
       vm.menuOpen = $scope.$parent.mq.menuOpen;
       vm.loaded = false;

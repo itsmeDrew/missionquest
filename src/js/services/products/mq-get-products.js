@@ -7,7 +7,7 @@ define(
   ],
   function(angular) {
     angular
-      .module('App.MqService.Products', [])
+      .module('App.MqService.Product.Products', [])
       .service('Products', Products);
 
       function Products($q, $http) {
@@ -24,7 +24,7 @@ define(
         }
 
         function getByCategory(cat, page, postsPerPage) {
-          var url = 'http://missionquest.dev/api/wp-json/posts?filter[cat]=' + cat;
+          var url = 'http://missionquest.dev/api/wp-json/posts?type[]=products&filter[taxonomy]=product-category&filter[term]=' + cat;
           var params = {
              page: parseInt(page, 10),
             'filter[posts_per_page]': parseInt(postsPerPage, 10)

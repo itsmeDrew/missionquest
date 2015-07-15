@@ -6,12 +6,10 @@ define(
   ],
   function(angular) {
     angular
-      .module('App.MqService.Category', [])
-      .service('Category', Category);
+      .module('App.MqService.Product.Category', [])
+      .service('ProductCategory', ProductCategory);
 
-      //go through all categories and if parents id === varID then push to an array
-
-      function Category($q, $http) {
+      function ProductCategory($q, $http) {
         var _categories = [];
         var _childCategories = [];
 
@@ -25,7 +23,7 @@ define(
           if (_categories.length) {
             deferred.resolve(_categories);
           } else {
-            $http.get('http://missionquest.dev/api/wp-json/taxonomies/category/terms')
+            $http.get('http://missionquest.dev/api/wp-json/taxonomies/product-category/terms')
               .success(function(result) {
                 _categories = result;
 
@@ -45,7 +43,7 @@ define(
           if (_categories.length) {
             deferred.resolve(_categories);
           } else {
-            $http.get('http://missionquest.dev/api/wp-json/taxonomies/category/terms?filter[order]=DESC')
+            $http.get('http://missionquest.dev/api/wp-json/taxonomies/product-category/terms?filter[order]=DESC')
               .success(function(result) {
                 for (var i = result.length - 1; i >= 0; i--) {
                   if (! result[i].parent && result[i].slug !== 'uncategorized') {

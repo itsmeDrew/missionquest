@@ -10,7 +10,7 @@ define(
       .module('App.MqController.Nav', [])
       .controller('NavController', NavController);
 
-    function NavController($scope, $rootScope, $location, Category) {
+    function NavController($scope, $rootScope, $location, ProductCategory) {
       var vm = this;
       var mobileMenuActive = $('body').hasClass('mobile-menu--active');
       var $windowEl = $(window);
@@ -56,7 +56,7 @@ define(
       }
 
       function updateCategories () {
-        Category.getParent()
+        ProductCategory.getParent()
           .then(function (result) {
             vm.categories = result;
           })

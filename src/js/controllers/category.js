@@ -9,7 +9,7 @@ define(
       .module('App.MqController.Category', [])
       .controller('CategoryController', CategoryController);
 
-    function CategoryController($location, Post, $stateParams) {
+    function CategoryController($location, Products, $stateParams) {
       var vm = this;
 
         console.log('ran');
@@ -18,7 +18,7 @@ define(
       vm.page = parseInt($location.search().page || 1, 10);
       vm.perPage = parseInt($location.search().limit || 1, 10);
       vm.catID = $stateParams.catID;
-      vm.slug = $stateParams.catSlug;
+      vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
 
@@ -29,7 +29,7 @@ define(
 
         vm.count = 0;
 
-        Post.getByCategory(vm.catID, vm.page, vm.perPage)
+        Products.getByCategory(vm.catSlug, vm.page, vm.perPage)
           .then(function(result) {
             vm.posts = result.posts;
             vm.totalPosts = result.totalPosts;
@@ -38,7 +38,7 @@ define(
 
         $location.search({
           page: vm.page,
-          catID: vm.catID
+          slug: vm.catSlug
         });
 
       }

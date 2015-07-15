@@ -5,7 +5,7 @@
         <li class="nav-main__list-item" ng-repeat="category in nav.categories">
           <a class="nav-main__list-item--link"
             ng-click="nav.toggleMenu()"
-            ui-sref=".category({ catID: category.ID, catSlug: category.slug })">
+            ui-sref=".category({ catSlug: category.slug })">
               {{category.name}}
           </a>
         </li>

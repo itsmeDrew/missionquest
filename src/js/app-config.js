@@ -55,7 +55,7 @@ define(
           }
         })
         .state('home.category', {
-          url: 'category/:catSlug?catID',
+          url: ':catSlug?catID',
           views: {
             'content@': {
               templateUrl: 'templates/category.tpl.html',

@@ -354,7 +354,10 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-//add acf posts to json
+/**
+ * ADD ACF TO WP REST
+ */
+
 function wp_api_encode_acf($data,$post,$context){
     $customMeta = (array) get_fields($post['ID']);
 
@@ -369,17 +372,99 @@ if( function_exists('get_fields') ){
     add_filter('json_prepare_post', 'wp_api_encode_acf', 10, 3);
 }
 
-add_action( 'init', 'create_post_type' );
-function create_post_type() {
-  register_post_type( 'products',
-    array(
-      'labels' => array(
-        'name' => __( 'MQ Products' ),
-        'singular_name' => __( 'Product' )
-      ),
-      'taxonomies' => array('category'),
-      'public' => true,
-      'has_archive' => true,
-    )
+/**
+ * PRODUCTS POST TYPE
+ * includes taxonomy
+ */
+
+add_action( 'init', 'productCategoryRegister' );
+function productCategoryRegister() {
+  register_taxonomy('product-category',
+  	'products', array(
+  		"hierarchical" => true,
+  		"label" => "Product Categories",
+  		"singular_label" => "product category",
+  		'update_count_callback' => '_update_post_term_count',
+  		'query_var' => true,
+  		'rewrite' => array( 'slug' => 'product_categories', 'with_front' => true ),
+  		'public' => true,
+  		'show_ui' => true,
+  		'show_tagcloud' => true,
+  		'_builtin' => false,
+  		'show_in_nav_menus' => false
+  	)
   );
-}
+
+	  register_post_type( 'products',
+	    array(
+	      'labels' => array(
+	        'name' => __( 'MQ Products' ),
+	        'singular_name' => __( 'Product' ),
+	        'add_new' => __( 'Add Product' )
+	      ),
+	      'menu_icon'   => 'dashicons-cart',
+	      'taxonomies' => array('product-category' ),
+	      'public' => true,
+	      'has_archive' => true,
+	    )
+	  );
+	}
+	register_taxonomy_for_object_type( 'product-category', 'products' );
+
+	/**
+	 * ADD FILTERS IN PRODUCTS POST TYPE
+	 */
+
+// Filter the request to just give posts for the given taxonomy, if applicable.
+	function taxonomy_filter_restrict_manage_posts() {
+		global $typenow;
+
+		$post_types = get_post_types( array( '_builtin' => false ) );
+
+		if ( in_array( $typenow, $post_types ) ) {
+			$filters = get_object_taxonomies( $typenow );
+
+			foreach ( $filters as $tax_slug ) {
+				$tax_obj = get_taxonomy( $tax_slug );
+				wp_dropdown_categories( array(
+					'show_option_all' => __('Show All Products' ),
+					'taxonomy' 	  => $tax_slug,
+					'name' 		  => $tax_obj->name,
+					'orderby' 	  => 'name',
+					'selected' 	  => (isset($_GET[$tax_slug])),
+					'hierarchical' 	  => $tax_obj->hierarchical,
+					'show_count' 	  => false,
+					'hide_empty' 	  => true
+					) );
+			}
+		}
+	}
+
+
+
+	add_action( 'restrict_manage_posts', 'taxonomy_filter_restrict_manage_posts' );
+
+	function taxonomy_filter_post_type_request( $query ) {
+		global $pagenow, $typenow;
+
+		if ( 'edit.php' == $pagenow ) {
+			$filters = get_object_taxonomies( $typenow );
+			foreach ( $filters as $tax_slug ) {
+
+				$var = &$query->query_vars[$tax_slug];
+
+				if ( isset( $var ) ) {
+
+					$term = get_term_by( 'id', $var, $tax_slug );
+
+					$var = $term->slug;
+
+				}
+
+			}
+
+		}
+
+	}
+
+	add_filter( 'parse_query', 'taxonomy_filter_post_type_request' );

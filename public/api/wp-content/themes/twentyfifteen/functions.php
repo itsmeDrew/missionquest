@@ -368,3 +368,18 @@ function wp_api_encode_acf($data,$post,$context){
 if( function_exists('get_fields') ){
     add_filter('json_prepare_post', 'wp_api_encode_acf', 10, 3);
 }
+
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  register_post_type( 'products',
+    array(
+      'labels' => array(
+        'name' => __( 'MQ Products' ),
+        'singular_name' => __( 'Product' )
+      ),
+      'taxonomies' => array('category'),
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
+}

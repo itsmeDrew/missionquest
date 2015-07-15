@@ -7,7 +7,7 @@ define(
   ],
   function(angular) {
     angular
-      .module('App.MqService.Post', [])
+      .module('App.MqService.Post.Posts', [])
       .service('Post', Post);
 
       function Post($q, $http) {

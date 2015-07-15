@@ -10,25 +10,26 @@ define(
       .module('App.MqController.Home', [])
       .controller('HomeController', HomeController);
 
-    function HomeController(Post) {
+    function HomeController(Products, Pages) {
       var vm = this;
       vm.perPage = 4;
       vm.page = 1; //only want the first 4 recent posts
+      vm.homePageId = 78;
 
       getHomeData();
 
       function getHomeData() {
-        Post.getById(30)
+        Pages.getById(vm.homePageId)
           .then(function (result) {
-            vm.post = result.posts;
-            vm.sliderImages = result.posts.custom_fields.slider_images;
+            vm.page = result;
+            vm.sliderImages = result.custom_fields.slider_images;
           })
 
         getRecentProducts();
       }
 
       function getRecentProducts() {
-        Post.getAll(vm.page, vm.perPage)
+        Products.getAll(vm.page, vm.perPage)
           .then(function (result) {
             vm.recentProducts = [ ];
             for (var i = 0; i < result.posts.length; i++) {

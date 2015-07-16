@@ -26,6 +26,9 @@
                 {{ product.title }}
               </a>
             </div>
+            <div class="product-display__category--wrapper">
+              <a class="product-display__category--link" ui-sref=".category({ catSlug: product.terms.product_category[0].slug })">{{ product.terms.product_category[0].name }}</a>
+            </div>
             <div class="product-display__made-in-usa--wrapper">
               <img ng-if="product.custom_fields.made_in_usa" class="product-display__made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
             </div>

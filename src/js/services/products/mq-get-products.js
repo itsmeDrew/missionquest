@@ -24,7 +24,7 @@ define(
         }
 
         function getByCategory(cat, page, postsPerPage) {
-          var url = 'http://missionquest.dev/api/wp-json/posts?type[]=products&filter[taxonomy]=product-category&filter[term]=' + cat;
+          var url = 'http://missionquest.dev/api/wp-json/posts?type[]=products&filter[taxonomy]=product_category&filter[term]=' + cat;
           var params = {
              page: parseInt(page, 10),
             'filter[posts_per_page]': parseInt(postsPerPage, 10)

@@ -23,7 +23,7 @@ define(
           if (_categories.length) {
             deferred.resolve(_categories);
           } else {
-            $http.get('http://missionquest.dev/api/wp-json/taxonomies/product-category/terms')
+            $http.get('http://missionquest.dev/api/wp-json/taxonomies/product_category/terms')
               .success(function(result) {
                 _categories = result;
 
@@ -43,7 +43,7 @@ define(
           if (_categories.length) {
             deferred.resolve(_categories);
           } else {
-            $http.get('http://missionquest.dev/api/wp-json/taxonomies/product-category/terms?filter[order]=DESC')
+            $http.get('http://missionquest.dev/api/wp-json/taxonomies/product_category/terms?filter[order]=DESC')
               .success(function(result) {
                 for (var i = result.length - 1; i >= 0; i--) {
                   if (! result[i].parent && result[i].slug !== 'uncategorized') {

@@ -379,7 +379,7 @@ if( function_exists('get_fields') ){
 
 add_action( 'init', 'productCategoryRegister' );
 function productCategoryRegister() {
-  register_taxonomy('product-category',
+  register_taxonomy('product_category',
   	'products', array(
   		"hierarchical" => true,
   		"label" => "Product Categories",

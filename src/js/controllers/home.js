@@ -13,7 +13,7 @@ define(
     function HomeController(Products, Pages) {
       var vm = this;
       vm.perPage = 4;
-      vm.page = 1; //only want the first 4 recent posts
+      vm.page = 1; //only want the first 4 recent products
       vm.homePageId = 78;
 
       getHomeData();
@@ -31,11 +31,7 @@ define(
       function getRecentProducts() {
         Products.getAll(vm.page, vm.perPage)
           .then(function (result) {
-            vm.recentProducts = [ ];
-            for (var i = 0; i < result.posts.length; i++) {
-              vm.recentProducts.push(result[i]);
-            };
-            console.log('vm.recentProducts:', vm.recentProducts);
+            vm.recentProducts = result.posts;
           })
       }
 

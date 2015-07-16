@@ -35,6 +35,7 @@ define(
         function getAll(page, postsPerPage) {
           var url = 'http://missionquest.dev/api/wp-json/posts';
           var params = {
+            'type': 'products',
             page: parseInt(page, 10),
             'filter[posts_per_page]': parseInt(postsPerPage, 10)
           };
@@ -59,9 +60,9 @@ define(
               var response = {
                 posts: result,
                 totalPages: parseInt(headers('X-WP-TotalPages'), 10),
-                totalPosts: parseInt(headers('X-WP-Total'), 10)
+                totalPosts: parseInt(headers('X-WP-Total'), 10),
               };
-
+              console.log('response:', response);
               deferred.resolve(response);
             })
             .error(function(result) {

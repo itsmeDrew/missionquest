@@ -43,7 +43,7 @@ define(
         }
 
       function searchAll(term) {
-        var url = 'http://missionquest.dev/api/wp-json/posts';
+        var url = 'http://missionquest.dev/api/wp-json/posts?type=products';
         var params = {
           'filter[s]': term
         };

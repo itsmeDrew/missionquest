@@ -1,0 +1,37 @@
+.product-display__link--wrapper {
+  $product-display-padding: .75rem;
+  padding-bottom: $product-display-padding;
+  margin-bottom: $product-display-padding;
+  border-bottom: 2px solid $product-block-rule-color;
+}
+
+.product-display__wrapper--image {
+  margin-bottom: .85rem;
+}
+
+.product-display__image {
+  min-width: 100%;
+  height: auto;
+}
+
+.product-display__link {
+  color: $product-block-link-color;
+}
+
+.product-display__featured--wrapper {
+  float: right;
+  display: inline-block;
+  font-size: 80%;
+  border-radius: 99px;
+  background-color: $grey--medium;
+  padding: .3rem .75rem;
+  color: $white;
+}
+
+.product-display__made-in-usa--wrapper {
+  float: right;
+  margin: 0 .5rem;
+}
+.product-display__made-in-usa--image {
+
+}

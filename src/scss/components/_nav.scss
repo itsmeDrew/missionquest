@@ -9,7 +9,7 @@
   }
 
   @include breakpointSmallerThan($breakpoint-medium) {
-    background: $mq-blue;
+    background: $mq--blue;
     height: 0;
     visibility: hidden;
     opacity: 0;

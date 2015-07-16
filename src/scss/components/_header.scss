@@ -7,7 +7,7 @@
   background: $header-background;
   display: block;
   width: 100%;
-  border-bottom:1px solid $light-grey;
+  border-bottom:1px solid $grey--light;
   padding: .5em .5em;
   position: relative;
 
@@ -35,7 +35,7 @@
 .header-main__phone {
   padding-right: 20px;
   margin-right: 20px;
-  border-right: 1px solid $header-rule;
+  border-right: 1px solid $grey--subtle;
 }
 
 .header-main__mail--link {
@@ -48,13 +48,13 @@
   width: 100%;
   text-transform: uppercase;
   font-weight: 400;
-  color: $light-grey;
+  color: $grey--light;
   font-size: $base-font-size - 4;
 
   @include breakpointSmallerThan($breakpoint-medium) {
     padding: 2rem 1rem;
     font-size: $base-font-size;
-    background: $mq-blue;
+    background: $mq--blue;
     border: none;
   }
 }

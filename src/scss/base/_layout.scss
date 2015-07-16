@@ -13,11 +13,11 @@ a, a:hover, a:focus {
 }
 
 a {
-  color: $mq-blue;
+  color: $mq--blue;
 }
 
 a:hover {
-  color: lighten($mq-blue, 10%);
+  color: lighten($mq--blue, 10%);
 }
 
 .text--left {

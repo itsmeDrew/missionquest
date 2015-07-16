@@ -47,7 +47,14 @@ $header-background: $white;
 $navbar-color: $tar;
 $nav-wrapper-padding: 20px;
 $nav-link-color: $white;
-$nav-link-hover-color: $mq-red;
+$nav-link-hover-color: $mq--red;
+
+/**
+ * PRODUCT BLOCKS
+ */
+
+$product-block-link-color: $black;
+$product-block-rule-color: $grey--subtle;
 
 /**
  * FOOTER MAIN
@@ -61,7 +68,7 @@ $footer-main--color: $black;
  */
 
 $loading-background: $white;
-$loading-icon: $mq-blue;
+$loading-icon: $mq--blue;
 $loading-opacity: 0.9;
 
 /**
@@ -74,5 +81,5 @@ $slider-height--small: 225px;
 $slider-height--large: 425px;
 $slider-margin-bottom: 5rem;
 $slider-dots-inactive--color: $black;
-$slider-dots-active--color: $mq-blue;
+$slider-dots-active--color: $mq--blue;
 

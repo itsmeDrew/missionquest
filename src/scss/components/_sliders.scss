@@ -21,6 +21,7 @@
 
 .home-slider__wrapper {
   margin-bottom: $slider-margin-bottom;
+  overflow: hidden;
 }
 
 .home-slider__slide {

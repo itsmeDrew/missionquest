@@ -32,7 +32,9 @@ define(
               controllerAs: 'home'
             },
             'footer': {
-              templateUrl: 'partials/_footer.html'
+              templateUrl: 'partials/_footer.html',
+              controller: 'FooterController',
+              controllerAs: 'footer'
             }
           }
         })
@@ -43,14 +45,6 @@ define(
               templateUrl: 'templates/results.tpl.html',
               controller: 'SearchController',
               controllerAs: 'search'
-            }
-          }
-        })
-        .state('home.products', {
-          url: 'products',
-          views: {
-            'content@': {
-              templateUrl: 'templates/products.tpl.html'
             }
           }
         })

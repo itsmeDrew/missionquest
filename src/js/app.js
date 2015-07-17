@@ -19,6 +19,7 @@ define(
   'controllers/product',
   'controllers/blog',
   'controllers/nav',
+  'controllers/footer',
   'directives/loading',
   'directives/sliders'
   ],
@@ -39,6 +40,7 @@ define(
       'App.MqController.Product',
       'App.MqController.Blog',
       'App.MqController.Nav',
+      'App.MqController.Footer',
       'App.MqDirective.Loading',
       'App.MqDirective.Sliders'
     ])

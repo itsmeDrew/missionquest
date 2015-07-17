@@ -17,7 +17,6 @@ define(
       var breakPoint = 768;
 
       vm.categories = [];
-      vm.getChildren = getChildren;
       vm.toggleMenu = toggleMenu;
       $rootScope.$mobile = false;
 
@@ -60,10 +59,6 @@ define(
           .then(function (result) {
             vm.categories = result;
           })
-      }
-
-      function getChildren(catID) {
-        //will get children of the li
       }
 
     }

@@ -1,6 +1,26 @@
-.footer-main__wrapper {
+.footer-main {
+  margin-top: 5rem;
+}
+
+.footer-cta {
+  background-color: $tar;
+  padding: 30px 0;
+}
+
+.footer-main__content--wrapper {
   background-color: $footer-main--background;
   color: $footer-main--color;
   padding: 40px 0;
-  margin-top: 3rem;
+}
+
+.footer-main__heading {
+  font-weight: 800;
+  font-size: $base-font-size + 6;
+  color: $black;
+  margin-bottom: 1rem;
+}
+
+.footer-main__link {
+  font-size: $base-font-size;
+  color: $ash;
 }

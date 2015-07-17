@@ -10,7 +10,6 @@ define(
       .service('ProductCategory', ProductCategory);
 
       function ProductCategory($q, $http) {
-        var _categories = [];
         var _childCategories = [];
 
         this.getAll = getAll;
@@ -38,6 +37,7 @@ define(
         }
 
         function getParent() {
+          var _categories = [];
           var deferred = $q.defer();
 
           if (_categories.length) {

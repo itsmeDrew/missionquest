@@ -21,6 +21,7 @@ define(
   'controllers/nav',
   'controllers/footer',
   'directives/loading',
+  'directives/product-block',
   'directives/sliders'
   ],
   function(angular) {
@@ -42,6 +43,7 @@ define(
       'App.MqController.Nav',
       'App.MqController.Footer',
       'App.MqDirective.Loading',
+      'App.MqDirective.ProductBlock',
       'App.MqDirective.Sliders'
     ])
     .controller('MqController', mqCtrl);

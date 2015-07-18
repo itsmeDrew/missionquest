@@ -9,39 +9,6 @@
         <a class="home-content__btn btn-primary--lines">view all categories</a>
       </div>
     </header>
-    <div class="product-display__wrapper row">
-      <ul class="product-display__list">
-        <li class="product-dipslay__item col--md-3" ng-repeat="product in home.recentProducts">
-          <div class="product-display__wrapper--image">
-            <a ui-sref=".category.product({ postID: product.ID, postSlug: product.slug })">
-              <img
-                class="product-display__image"
-                ng-if="product.custom_fields.product_images"
-                src="{{ product.custom_fields.product_images[0].product_image.sizes.large }}"
-                alt="{{ product.custom_fields.product_images.alt }}"
-              >
-            </a>
-          </div>
-          <div class="product-display__details--wrapper">
-            <div class="product-display__link--wrapper">
-              <a class="product-display__link" ui-sref=".category.product({ postID: product.ID, postSlug: product.slug })">
-                {{ product.title }}
-              </a>
-            </div>
-            <div class="product-display__category--wrapper">
-              <a class="product-display__category--link" ui-sref=".category({ catSlug: product.terms.product_category[0].slug })">{{ product.terms.product_category[0].name }}</a>
-            </div>
-            <div class="product-display__made-in-usa--wrapper">
-              <img ng-if="product.custom_fields.made_in_usa" class="product-display__made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
-            </div>
-            <div class="product-display__wrapper--features">
-              <div ng-if="product.custom_fields.featured_product" class="product-display__featured--wrapper text--capitalize">
-                featured
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <product-block></product-block>
   </div>
 </div>

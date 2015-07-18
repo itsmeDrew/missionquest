@@ -16,7 +16,7 @@ define(
 
       vm.totalProducts = 0;
       vm.page = parseInt($location.search().page || 1, 10);
-      vm.perPage = parseInt($location.search().limit || 1, 10);
+      vm.perPage = 10;
       vm.catID = $stateParams.catID;
       vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
@@ -32,8 +32,8 @@ define(
         Products.getByCategory(vm.catSlug, vm.page, vm.perPage)
           .then(function(result) {
             vm.products = result.posts;
-            console.log('vm.products:', vm.products);
-            vm.totalProducts = result.totalProducts;
+            vm.totalProducts = result.totalPosts;
+            vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
             vm.loaded = !vm.loaded;
           })
 

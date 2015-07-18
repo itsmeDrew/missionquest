@@ -11,7 +11,6 @@ define(
 
     function ProductController(Post, $location, $stateParams, $state) {
       var vm = this;
-      console.log('$stateParams:', $stateParams);
 
       updatePost();
 

@@ -9,6 +9,12 @@
         <a class="home-content__btn btn-primary--lines">view all categories</a>
       </div>
     </header>
-    <product-block></product-block>
+    <div class="product-display__wrapper row">
+      <ul class="product-display__list">
+        <li class="product-dipslay__item col--md-3" ng-repeat="product in home.recentProducts">
+          <product-block></product-block>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

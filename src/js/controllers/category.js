@@ -14,7 +14,7 @@ define(
 
         console.log('ran');
 
-      vm.totalPosts = 0;
+      vm.totalProducts = 0;
       vm.page = parseInt($location.search().page || 1, 10);
       vm.perPage = parseInt($location.search().limit || 1, 10);
       vm.catID = $stateParams.catID;
@@ -31,8 +31,9 @@ define(
 
         Products.getByCategory(vm.catSlug, vm.page, vm.perPage)
           .then(function(result) {
-            vm.posts = result.posts;
-            vm.totalPosts = result.totalPosts;
+            vm.products = result.posts;
+            console.log('vm.products:', vm.products);
+            vm.totalProducts = result.totalProducts;
             vm.loaded = !vm.loaded;
           })
 

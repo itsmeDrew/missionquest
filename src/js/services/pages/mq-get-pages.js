@@ -10,13 +10,13 @@ define(
       .service('Pages', Pages);
 
       function Pages($q, $http) {
-        var _pages = [];
 
         this.getAll = getAll;
         this.getById = getById;
 
         function getAll() {
           var deferred = $q.defer();
+          var _pages = [];
 
           if (_pages.length) {
             deferred.resolve(_pages);
@@ -36,6 +36,7 @@ define(
 
         function getById(pageId) {
           var deferred = $q.defer();
+          var _pages = [];
 
           if (_pages.length) {
             deferred.resolve(_pages);

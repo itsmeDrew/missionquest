@@ -5,20 +5,22 @@
       <div class="home-content__heading col--md-6">
         <h2 class="heading--rule">new products</h2>
       </div>
-      <div class="home-content__button--wrapper col--md-4 col--md-push-2">
-        <a class="home-content__button button-primary--lines">view all categories</a>
+      <div class="home-content__btn--wrapper col--md-4 col--md-push-2">
+        <a class="home-content__btn btn-primary--lines">view all categories</a>
       </div>
     </header>
     <div class="product-display__wrapper row">
       <ul class="product-display__list">
         <li class="product-dipslay__item col--md-3" ng-repeat="product in home.recentProducts">
           <div class="product-display__wrapper--image">
-            <img
-              class="product-display__image"
-              ng-if="product.custom_fields.product_images"
-              src="{{ product.custom_fields.product_images[0].product_image.sizes.large }}"
-              alt="{{ product.custom_fields.product_images.alt }}"
-            >
+            <a ui-sref=".category.product({ postID: product.ID, postSlug: product.slug })">
+              <img
+                class="product-display__image"
+                ng-if="product.custom_fields.product_images"
+                src="{{ product.custom_fields.product_images[0].product_image.sizes.large }}"
+                alt="{{ product.custom_fields.product_images.alt }}"
+              >
+            </a>
           </div>
           <div class="product-display__details--wrapper">
             <div class="product-display__link--wrapper">

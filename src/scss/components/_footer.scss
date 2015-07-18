@@ -1,3 +1,7 @@
+/**
+ * FOOTER TOP
+ */
+
 .footer-main {
   margin-top: 5rem;
 }
@@ -6,6 +10,48 @@
   background-color: $tar;
   padding: 30px 0;
 }
+
+.footer-cta__heading--wrapper {
+
+  @include breakpointSmallerThan($breakpoint-medium) {
+    margin-bottom: 1rem
+  }
+}
+
+.footer-cta__heading {
+  margin-right: 1rem;
+  font-weight: bold;
+
+  @include breakpointLargerThan($breakpoint-medium) {
+    font-size: $base-font-size + 20;
+  }
+
+  @include breakpointSmallerThan($breakpoint-large) {
+    font-size: $base-font-size +10;
+  }
+}
+
+.footer-cta__quote--wrapper {
+  position: relative;
+}
+
+.footer-cta__quote--input {
+  width: 100%;
+}
+
+.footer-cta__quote--submit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  color: $white;
+  background-color: $mq--blue;
+  padding: .75rem 2rem;
+}
+
+/**
+ * FOOTER MAIN
+ */
 
 .footer-main__content--wrapper {
   background-color: $footer-main--background;
@@ -24,3 +70,7 @@
   font-size: $base-font-size;
   color: $ash;
 }
+
+/**
+ * FOOTER COPYRIGHT
+ */

@@ -48,7 +48,7 @@ define(
     ])
     .controller('MqController', mqCtrl);
 
-    function mqCtrl($scope) {
+    function mqCtrl($scope, $state, $rootScope) {
       var vm = this;
 
       vm.phone = "941.555.5555";
@@ -56,6 +56,14 @@ define(
       vm.email = "tom@missionquestadv.com";
       vm.menuOpen = false;
       vm.searchOpen = false;
+
+      $rootScope.$on('$stateChangeStart', function(event) {
+        vm.hero = false;
+      })
+
+      $scope.$on('hero', function () {
+        vm.hero = ! vm.hero;
+      })
 
       $scope.$on('menu.toggle', function() {
         vm.menuOpen = ! vm.menuOpen;

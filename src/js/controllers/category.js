@@ -9,10 +9,8 @@ define(
       .module('App.MqController.Category', [])
       .controller('CategoryController', CategoryController);
 
-    function CategoryController($location, Products, $stateParams) {
+    function CategoryController($location, $scope, Products, $stateParams) {
       var vm = this;
-
-        console.log('ran');
 
       vm.totalProducts = 0;
       vm.page = parseInt($location.search().page || 1, 10);

@@ -3,6 +3,14 @@
  * there are 2 seperate headers
  */
 
+.header-main {
+  margin-bottom: 3rem;
+}
+
+.hero .header-main {
+  margin-bottom: 0;
+}
+
 .header-main__top {
   background: $header-background;
   display: block;

@@ -14,7 +14,6 @@ define(
 
         this.getAll = getAll;
         this.getParent = getParent;
-        this.getChildren = getChildren;
 
         function getAll() {
           var deferred = $q.defer();
@@ -57,10 +56,6 @@ define(
               });
           }
           return deferred.promise;
-        }
-
-        function getChildren(paramID) {
-
         }
 
       }

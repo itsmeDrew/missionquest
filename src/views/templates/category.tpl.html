@@ -1,8 +1,6 @@
 <div class="container row">
-  <div class="category__sidebar--wrapper col--md-4">
-    <h2>sidebar</h2>
-  </div>
-  <div class="category__results--wrapper col--md-8">
+  <category-sidebar class="col--md-3"></category-sidebar>
+  <div class="category__results--wrapper col--md-9">
     <div class="product-display__wrapper row">
       <ul class="product-display__list">
         <li class="product-dipslay__item col--md-3" ng-repeat="product in category.products">

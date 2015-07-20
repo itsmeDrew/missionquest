@@ -1,0 +1,14 @@
+<div class="category-sidebar--wrapper" ng-init="category.getCategories()">
+  <div class="category-sidebar__list-group">
+    <h4 class="category-sidebar__heading text--uppercase">apparel categories</h4>
+    <ul class="category-sidebar__list">
+      <li ng-repeat="cat in category.categories" class="category-sidebar__list-item">
+        <a ui-sref="home.category({ catSlug: cat.slug })" class="category-sidebar__link text--capitalize">{{ cat.name }}</a>
+      </li>
+    </ul>
+    <ul class="category-sidebar__list">
+      <li><a ng-click="category.setGender('Male')">male</a></li>
+      <li><a ng-click="category.setGender('Female')">female</a></li>
+    </ul>
+  </div>
+</div>

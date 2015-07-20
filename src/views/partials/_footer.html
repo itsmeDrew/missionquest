@@ -26,7 +26,7 @@
         <h3 class="footer-main__heading text--uppercase">products</h3>
         <ul>
           <li ng-repeat="category in footer.categories">
-            <a class="footer-main__link" ui-sref=".category({ catId: {{ category.ID }} })">{{ category.name }}</a>
+            <a class="footer-main__link" ui-sref="home.category({ catSlug: category.slug })">{{ category.name }}</a>
           </li>
         </ul>
       </div>

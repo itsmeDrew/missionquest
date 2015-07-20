@@ -49,7 +49,17 @@ define(
           }
         })
         .state('home.category', {
-          url: ':catSlug?catID',
+          url: ':catSlug',
+          views: {
+            'content@': {
+              templateUrl: 'templates/category.tpl.html',
+              controller: 'CategoryController',
+              controllerAs: 'category'
+            }
+          }
+        })
+        .state('home.category.facet', {
+          url: '/:facet',
           views: {
             'content@': {
               templateUrl: 'templates/category.tpl.html',

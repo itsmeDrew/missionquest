@@ -22,7 +22,8 @@ define(
   'controllers/footer',
   'directives/loading',
   'directives/product-block',
-  'directives/sliders'
+  'directives/sliders',
+  'directives/sidebars'
   ],
   function(angular) {
     angular
@@ -44,7 +45,8 @@ define(
       'App.MqController.Footer',
       'App.MqDirective.Loading',
       'App.MqDirective.ProductBlock',
-      'App.MqDirective.Sliders'
+      'App.MqDirective.Sliders',
+      'App.MqDirective.Sidebars'
     ])
     .controller('MqController', mqCtrl);
 

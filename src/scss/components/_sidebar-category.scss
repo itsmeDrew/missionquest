@@ -1,0 +1,19 @@
+/**
+ * MAIN SIDEBAR FOR CATEGORY
+ */
+
+.category-sidebar--wrapper {
+  border: 1px solid $grey--subtle;
+  padding: 1rem;
+}
+
+.category-sidebar__heading {
+  font-size: $base-font-size - 3;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.category-sidebar__link {
+  color: $black;
+  line-height: 1.5;
+}

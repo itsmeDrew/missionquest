@@ -13,9 +13,9 @@ define(
       var vm = this;
 
       vm.totalProducts = 0;
-      vm.page = parseInt($location.search().page || 1, 10);
+      vm.page = parseInt($location.search().page || 0, 10);
       vm.facet = parseInt($location.search().facet || 1, 10);
-      vm.perPage = 10;
+      vm.perPage = 2;
       vm.catID = $stateParams.catID;
       vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
@@ -32,7 +32,7 @@ define(
 
         if (vm.facet) {
           if ($state.gender) {
-            Products.getByGender(vm.catSlug, vm.page, vm.perPage, vm.facet)
+            Products.getByGender(vm.catSlug, vm.page, vm.facet)
             .then(function(result) {
               vm.products = result;
               vm.totalProducts = result.length;
@@ -41,32 +41,33 @@ define(
             })
           }
         } else {
-          Products.getByCategory(vm.catSlug, vm.page, vm.perPage)
+          Products.getByCategory(vm.catSlug, vm.page)
             .then(function(result) {
               vm.products = result.posts;
               vm.totalProducts = result.totalPosts;
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               vm.loaded = !vm.loaded;
+              console.log('vm.totalPages:', vm.totalPages);
             })
         }
+        // setLocation();
+      }
 
+      function setLocation() {
         $location.search({
           slug: vm.catSlug,
           page: vm.page
         });
-
       }
 
       function nextPage() {
         vm.page++;
-
-        updatePosts();
+        // setLocation();
       }
 
       function prevPage() {
         vm.page--;
-
-        updatePosts();
+        // setLocation();
       }
 
       function getCategories() {
@@ -82,9 +83,8 @@ define(
           $state.go('home.category.facet', { facet: gender } );
         }
       }
-
     }
-
   }
+
 );
 

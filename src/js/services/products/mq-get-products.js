@@ -24,11 +24,10 @@ define(
           return _makeRequest(url);
         }
 
-        function getByCategory(cat, page, postsPerPage) {
+        function getByCategory(cat, page) {
           var url = 'http://missionquest.dev/api/wp-json/posts?type[]=products&filter[taxonomy]=product_category&filter[term]=' + cat;
           var params = {
-             page: parseInt(page, 10),
-            'filter[posts_per_page]': parseInt(postsPerPage, 10)
+             page: parseInt(page, 10)
           };
           return _makeRequest(url, params);
         }
@@ -44,12 +43,11 @@ define(
           return _makeRequest(url, params);
         }
 
-      function getByGender(cat, page, postsPerPage, gender) {
+      function getByGender(cat, page, gender) {
         var deferred = $q.defer();
         var url = 'http://missionquest.dev/api/wp-json/posts?type[]=products&filter[taxonomy]=product_category&filter[term]=' + cat;
         var params = {
-          page: parseInt(page, 10),
-          'filter[posts_per_page]': parseInt(postsPerPage, 10)
+          page: parseInt(page, 10)
         };
         var _genderProducts = [ ];
 

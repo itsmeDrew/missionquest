@@ -2,17 +2,47 @@
  * DEFAULT BUTTON STYLES
  */
 
-.btn-primary--lines {
+.btn {
+  border: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  @extend .btn;
+
+  background-color: $mq--blue;
   padding: 1rem 2rem;
-  border: 1px solid $black;
   text-transform: uppercase;
   font-weight: 400;
   font-size: $base-font-size - 3;
+  color: $white;
+}
+
+.btn-primary--lines {
+  @extend .btn-primary;
+
+  background-color: transparent;
+  border: 1px solid $black;
   color: $black;
-  display: inline-block;
 }
 
 .btn-primary--lines:hover {
   color: $mq--blue;
   border-color: $mq--blue;
+}
+
+.btn-next {
+  @extend .btn;
+
+  border: 1px solid $grey--medium;
+  color: $grey--medium;
+  border-radius: 3px;
+  padding: .5rem 1rem;
+  margin-right: 10px;
+  background-color: transparent;
+}
+
+.btn-prev {
+  @extend .btn-next;
+
 }

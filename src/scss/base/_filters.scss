@@ -1,0 +1,35 @@
+/**
+ * CATEGORY
+ * change to filter / not category
+ */
+
+.category__label {
+  font-size: $base-font-size - 4;
+  text-align: center;
+  color: $ash;
+  margin-right: 1rem;
+  display: inline-block;
+}
+
+.category__input--select {
+  width: 30%;
+  display: inline-block;
+}
+
+.category__header {
+  border-bottom: 3px solid $grey--subtle;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+}
+
+.category__heading--wrapper {
+  float: left;
+}
+
+.category__heading {
+  font-size: $base-font-size + 10;
+}
+
+.category__filter {
+  float: right;
+}

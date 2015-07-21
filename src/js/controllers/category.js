@@ -15,13 +15,15 @@ define(
       vm.totalProducts = 0;
       vm.page = parseInt($location.search().page || 0, 10);
       vm.facet = parseInt($location.search().facet || 1, 10);
-      vm.perPage = 2;
       vm.catID = $stateParams.catID;
       vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
       vm.getCategories = getCategories;
       vm.setGender = setGender;
+      vm.updatePostsPerPage = updatePostsPerPage;
+      vm.perPage = 10;
+      vm.perPageOptions = [{'id': 2, 'value': 2}, {'id': 5, 'value': 5}, {'id': 10, 'value': 10}];
 
       updatePosts();
 
@@ -47,27 +49,17 @@ define(
               vm.totalProducts = result.totalPosts;
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               vm.loaded = !vm.loaded;
-              console.log('vm.totalPages:', vm.totalPages);
+              vm.name = $stateParams.catSlug;
             })
         }
-        // setLocation();
-      }
-
-      function setLocation() {
-        $location.search({
-          slug: vm.catSlug,
-          page: vm.page
-        });
       }
 
       function nextPage() {
         vm.page++;
-        // setLocation();
       }
 
       function prevPage() {
         vm.page--;
-        // setLocation();
       }
 
       function getCategories() {
@@ -75,6 +67,11 @@ define(
           .then(function (result) {
             vm.categories = result
           })
+      }
+
+      function updatePostsPerPage() {
+        vm.page = 0;
+        updatePosts();
       }
 
       function setGender(gender) {

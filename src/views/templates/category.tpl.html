@@ -1,16 +1,41 @@
 <div class="container row">
   <category-sidebar class="col--md-3"></category-sidebar>
   <div class="category__results--wrapper col--md-9">
+    <header class="category__header clearfix">
+      <div class="category__heading--wrapper">
+        <h2 class="category__heading text--capitalize">{{category.name}}</h2>
+      </div>
+      <div class="category__filter">
+        <label class="category__label">products per page</label>
+        <select
+          class="category__input--select"
+          ng-options="option.id as option.value for option in category.perPageOptions"
+          ng-model="category.perPage"
+          ng-change="category.updatePostsPerPage()"
+          ng-init="category.perPage=category.perPage">
+        </select>
+      </div>
+    </header>
     <div class="product-display__wrapper row">
       <ul class="product-display__list">
-        <li class="product-dipslay__item col--md-3" ng-repeat="product in category.products | limitTo:category.perPage:category.page*2">
+        <li class="product-dipslay__item col--md-3" ng-repeat="product in category.products | limitTo:category.perPage:category.page*category.perPage">
           <product-block></product-block>
         </li>
       </ul>
     </div>
-    <div>{{category.page + 1}}</div>
-    <button ng-show="category.page !== category.totalPages" ng-click="category.nextPage()">Next Page</button>
-    <button ng-show="category.page > 0" ng-click="category.prevPage()">Prev Page</button>
+    <div class="pagination--wrapper clearfix">
+      <div class="pagination__buttons--wrapper">
+        <button class="btn-prev" ng-show="category.page > 0" ng-click="category.prevPage()">
+          <i class="fa fa-arrow-left"></i>
+        </button>
+        <button class="btn-next" ng-show="category.page + 1 !== category.totalPages" ng-click="category.nextPage()">
+          <i class="fa fa-arrow-right"></i>
+        </button>
+      </div>
+      <span class="pagination__current-page text--capitalize">page {{ category.page + 1 }} out of {{ category.totalPages }}</span>
+    </div>
+
+
     <div ng-show="category.totalPosts === 0">
       <h2>no results to show</h2>
     </div>

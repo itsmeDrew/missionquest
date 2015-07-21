@@ -1,0 +1,14 @@
+.pagination--wrapper {
+  border-top: 3px solid $grey--subtle;
+  padding-top: 1rem;
+}
+
+.pagination__buttons--wrapper {
+  float: left;
+}
+
+.pagination__current-page {
+  font-size: $base-font-size - 4;
+  color: $grey--medium;
+  float: right;
+}

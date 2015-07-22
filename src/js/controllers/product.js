@@ -13,14 +13,13 @@ define(
       var vm = this;
 
       vm.loaded = false;
+      console.log(vm.facet);
 
       updatePost();
 
       function updatePost() {
-        console.log('trying to get', $stateParams.postID);
         Post.getById($stateParams.postID)
           .then(function(result) {
-            console.log('got this for you...', result.posts);
             vm.item = result.posts;
             vm.loaded = !vm.loaded;
           })

@@ -17,7 +17,7 @@ define(
       vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
-      vm.getCategories = getCategories;
+      vm.facet = true;
       vm.setFacet = setFacet;
       vm.updatePostsPerPage = updatePostsPerPage;
       vm.perPage = 10;
@@ -27,6 +27,8 @@ define(
       vm.totalProducts = 0;
 
       updatePosts();
+
+      console.log('im HERE!')
 
       function updatePosts() {
         vm.loaded = false;
@@ -62,13 +64,6 @@ define(
         vm.page--;
       }
 
-      function getCategories() {
-        ProductCategory.getParent()
-          .then(function (result) {
-            vm.categories = result
-          })
-      }
-
       function updatePostsPerPage() {
         vm.page = 0;
         updatePosts();
@@ -80,6 +75,7 @@ define(
           updatePosts();
         }
       }
+
     }
   }
 );

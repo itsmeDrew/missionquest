@@ -14,8 +14,6 @@ define(
 
       vm.totalProducts = 0;
       vm.page = parseInt($location.search().page || 0, 10);
-      vm.facet = parseInt($location.search().facet || 1, 10);
-      vm.catID = $stateParams.catID;
       vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
@@ -24,13 +22,15 @@ define(
       vm.updatePostsPerPage = updatePostsPerPage;
       vm.perPage = 10;
       vm.perPageOptions = [{'id': 2, 'value': 2}, {'id': 5, 'value': 5}, {'id': 10, 'value': 10}];
+      vm.facet = $location.search().facet;
+      vm.loaded = false;
+      vm.totalProducts = 0;
 
       updatePosts();
 
       function updatePosts() {
         vm.loaded = false;
-        vm.count = 0;
-        vm.facet = $stateParams.facet;
+        vm.totalProducts = 0;
 
         if (vm.facet) {
           Products.getByFacet(vm.catSlug, vm.page, vm.facet)
@@ -50,6 +50,7 @@ define(
               vm.loaded = !vm.loaded;
               vm.name = $stateParams.catSlug;
             })
+            $location.search('facet', vm.facet);
         }
       }
 
@@ -74,17 +75,12 @@ define(
       }
 
       function setFacet(newFacet) {
-        if (newFacet === 'Male' || newFacet === 'Female' ) {
-          $state.gender = true;
-        } else {
-          $state.madeInUsa = true;
-        }
-        if (newFacet !== $stateParams.facet) { //if you're not clicking same gender
-          $state.go('home.category.facet', { facet: newFacet } );
+        if (newFacet !== $stateParams.facet) {
+          vm.facet = newFacet;
+          updatePosts();
         }
       }
     }
   }
-
 );
 

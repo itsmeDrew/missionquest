@@ -20,7 +20,7 @@ define(
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
       vm.getCategories = getCategories;
-      vm.setGender = setGender;
+      vm.setFacet = setFacet;
       vm.updatePostsPerPage = updatePostsPerPage;
       vm.perPage = 10;
       vm.perPageOptions = [{'id': 2, 'value': 2}, {'id': 5, 'value': 5}, {'id': 10, 'value': 10}];
@@ -33,15 +33,14 @@ define(
         vm.facet = $stateParams.facet;
 
         if (vm.facet) {
-          if ($state.gender) {
-            Products.getByGender(vm.catSlug, vm.page, vm.facet)
+          Products.getByFacet(vm.catSlug, vm.page, vm.facet)
             .then(function(result) {
               vm.products = result;
               vm.totalProducts = result.length;
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               vm.loaded = !vm.loaded;
+              vm.facet = $stateParams.facet;
             })
-          }
         } else {
           Products.getByCategory(vm.catSlug, vm.page)
             .then(function(result) {
@@ -74,10 +73,14 @@ define(
         updatePosts();
       }
 
-      function setGender(gender) {
-        $state.gender = true;
-        if (gender !== $stateParams.facet) { //if you're not clicking same gender
-          $state.go('home.category.facet', { facet: gender } );
+      function setFacet(newFacet) {
+        if (newFacet === 'Male' || newFacet === 'Female' ) {
+          $state.gender = true;
+        } else {
+          $state.madeInUsa = true;
+        }
+        if (newFacet !== $stateParams.facet) { //if you're not clicking same gender
+          $state.go('home.category.facet', { facet: newFacet } );
         }
       }
     }

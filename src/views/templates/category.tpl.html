@@ -4,6 +4,7 @@
     <header class="category__header clearfix">
       <div class="category__heading--wrapper">
         <h2 class="category__heading text--capitalize">{{category.name}}</h2>
+        <h2 ng-if="category.facet" class="category__heading text--capitalize">Filter: {{category.facet}}</h2>
       </div>
       <div class="category__filter">
         <label class="category__label">products per page</label>
@@ -16,9 +17,9 @@
         </select>
       </div>
     </header>
-    <div class="product-display__wrapper row">
+    <div class="product-display__wrapper">
       <ul class="product-display__list">
-        <li class="product-dipslay__item col--md-3" ng-repeat="product in category.products | limitTo:category.perPage:category.page*category.perPage">
+        <li class="product-display__item" ng-repeat="product in category.products | limitTo:category.perPage:category.page*category.perPage">
           <product-block></product-block>
         </li>
       </ul>

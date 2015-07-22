@@ -17,7 +17,7 @@ define(
         this.getByCategory = getByCategory;
         this.getById = getById;
         this.searchAll = searchAll;
-        this.getByGender = getByGender;
+        this.getByFacet = getByFacet;
 
         function getById(id) {
           var url = 'http://missionquest.dev/api/wp-json/posts/' + id;
@@ -43,23 +43,23 @@ define(
           return _makeRequest(url, params);
         }
 
-      function getByGender(cat, page, gender) {
+      function getByFacet(cat, page, facet) {
         var deferred = $q.defer();
         var url = 'http://missionquest.dev/api/wp-json/posts?type[]=products&filter[taxonomy]=product_category&filter[term]=' + cat;
         var params = {
           page: parseInt(page, 10)
         };
-        var _genderProducts = [ ];
+        var _facetProducts = [ ];
 
        $http.get(url, { params: params || {} })
           .success(function(result) {
             for (var i = 0; i < result.length; i++) {
-              if (result[i].custom_fields.gender == gender) {
-                _genderProducts.push(result[i]);
+              if (result[i].custom_fields.gender == facet || result[i].custom_fields.made_in_usa == !! facet) {
+                _facetProducts.push(result[i]);
               }
             };
 
-            deferred.resolve(_genderProducts);
+            deferred.resolve(_facetProducts);
           })
           .error(function(result) {
              deferred.reject(result);

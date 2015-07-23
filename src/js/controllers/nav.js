@@ -57,7 +57,7 @@ define(
       function updateCategories () {
         ProductCategory.getParent()
           .then(function (result) {
-            vm.categories = result;
+            vm.categories = result[0].parentCategories;
           })
       }
 

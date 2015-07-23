@@ -58,6 +58,16 @@ define(
             }
           }
         })
+        .state('home.category.sub', {
+          url: '/:catSlug',
+          views: {
+            'content@': {
+              templateUrl: 'templates/category.tpl.html',
+              controller: 'CategoryController',
+              controllerAs: 'category'
+            }
+          }
+        })
         .state('home.category.product', {
           url: '/:postSlug?postID',
           views: {

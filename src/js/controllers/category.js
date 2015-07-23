@@ -28,8 +28,6 @@ define(
 
       updatePosts();
 
-      console.log('im HERE!')
-
       function updatePosts() {
         vm.loaded = false;
         vm.totalProducts = 0;

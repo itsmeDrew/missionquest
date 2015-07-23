@@ -13,7 +13,6 @@ define(
       var vm = this;
 
       vm.loaded = false;
-      console.log(vm.facet);
 
       updatePost();
 

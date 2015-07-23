@@ -23,15 +23,11 @@ define(
           vm.switchState = switchState;
           vm.catSlug = $stateParams.catSlug;
 
-          console.log('vm.catSlug:', vm.catSlug);
-
           function getCategories() {
             ProductCategory.getParent(vm.catSlug)
               .then(function (result) {
                 vm.categories = result[0].parentCategories;
                 vm.childCategories = result[1].childrenCategories;
-                console.log('result child cat', vm.childCategories)
-                console.log('result:', result);
               })
           }
 

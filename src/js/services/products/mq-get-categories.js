@@ -51,16 +51,13 @@ define(
           } else {
             $http.get('http://missionquest.dev/api/wp-json/taxonomies/product_category/terms?filter[order]=DESC')
               .success(function(result) {
-                console.log('were running bitch')
                 for (var i = result.length - 1; i >= 0; i--) {
                   if (! result[i].parent && result[i].slug !== 'uncategorized') {
                     _categories[0].parentCategories.push(result[i]);
                   } else if (result[i].parent.slug === catSlug) {
-                    console.log('should push', result[i]);
                     _categories[1].childrenCategories.push(result[i]);
                   }
                 };
-                console.log('_categories:', _categories);
                 deferred.resolve(_categories);
               })
               .error(function(result) {

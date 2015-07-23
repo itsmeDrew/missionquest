@@ -10,7 +10,7 @@
 </div>
 <div class="category-sidebar--wrapper">
   <div class="category-sidebar__list-group">
-    <h4 class="category-sidebar__heading text--uppercase">apparel categories</h4>
+    <h4 class="category-sidebar__heading text--uppercase">{{sidebar.catSlug}} categories</h4>
     <ul class="category-sidebar__list">
       <li ng-repeat="cat in sidebar.childCategories" class="category-sidebar__list-item">
         <a href="#" ng-click="sidebar.switchState(cat.slug)" class="category-sidebar__link text--capitalize">{{ cat.name }}</a>

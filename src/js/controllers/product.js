@@ -21,6 +21,9 @@ define(
           .then(function(result) {
             vm.item = result.posts;
             vm.loaded = !vm.loaded;
+            vm.images = vm.item.custom_fields.product_images;
+            vm.sliderImages = vm.item.custom_fields.product_images;
+            console.log(vm.item);
           })
       }
 

@@ -1,6 +1,16 @@
 <!-- product.item -->
-<!-- <div class="container row">
-  <category-sidebar class="col--md-3"></category-sidebar>
-</div>   -->
+<div class="container row">
+  <div class="product-slider col--sm-12 col--md-6">
+    <product-slider></product-slider>
+  </div>
+  <div class="product-overview col--sm-12 col--md-6">
+    <header>
+      <h2>{{product.item.title}}</h2>
+      <span class="product-sku">{{product.item.sku}}</span>
+      <div class="made-in-usa--wrapper">
+        <img ng-if="item.custom_fields.made_in_usa" class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
+      </div>
+    </header>
 
-<h3>akjsdl;fkja;lsdjkfl;ajksdf;</h3>
+  </div>
+</div>

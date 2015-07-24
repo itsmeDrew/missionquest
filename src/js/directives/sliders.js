@@ -22,7 +22,7 @@ define(
         restrict: 'E',
         templateUrl: 'partials/sliders/_slider-home.html',
         link: function() {
-
+          console.log('im at least here')
           $timeout(function() {
             // wait for data to load - fixes ng repeat problem
             $('.js-home-slider').slick({

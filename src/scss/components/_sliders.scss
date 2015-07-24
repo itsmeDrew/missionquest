@@ -19,7 +19,7 @@
  * HOME SLIDER
  */
 
-.home-slider__wrapper {
+.home-slider--wrapper {
   margin-bottom: $slider-margin-bottom;
   overflow: hidden;
 }
@@ -34,7 +34,7 @@
   }
 }
 
-.home-slider__wrapper--heading {
+.home-slider__heading--wrapper {
   @include breakpointLargerThan($breakpoint-small) {
     position: absolute;
     top: 40%;

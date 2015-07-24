@@ -23,7 +23,7 @@ define(
         Pages.getById(vm.homePageId)
           .then(function (result) {
             vm.page = result;
-            vm.sliderImages = result.custom_fields.product_images;
+            vm.sliderImages = result.custom_fields.slider_images;
           })
 
         getRecentProducts();

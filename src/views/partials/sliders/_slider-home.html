@@ -1,7 +1,7 @@
-<div class="js-home-slider home-slider__wrapper" ng-init="home.setHero()">
+<div class="js-home-slider home-slider--wrapper" ng-init="home.setHero()">
   <div class="home-slider__slide" ng-repeat="slide in home.sliderImages">
     <div class="container">
-      <div class="home-slider__wrapper--heading">
+      <div class="home-slider__heading--wrapper">
         <h2 class="home-slider__heading" style="color: {{ slide.slide_text_color }}">{{ slide.slide_text }}</h2>
         <a
           class="home-slider__cta"

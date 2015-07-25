@@ -4,7 +4,7 @@
     <product-slider></product-slider>
   </section>
   <section class="product-overview col--sm-12 col--md-6 col--md-push-1">
-    <header>
+    <header class="clearfix">
       <h2 class="product-title">{{product.item.title}}</h2>
       <span ng-if="product.productDetails.sku" class="product-sku">SKU: {{product.productDetails.sku}}</span>
       <div class="made-in-usa--wrapper">
@@ -31,7 +31,7 @@
     <h2 class="text--capitalize">{{product.item.title}} details</h2>
   </header>
   <div class="col--sm-12 col--md-5">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem reiciendis nobis, natus, voluptatem ullam quaerat. Possimus, ducimus, quasi. Dignissimos iste voluptatibus obcaecati laudantium saepe fugiat suscipit unde perspiciatis eius quo.</p>
+    <p>{{product.customFields.product_description}}</p>
   </div>
   <div class="col--sm-12 col--md-7">
     <ul class="product-details__list">

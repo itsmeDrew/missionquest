@@ -10,10 +10,10 @@
         <label class="category__label">products per page</label>
         <select
           class="category__input--select"
-          ng-options="option.id as option.value for option in category.perPageOptions"
+          ng-options="option.id as option.value for option in mq.perPageOptions"
           ng-model="category.perPage"
           ng-change="category.updatePostsPerPage()"
-          ng-init="category.perPage=category.perPage">
+          ng-init="category.perPage=mq.perPage">
         </select>
       </div>
     </header>

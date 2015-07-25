@@ -15,8 +15,11 @@ define(
 
       vm.searchOpen = $scope.$parent.mq.searchOpen;
       vm.menuOpen = $scope.$parent.mq.menuOpen;
-      vm.loaded = false;
+      vm.page = parseInt($location.search().page || 0, 10);
       vm.term = $location.$$search.terms;
+      vm.updatePostsPerPage = updatePostsPerPage;
+      vm.nextPage = nextPage;
+      vm.prevPage = prevPage;
 
       if (vm.menuOpen) {
         $scope.$emit('menu.toggle');
@@ -24,12 +27,35 @@ define(
         $scope.$emit('search.toggle');
       }
 
-      Post.searchAll(vm.term)
+      updatePosts();
+
+      function updatePosts() {
+        vm.loaded = false;
+
+        Post.searchAll(vm.term)
           .then(function (result) {
             vm.results = result.posts;
             vm.totalResults = vm.results.length;
             vm.loaded = true;
+            vm.totalPages = Math.ceil(vm.totalResults / vm.perPage);
           });
+      }
+
+      function updatePostsPerPage() {
+        console.log('updating');
+        vm.page = 0;
+        updatePosts();
+      }
+
+      function nextPage() {
+        console.log('updating next page')
+        vm.page++;
+      }
+
+      function prevPage() {
+        vm.page--;
+      }
+
     }
 
   }

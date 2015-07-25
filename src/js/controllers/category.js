@@ -20,8 +20,6 @@ define(
       vm.facet = true;
       vm.setFacet = setFacet;
       vm.updatePostsPerPage = updatePostsPerPage;
-      vm.perPage = 10;
-      vm.perPageOptions = [{'id': 2, 'value': 2}, {'id': 5, 'value': 5}, {'id': 10, 'value': 10}];
       vm.facet = $location.search().facet;
       vm.loaded = false;
       vm.totalProducts = 0;
@@ -33,6 +31,7 @@ define(
         vm.totalProducts = 0;
 
         if (vm.facet) {
+          console.log(vm.facet)
           Products.getByFacet(vm.catSlug, vm.page, vm.facet)
             .then(function(result) {
               vm.products = result;
@@ -40,6 +39,7 @@ define(
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               vm.loaded = !vm.loaded;
               vm.facet = $stateParams.facet;
+              console.log(result);
             })
         } else {
           Products.getByCategory(vm.catSlug, vm.page)

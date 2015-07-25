@@ -53,9 +53,10 @@ define(
 
        $http.get(url, { params: params || {} })
           .success(function(result) {
-            console.log('result:', result);
             for (var i = 0; i < result.length; i++) {
-              if (result[i].custom_fields.gender == facet || facet === 'made_in_usa' &&result[i].custom_fields.made_in_usa == !! facet) {
+              var _productDetails = result[i].custom_fields.product_details[0];
+
+              if (_productDetails.gender[0] == facet || _productDetails.gender[1] == facet || facet === 'made_in_usa' && result[i].custom_fields.made_in_usa == !! facet) {
                 _facetProducts.push(result[i]);
               }
             };

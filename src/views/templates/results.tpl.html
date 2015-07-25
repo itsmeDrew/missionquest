@@ -1,11 +1,47 @@
-<div ng-show="search.loaded">
-  <h2>we found {{search.totalResults}} result[s] for {{ search.term }}</h2>
-  <ul>
-    <li ng-repeat="result in search.results">
-      Post Title: {{ result.title }}
-    </li>
-  </ul>
-  <div ng-show="! search.totalResults">no results were found. try searching again.</div>
+<div class="container row">
+  <category-sidebar class="col--md-3"></category-sidebar>
+  <div class="category__results--wrapper col--md-9">
+    <header class="category__header clearfix">
+      <div class="category__heading--wrapper">
+        <h2 class="category__heading text--capitalize">showing results for {{search.term}}</h2>
+        <h2 ng-if="category.facet" class="category__heading text--capitalize">Filter: {{category.facet}}</h2>
+      </div>
+      <div class="category__filter">
+        <label class="category__label">results per page</label>
+        <select
+          class="category__input--select"
+          ng-options="option.id as option.value for option in mq.perPageOptions"
+          ng-model="result.perPage"
+          ng-change="search.updatePostsPerPage()"
+          ng-init="result.perPage=mq.perPage">
+        </select>
+      </div>
+    </header>
+    <div class="product-display__wrapper">
+      <ul class="product-display__list">
+        <li class="product-display__item" ng-repeat="product in search.results | limitTo:result.perPage:search.page*result.perPage">
+          <product-block></product-block>
+        </li>
+      </ul>
+    </div>
+    <div class="pagination--wrapper clearfix">
+      <div class="pagination__buttons--wrapper">
+        <button class="btn-prev" ng-show="search.page > 0" ng-click="search.prevPage()">
+          <i class="fa fa-arrow-left"></i>
+        </button>
+        <button class="btn-next" ng-show="search.page + 1 !== search.totalPages" ng-click="search.nextPage()">
+          <i class="fa fa-arrow-right"></i>
+        </button>
+      </div>
+      <span class="pagination__current-page text--capitalize">page {{ search.page + 1 }} out of {{ search.totalResults }}</span>
+    </div>
+
+    <div ng-show="category.totalResults === 0">
+      <h2>no results to show</h2>
+    </div>
+  </div>
 </div>
 
 <loading></loading>
+
+

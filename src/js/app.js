@@ -58,6 +58,8 @@ define(
       vm.email = "tom@missionquestadv.com";
       vm.menuOpen = false;
       vm.searchOpen = false;
+      vm.perPage = 10;
+      vm.perPageOptions = [{'id': 1, 'value': 1}, {'id': 5, 'value': 5}, {'id': 10, 'value': 10}];
 
       $rootScope.$on('$stateChangeStart', function(event) {
         vm.hero = false;

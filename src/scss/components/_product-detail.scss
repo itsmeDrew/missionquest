@@ -1,0 +1,41 @@
+.product-details {
+  margin-top: 3rem;
+}
+
+.product-details header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.product-title {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.product-sku {
+  color: $grey--medium;
+  margin: 1rem 0;
+  display: inline-block;
+}
+
+.product-share {
+  margin-top: 2rem;
+}
+
+.product-overview .made-in-usa--wrapper {
+  float: none;
+  display: inline-block;
+}
+
+.product-details__list-item {
+  padding: 1rem;
+}
+
+.product-details__list-item:nth-child(odd) {
+  background: lighten($mq--blue, 60%);
+}
+
+.product-detail__heading {
+  font-weight: bold;
+  margin-right: .5rem;
+}

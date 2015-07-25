@@ -68,7 +68,7 @@ define(
               slidesToShow: 3,
               slidesToScroll: 1,
               asNavFor: '.js-product-slider--display',
-              dots: true,
+              dots: false,
               centerMode: true,
               focusOnSelect: true
             });

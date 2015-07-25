@@ -1,16 +1,52 @@
 <!-- product.item -->
 <div class="container row">
-  <div class="product-slider col--sm-12 col--md-6">
+  <section class="product-slider col--sm-12 col--md-5 ">
     <product-slider></product-slider>
-  </div>
-  <div class="product-overview col--sm-12 col--md-6">
+  </section>
+  <section class="product-overview col--sm-12 col--md-6 col--md-push-1">
     <header>
-      <h2>{{product.item.title}}</h2>
-      <span class="product-sku">{{product.item.sku}}</span>
+      <h2 class="product-title">{{product.item.title}}</h2>
+      <span ng-if="product.productDetails.sku" class="product-sku">SKU: {{product.productDetails.sku}}</span>
       <div class="made-in-usa--wrapper">
-        <img ng-if="item.custom_fields.made_in_usa" class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
+        <img ng-if="product.madeInUsa" class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
       </div>
     </header>
-
+    <div class="product-share">
+      <h4 class="product-share__heading text--capitalize">share this product!</h4>
+      <a href="#" class="btn-social--wrapper">
+        <i class="btn-social fa fa-facebook"></i>
+      </a>
+      <a href="#" class="btn-social--wrapper">
+        <i class="btn-social fa fa-twitter"></i>
+      </a>
+      <a href="#" class="btn-social--wrapper">
+        <i class="btn-social fa fa-envelope-o"></i>
+      </a>
+    </div>
+    <a href="#" class="btn-quote">get a quote</a>
+  </section>
+</div>
+<div class="product-details container row">
+  <header>
+    <h2 class="text--capitalize">{{product.item.title}} details</h2>
+  </header>
+  <div class="col--sm-12 col--md-5">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem reiciendis nobis, natus, voluptatem ullam quaerat. Possimus, ducimus, quasi. Dignissimos iste voluptatibus obcaecati laudantium saepe fugiat suscipit unde perspiciatis eius quo.</p>
+  </div>
+  <div class="col--sm-12 col--md-7">
+    <ul class="product-details__list">
+      <li ng-if="product.productDetails.manufacturer" class="product-details__list-item">
+        <span class="product-detail__heading text--capitalize">manufacturer</span>
+        <span class="product-detail__detail text--capitalize">{{product.productDetails.manufacturer}}</span>
+      </li>
+      <li ng-if="product.productDetails.sku" class="product-details__list-item">
+        <span class="product-detail__heading text--capitalize">sku #</span>
+        <span class="product-detail__detail text--capitalize">{{product.productDetails.sku}}</span>
+      </li>
+      <li ng-if="product.productDetails.colors_available" class="product-details__list-item">
+        <span class="product-detail__heading text--capitalize">colors available</span>
+        <span class="product-detail__detail text--capitalize">{{product.productDetails.colors_available}}</span>
+      </li>
+    </ul>
   </div>
 </div>

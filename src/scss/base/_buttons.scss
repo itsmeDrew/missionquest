@@ -46,3 +46,19 @@
   @extend .btn-next;
 
 }
+
+.btn-social--wrapper {
+  @extend .btn-primary--lines;
+
+  padding: 1rem  1.5rem;
+  margin: 1rem 0;
+}
+
+.btn-social--wrapper a {
+  color: $black;
+}
+
+.btn-quote {
+  @extend .btn-primary;
+
+}

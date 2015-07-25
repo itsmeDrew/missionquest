@@ -21,9 +21,16 @@ define(
           .then(function(result) {
             vm.item = result.posts;
             vm.loaded = !vm.loaded;
-            vm.images = vm.item.custom_fields.product_images;
-            vm.sliderImages = vm.item.custom_fields.product_images;
+            vm.customFields = vm.item.custom_fields;
+            vm.images = vm.customFields.product_images;
+            vm.sliderImages = vm.customFields.product_images;
+            vm.madeInUsa = vm.customFields.made_in_usa;
+
+            if (vm.customFields.product_details) {
+              vm.productDetails = vm.customFields.product_details[0];
+            }
             console.log(vm.item);
+            console.log('vm.madeInUsa:', vm.madeInUsa);
           })
       }
 

@@ -6,6 +6,10 @@
   bottom: 15px;
 }
 
+.slick-prev:before, .slick-next:before {
+  color: $grey--medium;
+}
+
 .slick-dots li button:before {
   font-size: $base-font-size + 5;
   color: $slider-dots-inactive--color;
@@ -68,4 +72,20 @@
 
 .home-slider__cta:hover {
   color: darken($white, 25%);
+}
+
+/**
+ * PRODUCT SLIDER
+ */
+
+.product-slider {
+  position: relative;
+}
+
+.product-slider__image {
+  width: 100%;
+}
+
+.product-slider__slide-content {
+  margin: 0 1rem;
 }

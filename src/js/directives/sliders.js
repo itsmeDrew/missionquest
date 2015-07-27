@@ -5,27 +5,29 @@ define(
   [
     'angular',
     'jquery',
-    'slick'
+    'slick',
+    'directives/repeat-complete'
   ],
   function(angular) {
     angular
-      .module('App.MqDirective.Sliders', [])
+      .module('App.MqDirective.Sliders', [
+        'App.Common.RepeatComplete'
+      ])
       .directive('homeSlider', homeSlider)
       .directive('productSlider', productSlider);
 
     var breakpointSmall = 480;
-    var breakpointMedium = 600;
-    var breakpointLarge = 1024;
 
-    function homeSlider ($timeout) {
+    function homeSlider() {
       return {
         restrict: 'E',
+        replace: true,
         templateUrl: 'partials/sliders/_slider-home.html',
-        link: function() {
-          console.log('im at least here')
-          $timeout(function() {
-            // wait for data to load - fixes ng repeat problem
-            $('.js-home-slider').slick({
+        link: function(scope, element) {
+          scope.onComplete = onComplete;
+
+          function onComplete() {
+            element.slick({
               dots: true,
               arrows: true,
               autoplay: false,
@@ -43,39 +45,48 @@ define(
                 // instead of a settings object
               ]
             });
-          }, 1000)
-
+          }
         }
-      }
+      };
     }
 
-    function productSlider($timeout) {
+    function productSlider() {
       return {
         restrict: 'E',
+        replace: true,
         templateUrl: 'partials/sliders/_slider-products.html',
-        link: function() {
+        link: function(scope, element) {
+          var _called = false;
 
-          $timeout(function() {
-            // wait for data to load - fixes ng repeat problem
-            $('.js-product-slider--display').slick({
+          scope.onComplete = onComplete;
+
+          function onComplete() {
+            if (! _called) {
+              _called = true;
+              return;
+            }
+
+            element.find('.js-product-slider--display').slick({
               slidesToShow: 1,
               slidesToScroll: 1,
+              swipeToSlide: true,
               arrows: false,
               fade: true,
               asNavFor: '.js-product-slider--nav'
             });
-            $('.js-product-slider--nav').slick({
+
+            element.find('.js-product-slider--nav').slick({
               slidesToShow: 3,
               slidesToScroll: 1,
+              swipeToSlide: true,
               asNavFor: '.js-product-slider--display',
               dots: false,
               centerMode: true,
               focusOnSelect: true
             });
-          }, 1000)
-
+          }
         }
-      }
+      };
     }
 
   }

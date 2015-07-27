@@ -26,7 +26,7 @@ define(
         vm.submitForm = submitForm;
         vm.getForms = getForms;
 
-        console.log('getting that form son');
+        // console.log('getting that form son');
 
         function CalculateSig(stringToSign, privateKey) {
           var hash = CryptoJS.HmacSHA1(stringToSign, privateKey);
@@ -46,29 +46,21 @@ define(
 
           $http.get(_url)
             .success(function(result) {
-              console.log('result', result);
+              // console.log('result', result);
             })
             .error(function(result) {
               return false;
             });
         }
 
-        function submitForm (data, id) {
-          var _route = route + '/' + id + '/submissions';
+        function submitForm(data, id) {
+          var _url = '//missionquest.dev/api/gravityformsapi/forms/' + id + '/submissions';
 
-          generateSig('POST', _route);
-          var _url = 'http://missionquest.dev/' + apiRoute + _route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
-
-          console.log(_url);
-          $http({
+          return $http({
               method: 'POST',
               url: _url,
               data: data
-          })
-          .success(function (result) {
-            console.log(result);
-          })
-
+          });
         }
 
       }

@@ -55,22 +55,18 @@ define(
 
         function submitForm (data, id) {
           var _route = route + '/' + id + '/submissions';
-          console.log('_route:', _route);
 
           generateSig('POST', _route);
           var _url = 'http://missionquest.dev/' + apiRoute + _route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
-          console.log('_url:', _url);
-          console.log('data:', data);
-
-          $.ajax({
+          console.log(_url);
+          $http({
+              method: 'POST',
               url: _url,
-              type: 'POST',
-              data: JSON.stringify(data)
+              data: data
           })
-          .done(function (data, textStatus, xhr) {
-              var response = JSON.stringify(data.input_values, null, '\t');
-              console.log(response, textStatus, xhr);
+          .success(function (result) {
+            console.log(result);
           })
 
         }

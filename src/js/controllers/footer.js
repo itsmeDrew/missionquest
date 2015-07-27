@@ -35,14 +35,15 @@ define(
           })
       }
 
-      function submitForm() {
+      function submitForm(inputValue) {
         var _inputValues = {
-          input_1: $('#input_1').val()
+          input_1: inputValue
         }
         var data = {
           input_values: _inputValues
         };
-        console.log('submitting', data);
+
+        console.log('banjo!', inputValue);
         Forms.submitForm(data, '1');
       }
 

@@ -6,13 +6,7 @@
         <span class="footer-cta__heading text--grey text--uppercase">{{ mq.phone }}</span>
       </div>
       <div class="footer-cta__quote--wrapper col--sm-12 col--md-6">
-        <form ng-submit="footer.submitForm()" name="footer.newsletter" ng-hide="footer.newsletterSubmitted" novalidate>
-          <input class="footer-cta__quote--input text--capitalize" name="input_1" type="email" placeholder="email address" ng-model="footer.email" required ng-email>
-          <span class="error" ng-show="footer.newsletter.input_1.$error.required && footer.newsletter.$dirty">Required!</span><br>
-          <span class="error" ng-show="footer.newsletter.input_1.$error.email && footer.newsletter.$dirty">An email is required!</span><br>
-          <button class="footer-cta__quote--submit btn btn-primary">request a quote</button>
-        </form>
-        <p ng-show="footer.newsletterSubmitted">Thanks bitches!</p>
+        <form-quote-email></form-quote-email>
       </div>
     </div>
   </section>

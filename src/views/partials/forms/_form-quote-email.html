@@ -1,0 +1,12 @@
+<div class="form-quote-email__wrapper">
+  <form ng-submit="form.submitForm(1)" name="form.newsletter" ng-hide="form.newsletterSubmitted" novalidate>
+    <input class="form-quote-email__input text--capitalize" name="input_1" type="email" placeholder="email address" ng-model="form.email" required ng-email>
+    <span class="error" ng-show="form.newsletter.input_1.$error.required && form.newsletter.$dirty">Required!</span><br>
+    <span class="error" ng-show="form.newsletter.input_1.$error.email && form.newsletter.$dirty">An email is required!</span><br>
+    <button class="form-quote-email__btn--submit btn btn-primary">request a quote</button>
+  </form>
+  <div class="form-confirmation">
+    <h4 class="form-quote-email__confirmation-heading" ng-show="form.newsletterSubmitted">Thanks! We will get in touch!</h4>
+  </div>
+</div>
+

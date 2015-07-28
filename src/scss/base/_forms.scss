@@ -18,3 +18,86 @@ label {
   display: block;
   text-transform: capitalize;
 }
+
+.disabled {
+  color: $grey--medium;
+}
+
+.form-quote-email__input {
+  width: 100%;
+}
+
+.form-quote-email__btn--submit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: $white;
+  background-color: $mq--blue;
+}
+
+.form-quote-email__confirmation-heading {
+  color: $white;
+  line-height: 1.5;
+  font-size: $base-font-size + 10;
+}
+
+/**
+ * FORM QUOTE - PRODUCT
+ */
+
+.form-quote-product__wrapper {
+  background: $white;
+  padding: 2rem;
+}
+
+.form-quote-product__input--wrapper {
+  position: relative;
+}
+
+.form-quote-product__product-title {
+  margin: 1rem 0;
+}
+
+.form-quote-product__input--wrapper .error {
+  background: $mq--red;
+  color: $white;
+  padding: .25rem 1rem;
+  position: absolute;
+  right: 10px;
+  font-size: $base-font-size - 3;
+  font-weight: bold;
+  transform: translateY(50%);
+  top: 0;
+  opacity: 0.2;
+}
+
+.form-quote-product__input,
+.form-quote-product__btn--submit {
+  width: 100%
+}
+
+.form-quote-product__product-title {
+  display: block;
+}
+
+.form-quote-product__btn--cancel {
+  @extend .form-quote-product__btn--submit;
+
+  margin-top: 1rem;
+  background-color: $tar;
+  color: $white;
+}
+
+.form-quote-product__confirmation-message {
+  color: $black;
+  display: inline-block;
+  width: 70%;
+  font-weight: bold;
+}
+
+.form-confirmation__icon.fa {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 4em;
+  color: $green--confirmation;
+}

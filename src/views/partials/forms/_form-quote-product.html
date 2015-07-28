@@ -1,0 +1,17 @@
+<div class="form-quote-product__wrapper">
+  <form ng-submit="productForm.submitForm(3, product.item.title)" name="productForm.newsletter" ng-hide="productForm.newsletterSubmitted" novalidate>
+    <div class="form-quote-product__input--wrapper">
+      <input class="form-quote-product__input text--capitalize" name="input_1" type="email" placeholder="email address" ng-model="productForm.email" required ng-email>
+      <span class="error text--uppercase" ng-show="productForm.newsletter.input_1.$error.required && productForm.newsletter.$dirty">Required!</span>
+      <span class="error text--uppercase" ng-show="productForm.newsletter.input_1.$error.email && productForm.newsletter.$dirty">Email Is Required!</span>
+    </div>
+    <span class="form-quote-product__product-title disabled">Interested In: {{product.item.title}}</span>
+    <button class="form-quote-product__btn--submit btn btn-primary">request a quote</button>
+    <button class="form-quote-product__btn--cancel btn btn-primary" ng-show="quoteRequested" ng-click="quoteRequested = false">cancel</button>
+  </form>
+  <div class="form-confirmation" ng-show="productForm.newsletterSubmitted">
+    <i class="form-confirmation__icon fa fa-check-circle-o"></i>
+    <p class="form-quote-product__confirmation-message">Thanks! We will be in touch soon with a quote on {{product.item.title}}. Meanwhile keep browsing!</p>
+  </div>
+</div>
+

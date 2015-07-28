@@ -24,7 +24,9 @@ define(
   'directives/loading',
   'directives/product-block',
   'directives/sliders',
-  'directives/sidebars'
+  'directives/sidebars',
+  'directives/form-quote-email',
+  'directives/form-quote-product'
   ],
   function(angular) {
     angular
@@ -48,7 +50,9 @@ define(
       'App.MqDirective.Loading',
       'App.MqDirective.ProductBlock',
       'App.MqDirective.Sliders',
-      'App.MqDirective.Sidebars'
+      'App.MqDirective.Sidebars',
+      'App.MqDirective.Form.Quote.Email',
+      'App.MqDirective.Form.Quote.Product'
     ])
     .controller('MqController', mqCtrl);
 

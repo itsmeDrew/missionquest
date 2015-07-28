@@ -15,12 +15,9 @@ define(
 
       vm.categories = [];
       vm.getPages = getPages;
-      vm.submitForm = submitForm;
-      vm.newsletterSubmitted = false;
 
       updateCategories();
       getPages();
-      getForms();
 
       function updateCategories () {
         ProductCategory.getParent()
@@ -34,24 +31,6 @@ define(
           .then(function (result) {
             vm.pages = result;
           })
-      }
-
-      function submitForm() {
-        if (vm.newsletter.$invalid) return;
-
-        Forms.submitForm({
-          input_values: {
-            input_1: vm.email
-          }
-        }, '1').success(function(data) {
-          if (data.response.is_valid) {
-            vm.newsletterSubmitted = true;
-          }
-        });
-      }
-
-      function getForms() {
-        Forms.getForms();
       }
     }
 

@@ -31,7 +31,6 @@ define(
         vm.totalProducts = 0;
 
         if (vm.facet) {
-          console.log(vm.facet)
           Products.getByFacet(vm.catSlug, vm.page, vm.facet)
             .then(function(result) {
               vm.products = result;
@@ -39,7 +38,6 @@ define(
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               vm.loaded = !vm.loaded;
               vm.facet = $stateParams.facet;
-              console.log(result);
             })
         } else {
           Products.getByCategory(vm.catSlug, vm.page)

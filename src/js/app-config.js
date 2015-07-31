@@ -48,8 +48,18 @@ define(
             }
           }
         })
+        .state('home.page', {
+          url: ':pageName',
+          views: {
+            'content@': {
+              templateUrl: 'templates/page.tpl.html',
+              controller: 'PageController',
+              controllerAs: 'page'
+            }
+          }
+        })
         .state('home.category', {
-          url: ':catSlug',
+          url: 'category/:catSlug',
           views: {
             'content@': {
               templateUrl: 'templates/category.tpl.html',

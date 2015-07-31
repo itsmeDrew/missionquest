@@ -15,6 +15,7 @@ define(
 
       vm.categories = [];
       vm.getPages = getPages;
+      vm.goToPage = goToPage;
 
       updateCategories();
       getPages();
@@ -31,6 +32,12 @@ define(
           .then(function (result) {
             vm.pages = result;
           })
+      }
+
+      function goToPage(pageName, $location) {
+        console.log('going to page', pageName)
+        console.log('$location:', $location);
+        $state.go('home.page', { pageName: pageName } );
       }
     }
 

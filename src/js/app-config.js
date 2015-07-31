@@ -49,7 +49,7 @@ define(
           }
         })
         .state('home.page', {
-          url: ':pageName',
+          url: ':pageName?ID',
           views: {
             'content@': {
               templateUrl: 'templates/page.tpl.html',

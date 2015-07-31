@@ -29,8 +29,7 @@ define(
             if (vm.customFields.product_details) {
               vm.productDetails = vm.customFields.product_details[0];
             }
-            console.log(vm.item);
-            console.log('vm.madeInUsa:', vm.madeInUsa);
+
           })
       }
 

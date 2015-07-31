@@ -31,13 +31,12 @@ define(
         Pages.getAll()
           .then(function (result) {
             vm.pages = result;
+            console.log('vm.pages:', vm.pages);
           })
       }
 
-      function goToPage(pageName, $location) {
-        console.log('going to page', pageName)
-        console.log('$location:', $location);
-        $state.go('home.page', { pageName: pageName } );
+      function goToPage(pageName, pageID) {
+        $state.go('home.page', { pageName: pageName, ID: pageID } );
       }
     }
 

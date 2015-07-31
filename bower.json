@@ -21,6 +21,7 @@
     "bootstrap-sass": "~3.3.5",
     "font-awesome-sass": "~4.3.1",
     "bedrock": "jscarmona/bedrock",
-    "slick-carousel": "https://github.com/kenwheeler/slick.git#~1.5.6"
+    "slick-carousel": "https://github.com/kenwheeler/slick.git#~1.5.6",
+    "angular-sanitize": "~1.4.3"
   }
 }

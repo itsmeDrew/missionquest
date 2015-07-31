@@ -6,7 +6,8 @@ require.config({
     almond: '../../bower_components/almond/almond',
     jquery: '../../bower_components/jquery/dist/jquery',
     uiRouter: '../../bower_components/ui-router/release/angular-ui-router',
-    slick: '../../bower_components/slick-carousel/slick/slick'
+    ngSanitize: '../../bower_components/angular-sanitize/angular-sanitize',
+    slick: '../../bower_components/slick-carousel/slick/slick',
   },
   shim: {
     slick: [ 'jquery' ],
@@ -14,6 +15,7 @@ require.config({
       exports: 'angular',
       deps: [ 'jquery' ]
     },
+    ngSanitize: [ 'angular' ],
     uiRouter: [ 'angular' ]
   },
   deps: [

@@ -3,6 +3,7 @@
 define(
   [
   'angular',
+  'ngSanitize',
   'uiRouter',
   'jquery',
   'slick',
@@ -33,6 +34,7 @@ define(
     angular
     .module('App', [
       'ui.router',
+      'ngSanitize',
       'App.Templates',
       'App.MqConfig',
       'App.MqService.Post.Posts',

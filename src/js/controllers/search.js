@@ -42,13 +42,11 @@ define(
       }
 
       function updatePostsPerPage() {
-        console.log('updating');
         vm.page = 0;
         updatePosts();
       }
 
       function nextPage() {
-        console.log('updating next page')
         vm.page++;
       }
 

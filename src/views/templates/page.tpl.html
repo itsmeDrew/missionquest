@@ -1,4 +1,17 @@
+<div class="hero-default" style="background-image: url('{{page.heroImg.url}}'); height: {{page.hero.hero_size}}px" ng-init="mq.setHero()">
+    <div class="hero-default__content text--center">
+      <div class="container">
+      <h2 class="hero-default__heading text--uppercase" style="color: {{page.hero.hero_text_color}}">{{page.heroText}}</h2>
+    </div>
+  </div>
+</div>
 <div class="container">
-  {{page.page.title}}
-  <div ng-bind-html="page.page.content"></div>
+  <header class="page-header">
+    <h2>{{page.page.title}}</h2>
+  </header>
+  <section class="page-content">
+    <article class="article-content">
+      <div ng-bind-html="page.contentHTML()"></div>
+    </article>
+  </section>
 </div>

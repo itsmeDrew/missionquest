@@ -1,0 +1,15 @@
+.hero-default {
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: none;
+  padding: 1rem 0;
+  margin-bottom: 3rem;
+}
+
+.hero-default__content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

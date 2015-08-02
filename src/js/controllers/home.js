@@ -15,7 +15,6 @@ define(
       vm.perPage = 4;
       vm.page = 1; //only want the first 4 recent products
       vm.homePageId = 78;
-      vm.setHero = setHero;
 
       getHomeData();
 
@@ -34,10 +33,6 @@ define(
           .then(function (result) {
             vm.recentProducts = result.posts;
           })
-      }
-
-      function setHero() {
-        $scope.$emit('hero');
       }
 
     }

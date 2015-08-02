@@ -70,13 +70,10 @@ define(
       vm.searchOpen = false;
       vm.perPage = 10;
       vm.perPageOptions = [{'id': 1, 'value': 1}, {'id': 5, 'value': 5}, {'id': 10, 'value': 10}];
+      vm.setHero = setHero;
 
       $rootScope.$on('$stateChangeStart', function(event) {
         vm.hero = false;
-      })
-
-      $scope.$on('hero', function () {
-        vm.hero = ! vm.hero;
       })
 
       $scope.$on('menu.toggle', function() {
@@ -86,6 +83,10 @@ define(
       $scope.$on('search.toggle', function() {
         vm.searchOpen = ! vm.searchOpen;
       });
+
+      function setHero() {
+        vm.hero = ! vm.hero;
+      }
 
     }
   }

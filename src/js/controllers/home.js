@@ -22,7 +22,9 @@ define(
         Pages.getById(vm.homePageId)
           .then(function (result) {
             vm.page = result;
-            vm.sliderImages = result.custom_fields.slider_images;
+            vm.customFields = vm.page.custom_fields;
+            vm.sliderImages = vm.customFields.slider_images;
+            console.log('vm.page:', vm.page);
           })
 
         getRecentProducts();

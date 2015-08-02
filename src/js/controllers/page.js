@@ -20,7 +20,6 @@ define(
       function updatePost() {
         Pages.getById(vm.pageID)
           .then(function (result) {
-            console.log('result:', result);
             vm.page = result;
             vm.content = vm.page.content;
             vm.hero = vm.page.custom_fields.hero[0];

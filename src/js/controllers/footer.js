@@ -31,7 +31,6 @@ define(
         Pages.getAll()
           .then(function (result) {
             vm.pages = result;
-            console.log('vm.pages:', vm.pages);
           })
       }
 

@@ -23,14 +23,40 @@ label {
   color: $grey--medium;
 }
 
+.form-quote__input--wrapper {
+  position: relative;
+}
+
+.form-quote__input--wrapper .error {
+  background: $mq--red;
+  color: $white;
+  padding: .25rem 1rem;
+  position: absolute;
+  right: 10px;
+  font-size: $base-font-size - 3;
+  font-weight: bold;
+  transform: translateY(50%);
+  top: 0;
+  opacity: 0.2;
+}
+
+/**
+ * FORM QUOTE - EMAIL
+ */
+
+.form-quote-email--wrapper .form-quote__input--wrapper {
+  width: 65%;
+  float: left;
+  display: inline-block;
+}
+
 .form-quote-email__input {
   width: 100%;
 }
 
 .form-quote-email__btn--submit {
-  position: absolute;
-  right: 0;
-  top: 0;
+  float: right;
+  width: 35%;
   color: $white;
   background-color: $mq--blue;
 }
@@ -50,25 +76,8 @@ label {
   padding: 2rem;
 }
 
-.form-quote-product__input--wrapper {
-  position: relative;
-}
-
 .form-quote-product__product-title {
   margin: 1rem 0;
-}
-
-.form-quote-product__input--wrapper .error {
-  background: $mq--red;
-  color: $white;
-  padding: .25rem 1rem;
-  position: absolute;
-  right: 10px;
-  font-size: $base-font-size - 3;
-  font-weight: bold;
-  transform: translateY(50%);
-  top: 0;
-  opacity: 0.2;
 }
 
 .form-quote-product__input,

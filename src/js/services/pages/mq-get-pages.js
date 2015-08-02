@@ -23,12 +23,19 @@ define(
           } else {
             $http.get('http://missionquest.dev/api/wp-json/posts?type[]=page')
               .success(function(result) {
-                _pages = result;
+                var exludeSlug = 'private';
 
-                deferred.resolve(result);
+                console.log('result:', result);
+                for (var i = 0; i < result.length; i++) {
+                  if (result[i].parent && result[i].parent.slug !== exludeSlug || result[i].slug !== exludeSlug && !result[i].parent) {
+                    _pages.push(result[i]);
+                  }
+                };
+
+                deferred.resolve(_pages);
               })
               .error(function(result) {
-                 deferred.reject(result);
+                 deferred.reject(_pages);
               });
           }
           return deferred.promise;

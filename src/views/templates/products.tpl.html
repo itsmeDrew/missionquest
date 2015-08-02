@@ -2,6 +2,13 @@
 <div class="container row">
   <section class="product-slider col--sm-12 col--md-5 ">
     <product-slider></product-slider>
+    <div class="product-available--wrapper" ng-show="product.customFields.also_available_in">
+      <a
+        class="product-available__link text--capitalize"
+        ui-sref="home.category.product({ postID: product.customFields.gender_page_link.ID, postSlug: product.customFields.gender_page_link.post_name })">
+        also available in {{product.customFields.also_available_in}}
+      </a>
+    </div>
   </section>
   <section class="product-overview col--sm-12 col--md-5 col--md-push-1">
     <header class="clearfix">

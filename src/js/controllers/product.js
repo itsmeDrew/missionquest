@@ -26,6 +26,7 @@ define(
             vm.sliderImages = vm.customFields.product_images;
             vm.madeInUsa = vm.customFields.made_in_usa;
 
+            console.log('vm.item:', vm.item);
             if (vm.customFields.product_details) {
               vm.productDetails = vm.customFields.product_details[0];
             }

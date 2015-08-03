@@ -12,7 +12,7 @@ define(
 
     function HomeController(Products, Pages, $stateParams, $state, $scope) {
       var vm = this;
-      vm.perPage = 4;
+      vm.perPage = 6;
       vm.page = 1; //only want the first 4 recent products
       vm.homePageId = 78;
 

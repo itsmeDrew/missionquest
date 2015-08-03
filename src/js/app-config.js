@@ -48,16 +48,6 @@ define(
             }
           }
         })
-        .state('home.page', {
-          url: ':pageName?ID',
-          views: {
-            'content@': {
-              templateUrl: 'templates/page.tpl.html',
-              controller: 'PageController',
-              controllerAs: 'page'
-            }
-          }
-        })
         .state('home.category', {
           url: 'category/:catSlug',
           views: {
@@ -68,13 +58,23 @@ define(
             }
           }
         })
-        .state('home.category.product', {
-          url: '/:postSlug?postID',
+        .state('home.product', {
+          url: 'products/:postSlug?postID',
           views: {
             'content@': {
               templateUrl: 'templates/products.tpl.html',
               controller: 'ProductController',
               controllerAs: 'product'
+            }
+          }
+        })
+        .state('home.page', {
+          url: ':pageName?ID',
+          views: {
+            'content@': {
+              templateUrl: 'templates/page.tpl.html',
+              controller: 'PageController',
+              controllerAs: 'page'
             }
           }
         });

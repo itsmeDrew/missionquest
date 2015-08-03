@@ -20,6 +20,15 @@ define(
       vm.toggleMenu = toggleMenu;
       $rootScope.$mobile = false;
 
+      var unbindCategories = $scope.$watchCollection(function() {
+        return ProductCategory.getAll();
+      }, function(categories) {
+        if (categories.length) {
+          vm.categories = categories;
+          unbindCategories();
+        }
+      });
+
       init();
 
       function init() {
@@ -55,10 +64,7 @@ define(
       }
 
       function updateCategories () {
-        ProductCategory.getParent()
-          .then(function (result) {
-            vm.categories = result[0].parentCategories;
-          })
+        //
       }
 
     }

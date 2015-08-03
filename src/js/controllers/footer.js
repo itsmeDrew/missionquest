@@ -20,11 +20,17 @@ define(
       updateCategories();
       getPages();
 
+      var unbindCategories = $scope.$watchCollection(function() {
+        return ProductCategory.getAll();
+      }, function(categories) {
+        if (categories.length) {
+          vm.categories = categories;
+          unbindCategories();
+        }
+      });
+
       function updateCategories () {
-        ProductCategory.getParent()
-          .then(function (result) {
-            vm.categories = result[0].parentCategories;
-          })
+        //
       }
 
       function getPages() {

@@ -63,7 +63,7 @@ define(
     function mqCtrl($scope, $state, $rootScope) {
       var vm = this;
 
-      vm.phone = "941.555.5555";
+      vm.phone = "941.567.6177";
       vm.address = "P Sherman 42 Wallabe Way, Sydney";
       vm.email = "tom@missionquestadv.com";
       vm.menuOpen = false;

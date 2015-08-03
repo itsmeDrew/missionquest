@@ -1,5 +1,5 @@
 <div class="product-display__wrapper--image">
-  <a ui-sref=".category.product({ postID: product.ID, postSlug: product.slug })">
+  <a ui-sref="home.product({ postID: product.ID, postSlug: product.slug })">
     <img
       class="product-display__image"
       ng-if="product.custom_fields.product_images"
@@ -10,7 +10,7 @@
 </div>
 <div class="product-display__details--wrapper">
   <div class="product-display__link--wrapper">
-    <a class="product-display__link" ui-sref="home.category.product({ postID: product.ID, postSlug: product.slug })">
+    <a class="product-display__link" ui-sref="home.product({ postID: product.ID, postSlug: product.slug })">
       {{ product.title }}
     </a>
   </div>

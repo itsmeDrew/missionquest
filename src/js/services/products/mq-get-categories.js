@@ -10,63 +10,52 @@ define(
       .service('ProductCategory', ProductCategory);
 
       function ProductCategory($q, $http) {
-        var _childCategories = [];
+        var _categories = [];
 
         this.getAll = getAll;
-        this.getParent = getParent;
+        this.findBySlug = findBySlug;
+
+        init();
+
+        function init() {
+          $http.get('http://missionquest.dev/api/wp-json/taxonomies/product_category/terms?filter[order]=ASC')
+            .success(function(result) {
+              for (var i = 0; i < result.length; i++) {
+                var cat = result[i];
+
+                if (cat.parent) {
+                  var parent = findBySlug(cat.parent.slug);
+
+                  if (! parent) {
+                    parent = _addCategory(cat.parent);
+                  }
+
+                  parent.children.push(cat);
+                } else if (! findBySlug(cat.slug)) {
+                  _addCategory(cat);
+                }
+              }
+            });
+        }
 
         function getAll() {
-          var deferred = $q.defer();
-
-          if (_categories.length) {
-            deferred.resolve(_categories);
-          } else {
-            $http.get('http://missionquest.dev/api/wp-json/taxonomies/product_category/terms')
-              .success(function(result) {
-                _categories = result;
-
-                deferred.resolve(result);
-              })
-              .error(function(result) {
-                 deferred.reject(result);
-              });
-          }
-
-          return deferred.promise;
+          return _categories;
         }
 
-        function getParent(catSlug) {
-          var _categories = [
-            {
-              parentCategories: []
-            },
-            {
-              childrenCategories: []
+        function findBySlug(slug) {
+          for (var i = 0; i < _categories.length; i++) {
+            if (_categories[i].slug === slug) {
+              return _categories[i];
             }
-          ];
-          var deferred = $q.defer();
-
-          if (_categories[0].length || _categories[1].length) {
-            deferred.resolve(_categories);
-          } else {
-            $http.get('http://missionquest.dev/api/wp-json/taxonomies/product_category/terms?filter[order]=DESC')
-              .success(function(result) {
-                for (var i = result.length - 1; i >= 0; i--) {
-                  if (! result[i].parent && result[i].slug !== 'uncategorized') {
-                    _categories[0].parentCategories.push(result[i]);
-                  } else if (result[i].parent.slug === catSlug) {
-                    _categories[1].childrenCategories.push(result[i]);
-                  }
-                };
-                deferred.resolve(_categories);
-              })
-              .error(function(result) {
-                 deferred.reject(result);
-              });
           }
-          return deferred.promise;
         }
 
+        function _addCategory(category) {
+          category.children = [];
+          _categories.push(category);
+
+          return category;
+        }
       }
   }
 );

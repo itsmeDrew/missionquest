@@ -12,9 +12,13 @@
 
   background-color: $mq--blue;
   padding: 1rem 2rem;
-  text-transform: uppercase;
   font-weight: 400;
   font-size: $base-font-size - 3;
+  color: $white;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
   color: $white;
 }
 
@@ -29,6 +33,16 @@
 .btn-primary--lines:hover {
   color: $mq--blue;
   border-color: $mq--blue;
+}
+
+.btn-secondary {
+  @extend .btn-primary;
+
+  background-color: $mq--red;
+}
+
+.btn-secondary:hover {
+  background-color: darken($mq--red, 5%);
 }
 
 .btn-next {
@@ -63,4 +77,10 @@
 
   width: 100%;
   text-align: center;
+}
+
+.btn-quote:hover {
+  @extend .btn-primary:hover;
+
+  background-color: darken($mq--blue, 5%);
 }

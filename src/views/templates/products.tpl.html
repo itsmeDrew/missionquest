@@ -4,7 +4,7 @@
     <product-slider></product-slider>
     <div class="product-available--wrapper" ng-show="product.customFields.also_available_in">
       <a
-        class="product-available__link text--capitalize"
+        class="product-available__link btn-secondary"
         ui-sref="home.product({ postID: product.customFields.gender_page_link.ID, postSlug: product.customFields.gender_page_link.post_name })">
         also available in {{product.customFields.also_available_in}}
       </a>
@@ -19,7 +19,7 @@
       </div>
     </header>
     <div class="product-share">
-      <h4 class="product-share__heading text--capitalize">share this product!</h4>
+      <!-- <h4 class="product-share__heading text--capitalize">share this product!</h4> -->
       <a href="#" class="btn-social--wrapper">
         <i class="btn-social fa fa-facebook"></i>
       </a>
@@ -32,29 +32,29 @@
     </div>
     <a href="#" class="btn-quote" ng-click="quoteRequested = true" ng-hide="quoteRequested">get a quote</a>
     <form-quote-product ng-show="quoteRequested"></form-quote-product>
+    <div class="product-details row">
+      <header>
+        <h3 class="product-details__heading text--capitalize">{{product.item.title}} details</h3>
+      </header>
+      <div class="col--sm-12">
+        <p class="product-details__description">{{product.customFields.product_description}}</p>
+      </div>
+      <div class="col--sm-12">
+        <ul class="product-details__list">
+          <li ng-if="product.productDetails.manufacturer" class="product-details__list-item">
+            <span class="product-detail__heading text--capitalize">manufacturer</span>
+            <span class="product-detail__detail text--capitalize">{{product.productDetails.manufacturer}}</span>
+          </li>
+          <li ng-if="product.productDetails.sku" class="product-details__list-item">
+            <span class="product-detail__heading text--capitalize">sku #</span>
+            <span class="product-detail__detail text--capitalize">{{product.productDetails.sku}}</span>
+          </li>
+          <li ng-if="product.productDetails.colors_available" class="product-details__list-item">
+            <span class="product-detail__heading text--capitalize">colors available</span>
+            <span class="product-detail__detail text--capitalize">{{product.productDetails.colors_available}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
-</div>
-<div class="product-details container row">
-  <header>
-    <h2 class="text--capitalize">{{product.item.title}} details</h2>
-  </header>
-  <div class="col--sm-12 col--md-5">
-    <p>{{product.customFields.product_description}}</p>
-  </div>
-  <div class="col--sm-12 col--md-7">
-    <ul class="product-details__list">
-      <li ng-if="product.productDetails.manufacturer" class="product-details__list-item">
-        <span class="product-detail__heading text--capitalize">manufacturer</span>
-        <span class="product-detail__detail text--capitalize">{{product.productDetails.manufacturer}}</span>
-      </li>
-      <li ng-if="product.productDetails.sku" class="product-details__list-item">
-        <span class="product-detail__heading text--capitalize">sku #</span>
-        <span class="product-detail__detail text--capitalize">{{product.productDetails.sku}}</span>
-      </li>
-      <li ng-if="product.productDetails.colors_available" class="product-details__list-item">
-        <span class="product-detail__heading text--capitalize">colors available</span>
-        <span class="product-detail__detail text--capitalize">{{product.productDetails.colors_available}}</span>
-      </li>
-    </ul>
-  </div>
 </div>

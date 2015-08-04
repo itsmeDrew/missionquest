@@ -6,7 +6,7 @@
       <span class="error text--uppercase" ng-show="productForm.newsletter.input_1.$error.email && productForm.newsletter.$dirty">Email Is Required!</span>
     </div>
     <span class="form-quote-product__product-title disabled">Interested In: {{product.item.title}}</span>
-    <button class="form-quote-product__btn--submit btn btn-primary">request a quote</button>
+    <button class="form-quote-product__btn--submit btn btn-quote">request a quote</button>
     <button class="form-quote-product__btn--cancel btn btn-primary" ng-show="quoteRequested" ng-click="quoteRequested = false">cancel</button>
   </form>
   <div class="form-confirmation" ng-show="productForm.newsletterSubmitted">

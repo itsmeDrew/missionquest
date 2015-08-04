@@ -84,8 +84,14 @@
 
 .product-slider__image {
   width: 100%;
+  border: $product-slider__image--border;
 }
 
-.product-slider__slide-content {
-  margin: 0 1rem;
+.product-slider--wrapper.slick-initialized .slick-slide {
+  opacity: 0.4;
+  margin: 0 10px;
+}
+
+.product-slider--wrapper.slick-initialized .slick-slide.slick-current {
+  opacity: 1;
 }

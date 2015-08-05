@@ -17,6 +17,7 @@ define(
       updatePost();
 
       function updatePost() {
+        console.log('getting product')
         Post.getById($stateParams.postID)
           .then(function(result) {
             vm.item = result.posts;

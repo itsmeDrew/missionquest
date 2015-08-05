@@ -42,7 +42,7 @@ define(
         function getForms() {
           generateSig(methodGet, route);
 
-          var _url = config.baseUrl + apiRoute + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+          var _url = config.baseUrl + '/' + apiRoute + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
           $http.get(_url)
             .success(function(result) {

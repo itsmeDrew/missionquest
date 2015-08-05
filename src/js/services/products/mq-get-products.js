@@ -20,6 +20,7 @@ define(
         this.getByFacet = getByFacet;
 
         function getById(id) {
+          console.log('here')
           var requestUrl = config.api.posts + '/' + id;
           return _makeRequest(requestUrl);
         }

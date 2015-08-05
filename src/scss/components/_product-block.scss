@@ -3,6 +3,10 @@
   position: relative;
 }
 
+.product-block--wrapper:hover .product-display__link {
+  color: $mq--blue;
+}
+
 .product-display__wrapper--image {
   margin-bottom: .85rem;
 }
@@ -32,7 +36,6 @@
   color: $white;
   position: absolute;
   top: 10px;
-  z-index: 999;
   right: -10px;
 }
 

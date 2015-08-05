@@ -52,7 +52,7 @@
 
 .header-main__search--input,
 .header-mobile__search--input {
-  padding: .75rem 1rem;
+  padding: .75rem 2.5rem;
   width: 100%;
   text-transform: uppercase;
   font-weight: 400;
@@ -66,6 +66,15 @@
     border: none;
   }
 }
+
+.header-main__search--icon.fa {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1rem;
+  color: $black;
+}
+
 .header-main__wrapper--right {
   transform: translateY(50%);
 }

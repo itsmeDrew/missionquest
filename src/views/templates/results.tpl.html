@@ -11,15 +11,15 @@
         <select
           class="category__input--select"
           ng-options="option.id as option.value for option in mq.perPageOptions"
-          ng-model="result.perPage"
+          ng-model="search.perPage"
           ng-change="search.updatePostsPerPage()"
-          ng-init="result.perPage=mq.perPage">
+          ng-init="search.perPage=mq.perPage">
         </select>
       </div>
     </header>
     <div class="product-display__wrapper">
       <ul class="product-display__list">
-        <li class="product-display__item" ng-repeat="product in search.results | limitTo:result.perPage:search.page*result.perPage">
+        <li class="product-display__item" ng-repeat="product in search.results | limitTo:result.search:search.page*search.perPage">
           <product-block></product-block>
         </li>
       </ul>
@@ -33,7 +33,7 @@
           <i class="fa fa-arrow-right"></i>
         </button>
       </div>
-      <span class="pagination__current-page text--capitalize">page {{ search.page + 1 }} out of {{ search.totalResults }}</span>
+      <span class="pagination__current-page text--capitalize">page {{ search.page + 1 }} out of {{ search.totalPages }}</span>
     </div>
 
     <div ng-show="category.totalResults === 0">

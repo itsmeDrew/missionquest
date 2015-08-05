@@ -9,7 +9,7 @@ define(
       .module('App.MqController.Category', [])
       .controller('CategoryController', CategoryController);
 
-    function CategoryController($location, $state, Products, ProductCategory, $stateParams) {
+    function CategoryController($location, $state, $rootScope, Products, ProductCategory, $stateParams) {
       var vm = this;
 
       vm.totalProducts = 0;
@@ -30,6 +30,8 @@ define(
         vm.loaded = false;
         vm.totalProducts = 0;
 
+        console.log('vm.page:', vm.page);
+
         if (vm.facet) {
           Products.getByFacet(vm.catSlug, vm.page, vm.facet)
             .then(function(result) {
@@ -38,7 +40,8 @@ define(
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               vm.loaded = !vm.loaded;
               vm.facet = $stateParams.facet;
-            })
+
+            });
         } else {
           Products.getByCategory(vm.catSlug, vm.page)
             .then(function(result) {
@@ -47,7 +50,7 @@ define(
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               vm.loaded = !vm.loaded;
               vm.name = $stateParams.catSlug;
-            })
+            });
             $location.search('facet', vm.facet);
         }
       }

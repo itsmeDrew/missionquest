@@ -9,9 +9,8 @@ define(
       .module('App.MqController.Search', [])
       .controller('SearchController', SearchController);
 
-    function SearchController(Post, $scope, $rootScope, $location, $stateParams, $state) {
+    function SearchController(Post, $scope, $rootScope, $location) {
       var vm = this;
-      var $bodyEl = $('body');
 
       vm.searchOpen = $scope.$parent.mq.searchOpen;
       vm.menuOpen = $scope.$parent.mq.menuOpen;
@@ -20,6 +19,7 @@ define(
       vm.updatePostsPerPage = updatePostsPerPage;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
+      vm.totalResults = 0;
 
       if (vm.menuOpen) {
         $scope.$emit('menu.toggle');
@@ -31,6 +31,7 @@ define(
 
       function updatePosts() {
         vm.loaded = false;
+        console.log('vm.perPage:', vm.perPage);
 
         Post.searchAll(vm.term)
           .then(function (result) {

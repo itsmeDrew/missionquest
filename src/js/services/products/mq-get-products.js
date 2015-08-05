@@ -10,7 +10,7 @@ define(
       .module('App.MqService.Product.Products', [])
       .service('Products', Products);
 
-      function Products($q, $http) {
+      function Products($q, $http, config) {
         var _postsPerPage = 1;
 
         this.getAll = getAll;
@@ -20,69 +20,71 @@ define(
         this.getByFacet = getByFacet;
 
         function getById(id) {
-          var url = 'http://missionquest.dev/api/wp-json/posts/' + id;
-          return _makeRequest(url);
+          var requestUrl = config.api.posts + '/' + id;
+          return _makeRequest(requestUrl);
         }
 
         function getByCategory(cat, page) {
-          var url = 'http://missionquest.dev/api/wp-json/posts?type[]=products&filter[taxonomy]=product_category&filter[term]=' + cat;
           var params = {
-             page: parseInt(page, 10)
+             page: parseInt(page, 10),
+             'type[]': 'products',
+             'filter[taxonomy]': 'product_category',
+             'filter[term]': cat
           };
-          return _makeRequest(url, params);
+
+          return _makeRequest(config.api.posts, params);
         }
 
         function getAll(page, postsPerPage) {
-          var url = 'http://missionquest.dev/api/wp-json/posts';
           var params = {
-            'type': 'products',
+            type: 'products',
             page: parseInt(page, 10),
             'filter[posts_per_page]': parseInt(postsPerPage, 10)
           };
-
-          return _makeRequest(url, params);
+          return _makeRequest(config.api.posts, params);
         }
 
-      function getByFacet(cat, page, facet) {
-        var deferred = $q.defer();
-        var url = 'http://missionquest.dev/api/wp-json/posts?type[]=products&filter[taxonomy]=product_category&filter[term]=' + cat;
-        var params = {
-          page: parseInt(page, 10)
-        };
-        var _facetProducts = [ ];
+        function getByFacet(cat, page, facet) {
+          var deferred = $q.defer();
+          var params = {
+             page: parseInt(page, 10),
+             'type[]': 'products',
+             'filter[taxonomy]': 'product_category',
+             'filter[term]': cat
+          };
+          var _facetProducts = [ ];
 
-       $http.get(url, { params: params || {} })
-          .success(function(result) {
-            for (var i = 0; i < result.length; i++) {
-              var _productDetails = result[i].custom_fields.product_details[0];
+         $http.get(config.api.posts, { params: params || {} })
+            .success(function(result) {
+              for (var i = 0; i < result.length; i++) {
+                var _productDetails = result[i].custom_fields.product_details[0];
 
-              if (_productDetails.gender[0] == facet || _productDetails.gender[1] == facet || facet === 'made_in_usa' && result[i].custom_fields.made_in_usa == !! facet) {
-                _facetProducts.push(result[i]);
-              }
-            };
+                if (_productDetails.gender[0] == facet || _productDetails.gender[1] == facet || facet === 'made_in_usa' && result[i].custom_fields.made_in_usa == !! facet) {
+                  _facetProducts.push(result[i]);
+                }
+              };
 
-            deferred.resolve(_facetProducts);
-          })
-          .error(function(result) {
-             deferred.reject(result);
-          });
+              deferred.resolve(_facetProducts);
+            })
+            .error(function(result) {
+               deferred.reject(result);
+            });
 
-          return deferred.promise;
+            return deferred.promise;
         }
 
-      function searchAll(term) {
-        var url = 'http://missionquest.dev/api/wp-json/posts';
-        var params = {
-          'filter[s]': term
-        };
+        function searchAll(term) {
+          var params = {
+            'filter[s]': term
+          };
 
-        return _makeRequest(url, params);
-      }
+          return _makeRequest(config.api.posts, params);
+        }
 
-        function _makeRequest(url, params) {
+        function _makeRequest(requestUrl, params) {
           var deferred = $q.defer();
 
-          $http.get(url, { params: params || {} })
+          $http.get(requestUrl, { params: params || {} })
             .success(function(result, status, headers) {
               var response = {
                 posts: result,

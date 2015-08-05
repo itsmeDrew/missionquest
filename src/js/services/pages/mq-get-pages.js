@@ -9,7 +9,7 @@ define(
       .module('App.MqService.Pages', [])
       .service('Pages', Pages);
 
-      function Pages($q, $http) {
+      function Pages($q, $http, config) {
 
         this.getAll = getAll;
         this.getById = getById;
@@ -21,7 +21,7 @@ define(
           if (_pages.length) {
             deferred.resolve(_pages);
           } else {
-            $http.get('http://missionquest.dev/api/wp-json/posts?type[]=page')
+            $http.get(config.api.posts + '?type[]=page')
               .success(function(result) {
                 var exludeSlug = 'private';
 
@@ -48,7 +48,7 @@ define(
           if (_pages.length) {
             deferred.resolve(_pages);
           } else {
-            $http.get('http://missionquest.dev/api/wp-json/posts?type[]=page&filter[page_id]=' + pageId)
+            $http.get(config.api.posts + '?type[]=page&filter[page_id]=' + pageId)
               .success(function(result) {
                 _pages = result[0];
 

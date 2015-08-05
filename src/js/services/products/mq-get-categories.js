@@ -9,7 +9,7 @@ define(
       .module('App.MqService.Product.Category', [])
       .service('ProductCategory', ProductCategory);
 
-      function ProductCategory($q, $http) {
+      function ProductCategory($q, $http, config) {
         var _categories = [];
 
         this.getAll = getAll;
@@ -18,7 +18,7 @@ define(
         init();
 
         function init() {
-          $http.get('http://missionquest.dev/api/wp-json/taxonomies/product_category/terms?filter[order]=ASC')
+          $http.get(config.api.categories + '?filter[order]=ASC')
             .success(function(result) {
               for (var i = 0; i < result.length; i++) {
                 var cat = result[i];

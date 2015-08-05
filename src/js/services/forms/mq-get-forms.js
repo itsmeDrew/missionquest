@@ -10,7 +10,7 @@ define(
       .module('App.MqService.Forms', [])
       .service('Forms', Forms);
 
-      function Forms($http) {
+      function Forms($http, config) {
         var d = new Date;
         var expiration = 3600; // 1 hr
         var unixtime = parseInt(d.getTime() / 1000);
@@ -42,7 +42,7 @@ define(
         function getForms() {
           generateSig(methodGet, route);
 
-          var _url = 'http://missionquest.dev/' + apiRoute + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+          var _url = config.baseUrl + apiRoute + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
           $http.get(_url)
             .success(function(result) {

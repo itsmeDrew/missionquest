@@ -6,6 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Angular Test</title>
 
+  <script>
+    var baseUrl = '//missionquest.dev';
+
+    window.config = {
+        baseUrl: baseUrl,
+        api: {
+          posts: baseUrl + '/api/wp-json/posts',
+          categories: baseUrl + '/api/wp-json/taxonomies/product_category/terms'
+        }
+      };
+    </script>
   <link rel="stylesheet" href="/assets/css/main.min.css">
 </head>
 <body ng-controller="MqController as mq" ng-class="{ 'mobile-menu--active': mq.menuOpen, 'mobile-search--active': mq.searchOpen, 'hero': mq.hero }">

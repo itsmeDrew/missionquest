@@ -7,11 +7,12 @@ define(
   function(angular) {
     angular
       .module('App.MqConfig', [])
+      .constant('config', window.config)
       .config(mqConfig);
 
     function mqConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       $locationProvider.html5Mode(true);
-      console.log($stateProvider);
+
       $stateProvider
         .state('home', {
           url: '/',

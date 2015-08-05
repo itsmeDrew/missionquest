@@ -10,7 +10,7 @@ define(
       .module('App.MqService.Post.Posts', [])
       .service('Post', Post);
 
-      function Post($q, $http) {
+      function Post($q, $http, config) {
         var _postsPerPage = 1;
 
         this.getAll = getAll;
@@ -19,42 +19,40 @@ define(
         this.searchAll = searchAll;
 
         function getById(id) {
-          var url = 'http://missionquest.dev/api/wp-json/posts/' + id;
-          return _makeRequest(url);
+          return _makeRequest(config.api.posts + id);
         }
 
         function getByCategory(cat, page, postsPerPage) {
-          var url = 'http://missionquest.dev/api/wp-json/posts?filter[cat]=' + cat;
           var params = {
              page: parseInt(page, 10),
-            'filter[posts_per_page]': parseInt(postsPerPage, 10)
+            'filter[posts_per_page]': parseInt(postsPerPage, 10),
+            'filter[cat]=': cat
           };
-          return _makeRequest(url, params);
+          return _makeRequest(config.api.posts, params);
         }
 
         function getAll(page, postsPerPage) {
-          var url = 'http://missionquest.dev/api/wp-json/posts';
           var params = {
             page: parseInt(page, 10),
             'filter[posts_per_page]': parseInt(postsPerPage, 10)
           };
 
-          return _makeRequest(url, params);
+          return _makeRequest(config.api.posts, params);
         }
 
       function searchAll(term) {
-        var url = 'http://missionquest.dev/api/wp-json/posts?type=products';
         var params = {
+          type: 'products',
           'filter[s]': term
         };
 
-        return _makeRequest(url, params);
+        return _makeRequest(congig.api.posts, params);
       }
 
-        function _makeRequest(url, params) {
+        function _makeRequest(requestUrl, params) {
           var deferred = $q.defer();
 
-          $http.get(url, { params: params || {} })
+          $http.get(requestUrl, { params: params || {} })
             .success(function(result, status, headers) {
               var response = {
                 posts: result,

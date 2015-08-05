@@ -11,49 +11,40 @@
     </div>
   </section>
   <section class="product-overview col--sm-12 col--md-5 col--md-push-1">
-    <header class="clearfix">
-      <h2 class="product-title">{{product.item.title}}</h2>
-      <span ng-if="product.productDetails.sku" class="product-sku">SKU: {{product.productDetails.sku}}</span>
-      <div class="made-in-usa--wrapper">
-        <img ng-if="product.madeInUsa" class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
-      </div>
+    <header class="product-overview__header clearfix">
+      <h2 class="product-title__product text--uppercase">{{product.item.title}}</h2>
+      <h3 class="product-title__manufacturer text--uppercase">by {{product.productDetails.manufacturer}}</h3>
     </header>
-    <div class="product-share">
-      <!-- <h4 class="product-share__heading text--capitalize">share this product!</h4> -->
-      <a href="#" class="btn-social--wrapper">
-        <i class="btn-social fa fa-facebook"></i>
-      </a>
-      <a href="#" class="btn-social--wrapper">
-        <i class="btn-social fa fa-twitter"></i>
-      </a>
-      <a href="#" class="btn-social--wrapper">
-        <i class="btn-social fa fa-envelope-o"></i>
-      </a>
-    </div>
-    <a href="#" class="btn-quote" ng-click="quoteRequested = true" ng-hide="quoteRequested">get a quote</a>
-    <form-quote-product ng-show="quoteRequested"></form-quote-product>
+    <section class="product-details--wrapper">
+      <div class="product-details clearfix">
+        <span ng-if="product.productDetails.sku" class="product-detail__detail product-sku">SKU: {{product.productDetails.sku}}</span>
+        <div class="made-in-usa--wrapper">
+          <img ng-if="product.madeInUsa" class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
+        </div>
+        <div class="product-detail__details--wrapper">
+          <span class="product-detail__detail text--capitalize">{{product.productDetails.colors_available}}</span>
+        </div>
+      </div>
+      <div class="product-share">
+        <a href="#" class="btn-social--wrapper">
+          <i class="btn-social fa fa-facebook"></i>
+        </a>
+        <a href="#" class="btn-social--wrapper">
+          <i class="btn-social fa fa-twitter"></i>
+        </a>
+        <a href="#" class="btn-social--wrapper">
+          <i class="btn-social fa fa-envelope-o"></i>
+        </a>
+      </div>
+      <a href="#" class="btn-quote" ng-click="quoteRequested = true" ng-hide="quoteRequested">get a quote</a>
+      <form-quote-product ng-show="quoteRequested"></form-quote-product>
+    </section>
     <div class="product-details row">
       <header>
         <h3 class="product-details__heading text--capitalize">{{product.item.title}} details</h3>
       </header>
       <div class="col--sm-12">
         <p class="product-details__description">{{product.customFields.product_description}}</p>
-      </div>
-      <div class="col--sm-12">
-        <ul class="product-details__list">
-          <li ng-if="product.productDetails.manufacturer" class="product-details__list-item">
-            <span class="product-detail__heading text--capitalize">manufacturer</span>
-            <span class="product-detail__detail text--capitalize">{{product.productDetails.manufacturer}}</span>
-          </li>
-          <li ng-if="product.productDetails.sku" class="product-details__list-item">
-            <span class="product-detail__heading text--capitalize">sku #</span>
-            <span class="product-detail__detail text--capitalize">{{product.productDetails.sku}}</span>
-          </li>
-          <li ng-if="product.productDetails.colors_available" class="product-details__list-item">
-            <span class="product-detail__heading text--capitalize">colors available</span>
-            <span class="product-detail__detail text--capitalize">{{product.productDetails.colors_available}}</span>
-          </li>
-        </ul>
       </div>
     </div>
   </section>

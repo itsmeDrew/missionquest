@@ -6,11 +6,14 @@
       </div>
     </div>
   </div>
-  <div class="js-product-slider--nav product-slider--wrapper">
-    <div class="product-slider__slide" ng-repeat="image in product.sliderImages" repeat-complete="onComplete()">
-      <div class="product-slider__slide-content">
-        <img class="product-slider__image" src="{{ image.product_image.url }}" alt="{{ image.product_image.alt }}">
+  <div class="banjo">
+    <div class="js-product-slider--nav product-slider--wrapper">
+      <div class="product-slider__slide" ng-repeat="image in product.sliderImages" repeat-complete="onComplete()">
+        <div class="product-slider__slide-content">
+          <img class="product-slider__image" src="{{ image.product_image.url }}" alt="{{ image.product_image.alt }}">
+        </div>
       </div>
     </div>
   </div>
+
 </div>

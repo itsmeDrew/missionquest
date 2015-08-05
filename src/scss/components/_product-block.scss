@@ -1,12 +1,6 @@
-.product-display__item {
+.product-block--wrapper {
   margin-bottom: 3rem;
-}
-
-.product-display__link--wrapper {
-  $product-display-padding: .75rem;
-  padding-bottom: $product-display-padding;
-  margin-bottom: $product-display-padding;
-  border-bottom: 2px solid $product-block-rule-color;
+  position: relative;
 }
 
 .product-display__wrapper--image {
@@ -18,18 +12,28 @@
   height: auto;
 }
 
+.product-display__details--wrapper {
+  border-top: 1px solid $grey--subtle;
+  padding-top: .5rem;
+}
+
 .product-display__link {
   color: $product-block-link-color;
+  font-size: $base-font-size - 3;
+  font-weight: 600;
 }
 
 .product-display__featured--wrapper {
-  float: right;
   display: inline-block;
   font-size: 80%;
-  border-radius: 99px;
-  background-color: $grey--medium;
+  border-radius: 16px;
+  background-color: $mq--red;
   padding: .3rem .75rem;
   color: $white;
+  position: absolute;
+  top: 10px;
+  z-index: 999;
+  right: -10px;
 }
 
 .made-in-usa--wrapper {

@@ -9,7 +9,7 @@ define(
       .module('App.MqController.Product', [])
       .controller('ProductController', ProductController);
 
-    function ProductController(Post, $location, $stateParams, $state) {
+    function ProductController(Products, $location, $stateParams, $state) {
       var vm = this;
 
       vm.loaded = false;
@@ -18,8 +18,9 @@ define(
 
       function updatePost() {
         console.log('getting product')
-        Post.getById($stateParams.postID)
+        Products.getById($stateParams.postID)
           .then(function(result) {
+            console.log('got it')
             vm.item = result.posts;
             vm.loaded = !vm.loaded;
             vm.customFields = vm.item.custom_fields;
@@ -27,7 +28,6 @@ define(
             vm.sliderImages = vm.customFields.product_images;
             vm.madeInUsa = vm.customFields.made_in_usa;
 
-            console.log('vm.item:', vm.item);
             if (vm.customFields.product_details) {
               vm.productDetails = vm.customFields.product_details[0];
             }

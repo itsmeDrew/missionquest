@@ -54,7 +54,7 @@ define(
         }
 
         function submitForm(data, id) {
-          var _url = '//missionquest.dev/api/gravityformsapi/forms/' + id + '/submissions';
+          var _url = config.baseUrl + '/api/gravityformsapi/forms/' + id + '/submissions';
 
           return $http({
               method: 'POST',

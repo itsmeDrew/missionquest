@@ -48,7 +48,7 @@ gulp.task('build:views', function() {
       });
 });
 
-gulp.task('build:js', function(cb) {
+gulp.task('build:js', [ 'clean:js' ], function(cb) {
   var options = {
     baseUrl: './src/js',
     mainConfigFile: './src/js/main.js',

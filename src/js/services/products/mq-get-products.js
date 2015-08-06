@@ -19,10 +19,7 @@ define(
         this.searchAll = searchAll;
         this.getByFacet = getByFacet;
 
-        console.log('1')
-
         function getById(id) {
-          console.log('getting by id');
           var requestUrl = config.api.posts + '/' + id;
           return _makeRequest(requestUrl);
         }

@@ -17,10 +17,8 @@ define(
       updatePost();
 
       function updatePost() {
-        console.log('getting product')
         Products.getById($stateParams.postID)
           .then(function(result) {
-            console.log('got it')
             vm.item = result.posts;
             vm.loaded = !vm.loaded;
             vm.customFields = vm.item.custom_fields;

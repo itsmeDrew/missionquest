@@ -26,8 +26,6 @@ define(
         vm.submitForm = submitForm;
         vm.getForms = getForms;
 
-        // console.log('getting that form son');
-
         function CalculateSig(stringToSign, privateKey) {
           var hash = CryptoJS.HmacSHA1(stringToSign, privateKey);
           var base64 = hash.toString(CryptoJS.enc.Base64);
@@ -46,7 +44,6 @@ define(
 
           $http.get(_url)
             .success(function(result) {
-              // console.log('result', result);
             })
             .error(function(result) {
               return false;

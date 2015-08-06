@@ -24,7 +24,6 @@ define(
             vm.page = result;
             vm.customFields = vm.page.custom_fields;
             vm.sliderImages = vm.customFields.slider_images;
-            console.log('vm.page:', vm.page);
           })
 
         getRecentProducts();

@@ -31,7 +31,6 @@ define(
 
       function updatePosts() {
         vm.loaded = false;
-        console.log('vm.perPage:', vm.perPage);
 
         Post.searchAll(vm.term)
           .then(function (result) {

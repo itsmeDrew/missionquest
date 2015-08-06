@@ -46,7 +46,7 @@ define(
           'filter[s]': term
         };
 
-        return _makeRequest(congig.api.posts, params);
+        return _makeRequest(config.api.posts, params);
       }
 
         function _makeRequest(requestUrl, params) {

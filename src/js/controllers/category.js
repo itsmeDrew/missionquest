@@ -30,8 +30,6 @@ define(
         vm.loaded = false;
         vm.totalProducts = 0;
 
-        console.log('vm.page:', vm.page);
-
         if (vm.facet) {
           Products.getByFacet(vm.catSlug, vm.page, vm.facet)
             .then(function(result) {

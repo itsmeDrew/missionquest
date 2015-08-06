@@ -25,7 +25,6 @@ define(
               .success(function(result) {
                 var exludeSlug = 'private';
 
-                console.log('result:', result);
                 for (var i = 0; i < result.length; i++) {
                   if (result[i].parent && result[i].parent.slug !== exludeSlug || result[i].slug !== exludeSlug && !result[i].parent) {
                     _pages.push(result[i]);

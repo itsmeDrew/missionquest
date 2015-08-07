@@ -5,7 +5,7 @@
     <div class="product-available--wrapper" ng-show="product.customFields.also_available_in">
       <a
         class="product-available__link btn-secondary"
-        ui-sref="home.product({ postID: product.customFields.gender_page_link.ID, postSlug: product.customFields.gender_page_link.post_name })">
+        ui-sref="home.product({ slug: product.customFields.gender_page_link.post_name })">
         also available in {{product.customFields.also_available_in}}
       </a>
     </div>

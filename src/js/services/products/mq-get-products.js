@@ -15,13 +15,17 @@ define(
 
         this.getAll = getAll;
         this.getByCategory = getByCategory;
-        this.getById = getById;
+        this.getBySlug = getBySlug;
         this.searchAll = searchAll;
         this.getByFacet = getByFacet;
 
-        function getById(id) {
-          var requestUrl = config.api.posts + '/' + id;
-          return _makeRequest(requestUrl);
+        function getBySlug(slug) {
+          var params = {
+            type: 'products',
+            'filter[name]': slug
+          };
+
+          return _makeRequest(config.api.posts, params);
         }
 
         function getByCategory(cat, page) {

@@ -60,22 +60,43 @@ define(
           }
         })
         .state('home.product', {
-          url: 'products/:postSlug?postID',
+          url: 'products/:slug',
           views: {
             'content@': {
               templateUrl: 'templates/products.tpl.html',
               controller: 'ProductController',
               controllerAs: 'product'
             }
+          },
+          resolve: {
+            product: function($stateParams, Products) {
+              return Products.getBySlug($stateParams.slug)
+                .then(getProduct);
+
+              function getProduct(data) {
+                var item = data.posts[0];
+
+                if (! item) {
+                  $state.go('home');
+                } else {
+                  return item;
+                }
+              }
+            }
           }
         })
         .state('home.page', {
-          url: ':pageName?ID',
+          url: ':pageName',
           views: {
             'content@': {
               templateUrl: 'templates/page.tpl.html',
               controller: 'PageController',
               controllerAs: 'page'
+            }
+          },
+          resolve: {
+            page: function ($stateParams, Pages) {
+              return Pages.getByName($stateParams.pageName);
             }
           }
         });

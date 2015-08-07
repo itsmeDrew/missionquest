@@ -13,6 +13,7 @@ define(
 
         this.getAll = getAll;
         this.getById = getById;
+        this.getByName = getByName;
 
         function getAll() {
           var deferred = $q.defer();
@@ -48,6 +49,26 @@ define(
             deferred.resolve(_pages);
           } else {
             $http.get(config.api.posts + '?type[]=page&filter[page_id]=' + pageId)
+              .success(function(result) {
+                _pages = result[0];
+
+                deferred.resolve(_pages);
+              })
+              .error(function(result) {
+                 deferred.reject(result);
+              });
+          }
+          return deferred.promise;
+        }
+
+        function getByName(pageName) {
+          var deferred = $q.defer();
+          var _pages = [];
+
+          if (_pages.length) {
+            deferred.resolve(_pages);
+          } else {
+            $http.get(config.api.posts + '?type[]=page&filter[pagename]=' + pageName)
               .success(function(result) {
                 _pages = result[0];
 

@@ -40,10 +40,10 @@
 
 .home-slider__heading--wrapper {
   @include breakpointLargerThan($breakpoint-small) {
-    position: absolute;
-    top: 40%;
-    left: 150px;
-    transform: translateY(-50%);
+    position: relative;
+    left: 0;
+    transform: translateY(40%);
+    -webkit-transform: translateY(40%);
     width: $slider-heading-width;
   }
 
@@ -56,11 +56,6 @@
     font-weight: 800;
     line-height: 1.2;
   }
-}
-
-.home-slider__image {
-  width: 100%;
-  min-height: 100%;
 }
 
 .home-slider__cta {

@@ -36,6 +36,7 @@ label {
   font-size: $base-font-size - 3;
   font-weight: bold;
   transform: translateY(50%);
+  -webkit-transform: translateY(50%);
   top: 0;
   opacity: 0.2;
 }

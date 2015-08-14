@@ -471,3 +471,4 @@ function productCategoryRegister() {
 	}
 
 	add_filter( 'parse_query', 'taxonomy_filter_post_type_request' );
+	remove_filter( 'the_title', 'wptexturize' );

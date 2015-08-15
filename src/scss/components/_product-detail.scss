@@ -1,5 +1,11 @@
 .product-overview__header {
   padding-bottom: 1rem;
+  border-bottom: 1px solid $grey--subtle;
+  margin-bottom: 2rem;
+}
+
+.product-overview__header--group {
+  margin-top: 1rem;
 }
 
 .product-available--wrapper {
@@ -11,7 +17,7 @@
 .product-available__link {
   padding: .5rem 2rem;
   color: $white;
-  font-size: $base-font-size;
+  font-size: $base-font-size - 3;
   text-transform: capitalize;
 }
 
@@ -34,8 +40,8 @@
 
 .product-sku {
   color: $grey--medium;
-  float: right;
-  margin: 0;
+  float: left;
+  line-height: $base-line-height;
 }
 
 .product-share {
@@ -44,18 +50,22 @@
 
 .product-overview .made-in-usa--wrapper {
   float: left;
+  font-size: $base-font-size - 3;
+  margin-left: 1rem;
+}
+
+.made-in-usa__text {
+  position: relative;
+  display: inline-block;
+  transform: translateY(-30%);
 }
 
 /**
  * PRODUCT DETAILS
  */
 
-.product-details--wrapper {
-  border-top: 1px solid $grey--subtle;
-}
-
 .product-details {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .product-detail__details--wrapper {
@@ -75,7 +85,10 @@
 }
 
 .product-details__heading {
-  font-size: $base-font-size + 8;
+  font-size: $base-font-size;
+  color: $black;
+  margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .product-details__description {

@@ -40,9 +40,6 @@ define(
                     dots: false
                   }
                 }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
               ]
             });
           }
@@ -65,25 +62,6 @@ define(
               _called = true;
               return;
             }
-
-            element.find('.js-product-slider--display').slick({
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              swipeToSlide: true,
-              arrows: false,
-              fade: true,
-              asNavFor: '.js-product-slider--nav'
-            });
-
-            element.find('.js-product-slider--nav').slick({
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              swipeToSlide: true,
-              asNavFor: '.js-product-slider--display',
-              dots: false,
-              centerMode: true,
-              focusOnSelect: true
-            });
           }
         }
       };

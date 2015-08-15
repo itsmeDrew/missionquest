@@ -24,8 +24,8 @@
       <h3 class="product-title__manufacturer text--uppercase">by {{product.productDetails.manufacturer}}</h3>
       <div class="product-overview__header--group">
         <span ng-if="product.productDetails.sku" class="product-detail__detail product-sku">SKU: {{product.productDetails.sku}}</span>
-        <div class="made-in-usa--wrapper">
-          <img ng-if="product.madeInUsa" class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
+        <div class="made-in-usa--wrapper" ng-if="product.madeInUsa">
+          <img class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
           <span class="made-in-usa__text text--capitalize">made in usa</span>
         </div>
       </div>

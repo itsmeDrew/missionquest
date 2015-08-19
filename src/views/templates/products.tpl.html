@@ -1,66 +1,87 @@
 <!-- product.item -->
-<div class="container row">
-  <section class="product-slider col--sm-12 col--md-5 ">
-    <div>
-      <div class="js-product-slider--display">
-        <div class="product-slider__slide" ng-repeat="image in product.sliderImages" repeat-complete="product.onComplete()">
-          <div class="product-slider__slide-content">
-            <img class="product-slider__image" src="{{ image.product_image.url }}" alt="{{ image.product_image.alt }}">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product-available--wrapper" ng-show="product.customFields.also_available_in">
-      <a
-        class="product-available__link btn-secondary"
-        ui-sref="home.product({ slug: product.customFields.gender_page_link.post_name })">
-        also available in {{product.customFields.also_available_in}}
-      </a>
-    </div>
-  </section>
-  <section class="product-overview col--sm-12 col--md-5 col--md-push-1">
-    <header class="product-overview__header clearfix">
-      <h2 class="product-title__product text--uppercase">{{product.item.title}}</h2>
-      <h3 class="product-title__manufacturer text--uppercase">by {{product.productDetails.manufacturer}}</h3>
-      <div class="product-overview__header--group">
-        <span ng-if="product.productDetails.sku" class="product-detail__detail product-sku">SKU: {{product.productDetails.sku}}</span>
-        <div class="made-in-usa--wrapper" ng-if="product.madeInUsa">
-          <img class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
-          <span class="made-in-usa__text text--capitalize">made in usa</span>
-        </div>
-      </div>
-    </header>
-    <section class="product-details--wrapper">
-      <div class="product-details clearfix">
-        <h3 class="product-details__heading text--capitalize">colors available:</h3>
-        <div class="product-slider__controls">
-          <div class="js-product-slider--nav product-slider--wrapper">
-            <div class="product-slider__slide" ng-repeat="image in product.sliderImages" repeat-complete="onComplete()">
-              <div class="product-slider__slide-content">
-                <img class="product-slider__image" src="{{ image.product_image.url }}" alt="{{ image.product_image.alt }}">
-              </div>
+<section class="product-details--wrapper">
+  <div class="container row">
+    <section class="product-slider col--sm-12 col--md-5 col--md-push-1">
+      <div>
+        <div class="js-product-slider--display">
+          <div class="product-slider__slide" ng-repeat="image in product.sliderImages" repeat-complete="product.onComplete()">
+            <div class="product-slider__slide-content">
+              <img class="product-slider__image" src="{{ image.product_image.url }}" alt="{{ image.product_image.alt }}">
             </div>
           </div>
         </div>
       </div>
-      <a href="#" class="btn-quote" ng-click="quoteRequested = true" ng-hide="quoteRequested">get a quote</a>
-      <form-quote-product ng-show="quoteRequested"></form-quote-product>
+      <div class="product-available--wrapper" ng-show="product.customFields.also_available_in">
+        <a
+          class="product-available__link btn-secondary"
+          ui-sref="home.product({ slug: product.customFields.gender_page_link.post_name })">
+          also available in {{product.customFields.also_available_in}}
+        </a>
+      </div>
+      <div class="product-share">
+        <a href="https://www.facebook.com/sharer/sharer.php" class="btn-social--wrapper" target="_blank">
+          <i class="btn-social fa fa-facebook"></i>
+        </a>
+        <a href="#" class="btn-social--wrapper">
+          <i class="btn-social fa fa-twitter"></i>
+        </a>
+        <a href="#" class="btn-social--wrapper">
+          <i class="btn-social fa fa-envelope-o"></i>
+        </a>
+      </div>
     </section>
-    <div class="product-details row">
-      <div class="col--sm-12">
-        <p class="product-details__description">{{product.customFields.product_description}}</p>
-        <div class="product-share">
-          <a href="https://www.facebook.com/sharer/sharer.php" class="btn-social--wrapper" target="_blank">
-            <i class="btn-social fa fa-facebook"></i>
-          </a>
-          <a href="#" class="btn-social--wrapper">
-            <i class="btn-social fa fa-twitter"></i>
-          </a>
-          <a href="#" class="btn-social--wrapper">
-            <i class="btn-social fa fa-envelope-o"></i>
-          </a>
+    <section class="product-overview col--sm-12 col--md-5 col--md-push-1">
+      <header class="product-overview__header clearfix">
+        <h2 class="product-title__product text--uppercase">{{product.item.title}}</h2>
+        <h3 ng-if="product.productDetails.manufacturer" class="product-title__manufacturer text--uppercase">by {{product.productDetails.manufacturer}}</h3>
+        <div class="product-overview__header--group">
+          <span ng-if="product.productDetails.sku" class="product-detail__detail product-sku">SKU: {{product.productDetails.sku}}</span>
+          <div class="made-in-usa--wrapper" ng-if="product.madeInUsa">
+            <img class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
+            <span class="made-in-usa__text text--capitalize">made in usa</span>
+          </div>
+        </div>
+      </header>
+      <section class="product-details--wrapper">
+        <div class="product-details clearfix">
+          <div class="product-slider__controls">
+            <div class="js-product-slider--nav product-slider--wrapper">
+              <div class="product-slider__slide" ng-repeat="image in product.sliderImages" repeat-complete="onComplete()">
+                <div class="product-slider__slide-content">
+                  <img class="product-slider__image" src="{{ image.product_image.url }}" alt="{{ image.product_image.alt }}">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn-quote" ng-click="quoteRequested = true" ng-hide="quoteRequested">get a quote</a>
+        <form-quote-product ng-show="quoteRequested"></form-quote-product>
+      </section>
+      <div class="product-details row">
+        <div class="col--sm-12">
+          <p class="product-details__description">{{product.customFields.product_description}}</p>
         </div>
       </div>
+    </section>
+  </div>
+</section>
+<section class="additional-details--wrapper" ng-if="product.customFields.additional_details">
+  <div class="container row">
+    <div class="col--sm-12 col--md-3 col--md-push-2">
+      <img class="product-slider__image" src="{{ product.sliderImages[0].product_image.url }}" alt="{{ image.product_image.alt }}">
     </div>
-  </section>
-</div>
+    <div class="product-overview col--sm-12 col--md-5 col--md-push-2">
+      <h2 class="additional-details__heading text--uppercase">product details</h2>
+      <ul class="additional-details__list">
+        <li ng-repeat="detail in product.customFields.additional_details" class="additional-details__list-item">
+          <div class="row">
+            <div class="col--md-4"><span class="additional-details__label">{{detail.label}}</span></div>
+            <div class="col--md-8">
+              <span class="additional-details__description">{{detail.description}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

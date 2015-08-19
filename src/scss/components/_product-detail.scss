@@ -1,3 +1,7 @@
+section.product-details--wrapper .container {
+  border-bottom: 2px solid white;
+}
+
 .product-overview__header {
   padding-bottom: 1rem;
   border-bottom: 1px solid $grey--subtle;
@@ -11,7 +15,7 @@
 .product-available--wrapper {
   position: absolute;
   top: $product-available--spacing;
-  right: -$product-available--spacing;
+  left: -$product-available--spacing;
 }
 
 .product-available__link {
@@ -93,4 +97,29 @@
 
 .product-details__description {
   margin-bottom: 2rem;
+}
+
+.additional-details--wrapper .container {
+  margin-top: 1px;
+  padding-top: 2rem;
+  border-top: 1px solid #DCDCDC;
+}
+
+.additional-details__list-item {
+  padding: 1rem 0.5rem;
+  font-size: $additional-details__font-size;
+}
+
+.additional-details__list-item:nth-child(odd) {
+  background-color: $grey--subtle;
+}
+
+.additional-details__heading {
+  @extend .product-title__product;
+
+  margin-bottom: 1rem;
+}
+
+.additional-details__label {
+  font-weight: bold;
 }

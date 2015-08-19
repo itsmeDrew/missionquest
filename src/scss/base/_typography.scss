@@ -2,7 +2,7 @@ p {
   font-family: $font-family-sans-serif;
   line-height: $base-line-height;
   color: $base-font-color;
-  font-size: $base-font-size;
+  font-size: $base-font-size - 2;
 }
 
 h1 {

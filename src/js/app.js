@@ -70,6 +70,7 @@ define(
       vm.searchOpen = false;
       vm.perPage = 10;
       vm.perPageOptions = [{'id': 1, 'value': 1}, {'id': 10, 'value': 10}, {'id': 20, 'value': 20}];
+      vm.orderByOptions = [{'id': 'name', 'value': 'name'}, {'id': 'ID', 'value': 'date'}];
       vm.setHero = setHero;
 
       $rootScope.$on('$stateChangeStart', function(event) {

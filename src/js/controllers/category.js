@@ -20,9 +20,13 @@ define(
       vm.facet = true;
       vm.setFacet = setFacet;
       vm.updatePostsPerPage = updatePostsPerPage;
+      vm.updateOrderBy = updateOrderBy;
+      vm.updateOrder = updateOrder;
       vm.facet = $location.search().facet;
       vm.loaded = false;
       vm.totalProducts = 0;
+      vm.orderBy = '';
+      vm.order = '';
 
       updatePosts();
 
@@ -41,7 +45,7 @@ define(
 
             });
         } else {
-          Products.getByCategory(vm.catSlug, vm.page)
+          Products.getByCategory(vm.catSlug, vm.page, vm.orderBy, vm.order)
             .then(function(result) {
               vm.products = result.posts;
               vm.totalProducts = result.totalPosts;
@@ -63,6 +67,29 @@ define(
 
       function updatePostsPerPage() {
         vm.page = 0;
+        updatePosts();
+      }
+
+      function updateOrderBy(orderBy) {
+        vm.orderBy = orderBy;
+
+        console.log('ordering by ', orderBy);
+
+        if (orderBy === 'name') {
+          vm.order = 'ASC'
+        }
+
+        updatePosts();
+      }
+
+      function updateOrder() {
+        console.log(vm.order)
+        if (vm.order === 'DESC' || vm.order === '') {
+          vm.order = 'ASC';
+        } else {
+          vm.order = 'DESC'
+        }
+
         updatePosts();
       }
 

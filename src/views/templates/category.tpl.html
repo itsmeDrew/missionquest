@@ -16,6 +16,18 @@
           ng-init="category.perPage=mq.perPage">
         </select>
       </div>
+      <div class="category__filter">
+        <label class="category__label">order by</label>
+        <select
+          class="category__input--select"
+          ng-options="orderOption.id as orderOption.value for orderOption in mq.orderByOptions"
+          ng-model="orderOption.value"
+          ng-change="category.updateOrderBy(orderOption.value)"
+          ng-init="orderOption.value='ID'">
+        </select>
+        <i ng-click="category.updateOrder()" ng-if="category.order === 'ASC'" class="category__filter--toggle fa fa-arrow-up"></i>
+        <i ng-click="category.updateOrder()" ng-if="category.order === 'DESC' || category.order === ''" class="category__filter--toggle fa fa-arrow-down"></i>
+      </div>
     </header>
     <div class="product-display__wrapper">
       <ul class="product-display__list">

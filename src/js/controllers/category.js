@@ -13,7 +13,8 @@ define(
       var vm = this;
 
       vm.totalProducts = 0;
-      vm.page = parseInt($location.search().page || 0, 10);
+      vm.page = parseInt($location.search().page || 1, 10);
+      vm.perPage = 10;
       vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
@@ -45,7 +46,7 @@ define(
 
             });
         } else {
-          Products.getByCategory(vm.catSlug, vm.page, vm.orderBy, vm.order)
+          Products.getByCategory(vm.catSlug, vm.page, vm.orderBy, vm.order, vm.perPage)
             .then(function(result) {
               vm.products = result.posts;
               vm.totalProducts = result.totalPosts;
@@ -58,22 +59,31 @@ define(
       }
 
       function nextPage() {
+        vm.loaded = false;
         vm.page++;
+
+        updatePosts();
       }
 
       function prevPage() {
+        vm.loaded = false;
         vm.page--;
+
+        updatePosts();
       }
 
-      function updatePostsPerPage() {
-        vm.page = 0;
+      function updatePostsPerPage(perPage) {
+        vm.loaded = false;
+        vm.page = 1;
+        vm.perPage = perPage;
+
         updatePosts();
       }
 
       function updateOrderBy(orderBy) {
+        vm.loaded = false;
+        vm.page = 1;
         vm.orderBy = orderBy;
-
-        console.log('ordering by ', orderBy);
 
         if (orderBy === 'name') {
           vm.order = 'ASC'
@@ -83,7 +93,9 @@ define(
       }
 
       function updateOrder() {
-        console.log(vm.order)
+        vm.loaded = false;
+        vm.page = 1;
+
         if (vm.order === 'DESC' || vm.order === '') {
           vm.order = 'ASC';
         } else {

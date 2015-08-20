@@ -28,14 +28,15 @@ define(
           return _makeRequest(config.api.posts, params);
         }
 
-        function getByCategory(cat, page, orderBy, order) {
+        function getByCategory(cat, page, orderBy, order, postsPerPage) {
           var params = {
              page: parseInt(page, 10),
              'type[]': 'products',
              'filter[taxonomy]': 'product_category',
              'filter[term]': cat,
              'filter[orderby]': orderBy || 'ID',
-             'filter[order]': order || 'DESC'
+             'filter[order]': order || 'DESC',
+            'filter[posts_per_page]': postsPerPage
           };
 
           return _makeRequest(config.api.posts, params);

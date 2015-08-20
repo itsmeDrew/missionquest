@@ -12,7 +12,7 @@
           class="category__input--select"
           ng-options="option.id as option.value for option in mq.perPageOptions"
           ng-model="category.perPage"
-          ng-change="category.updatePostsPerPage()"
+          ng-change="category.updatePostsPerPage(category.perPage)"
           ng-init="category.perPage=mq.perPage">
         </select>
       </div>
@@ -31,21 +31,21 @@
     </header>
     <div class="product-display__wrapper">
       <ul class="product-display__list">
-        <li class="product-display__item" ng-repeat="product in category.products | limitTo:category.perPage:category.page*category.perPage">
+        <li class="product-display__item" ng-repeat="product in category.products">
           <product-block></product-block>
         </li>
       </ul>
     </div>
     <div class="pagination--wrapper clearfix">
       <div class="pagination__buttons--wrapper">
-        <button class="btn-prev" ng-show="category.page > 0" ng-click="category.prevPage()">
+        <button class="btn-prev" ng-show="category.page > 1" ng-click="category.prevPage()">
           <i class="fa fa-arrow-left"></i>
         </button>
-        <button class="btn-next" ng-show="category.page + 1 !== category.totalPages" ng-click="category.nextPage()">
+        <button class="btn-next" ng-show="category.page !== category.totalPages" ng-click="category.nextPage()">
           <i class="fa fa-arrow-right"></i>
         </button>
       </div>
-      <span class="pagination__current-page text--capitalize">page {{ category.page + 1 }} out of {{ category.totalPages }}</span>
+      <span class="pagination__current-page text--capitalize">page {{ category.page }} out of {{ category.totalPages }}</span>
     </div>
 
 

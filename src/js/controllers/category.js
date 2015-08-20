@@ -9,7 +9,7 @@ define(
       .module('App.MqController.Category', [])
       .controller('CategoryController', CategoryController);
 
-    function CategoryController($location, $state, $rootScope, Products, ProductCategory, $stateParams) {
+    function CategoryController($location, $state, $rootScope, $scope, Products, ProductCategory, $stateParams) {
       var vm = this;
 
       vm.totalProducts = 0;
@@ -24,15 +24,14 @@ define(
       vm.updateOrderBy = updateOrderBy;
       vm.updateOrder = updateOrder;
       vm.facet = $location.search().facet;
-      vm.loaded = false;
       vm.totalProducts = 0;
       vm.orderBy = '';
       vm.order = '';
 
+      $scope.$emit('data.loading');
       updatePosts();
 
       function updatePosts() {
-        vm.loaded = false;
         vm.totalProducts = 0;
 
         if (vm.facet) {
@@ -41,7 +40,7 @@ define(
               vm.products = result;
               vm.totalProducts = result.length;
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
-              vm.loaded = !vm.loaded;
+              $scope.$emit('data.loaded');
               vm.facet = $stateParams.facet;
 
             });
@@ -51,29 +50,29 @@ define(
               vm.products = result.posts;
               vm.totalProducts = result.totalPosts;
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
-              vm.loaded = !vm.loaded;
               vm.name = $stateParams.catSlug;
+              $scope.$emit('data.loaded');
             });
             $location.search('facet', vm.facet);
         }
       }
 
       function nextPage() {
-        vm.loaded = false;
+        $scope.$emit('data.loading');
         vm.page++;
 
         updatePosts();
       }
 
       function prevPage() {
-        vm.loaded = false;
+        $scope.$emit('data.loading');
         vm.page--;
 
         updatePosts();
       }
 
       function updatePostsPerPage(perPage) {
-        vm.loaded = false;
+        $scope.$emit('data.loading');
         vm.page = 1;
         vm.perPage = perPage;
 
@@ -81,25 +80,25 @@ define(
       }
 
       function updateOrderBy(orderBy) {
-        vm.loaded = false;
+        $scope.$emit('data.loading');
         vm.page = 1;
         vm.orderBy = orderBy;
 
         if (orderBy === 'name') {
-          vm.order = 'ASC'
+          vm.order = 'ASC';
         }
 
         updatePosts();
       }
 
       function updateOrder() {
-        vm.loaded = false;
+        $scope.$emit('data.loading');
         vm.page = 1;
 
         if (vm.order === 'DESC' || vm.order === '') {
           vm.order = 'ASC';
         } else {
-          vm.order = 'DESC'
+          vm.order = 'DESC';
         }
 
         updatePosts();

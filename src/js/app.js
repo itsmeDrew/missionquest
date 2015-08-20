@@ -72,6 +72,15 @@ define(
       vm.perPageOptions = [{'id': 1, 'value': 1}, {'id': 10, 'value': 10}, {'id': 20, 'value': 20}];
       vm.orderByOptions = [{'id': 'name', 'value': 'name'}, {'id': 'ID', 'value': 'date'}];
       vm.setHero = setHero;
+      vm.loaded = false;
+
+      $scope.$on('data.loaded', function() {
+        vm.loaded = true;
+      });
+
+      $scope.$on('data.loading', function() {
+        vm.loaded = false;
+      });
 
       $rootScope.$on('$stateChangeStart', function(event) {
         vm.hero = false;

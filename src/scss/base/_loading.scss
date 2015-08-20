@@ -2,6 +2,13 @@
  * BASE SITE COMPONENTS
  */
 
+.loading__body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
 .loading-container {
   background-color: $loading-background;
   opacity: $loading-opacity;
@@ -10,6 +17,7 @@
   left: 0;
   height: 100%;
   width: 100%;
+  z-index: 9999;
 }
 
 .loading-container__wrapper--icon {

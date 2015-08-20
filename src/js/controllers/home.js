@@ -24,7 +24,8 @@ define(
             vm.page = result;
             vm.customFields = vm.page.custom_fields;
             vm.sliderImages = vm.customFields.slider_images;
-          })
+            $scope.$emit('data.loaded');
+          });
 
         getRecentProducts();
       }
@@ -33,7 +34,7 @@ define(
         Products.getAll(vm.page, vm.perPage)
           .then(function (result) {
             vm.recentProducts = result.posts;
-          })
+          });
       }
 
     }

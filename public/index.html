@@ -19,7 +19,11 @@
     </script>
   <link rel="stylesheet" href="/assets/css/main.min.css">
 </head>
-<body ng-controller="MqController as mq" ng-class="{ 'mobile-menu--active': mq.menuOpen, 'mobile-search--active': mq.searchOpen, 'hero': mq.hero }">
+<body
+  ng-controller="MqController as mq"
+  ng-class="{ 'mobile-menu--active': mq.menuOpen, 'mobile-search--active': mq.searchOpen, 'hero': mq.hero, 'loading__body': !mq.loaded }"
+>
+  <loading></loading>
   <div ui-view="header"></div>
   <div ui-view="content"></div>
   <div ui-view="footer"></div>

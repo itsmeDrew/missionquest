@@ -13,7 +13,6 @@ define(
       var vm = this;
 
       vm.page = page;
-      vm.loaded = false;
       vm.content = vm.page.content;
       vm.hero = vm.page.custom_fields.hero[0];
       vm.heroImg = vm.hero.hero_image;

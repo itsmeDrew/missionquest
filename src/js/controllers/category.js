@@ -11,6 +11,8 @@ define(
 
     function CategoryController($location, $state, $rootScope, $scope, Products, Pages, ProductCategory, $stateParams) {
       var vm = this;
+      var _bannerEl = $('.banner__md--wrapper');
+      var _closedClassName = 'banner--closed';
 
       vm.totalProducts = 0;
       vm.page = parseInt($location.search().page || 1, 10);
@@ -19,6 +21,7 @@ define(
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
       vm.closeBanner = closeBanner;
+      vm.bannerInit = bannerInit;
       vm.facet = true;
       vm.pageDataLoaded = false;
       vm.setFacet = setFacet;
@@ -45,6 +48,7 @@ define(
               $scope.$emit('data.loaded');
               vm.facet = $stateParams.facet;
 
+              bannerInit();
             });
         } else {
           Products.getByCategory(vm.catSlug, vm.page, vm.orderBy, vm.order, vm.perPage)
@@ -53,10 +57,11 @@ define(
               vm.totalProducts = result.totalPosts;
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               vm.name = $stateParams.catSlug;
+              $scope.$emit('data.loaded');
 
+              bannerInit();
               getPageData();
             });
-            $location.search('facet', vm.facet);
         }
       }
 
@@ -64,10 +69,9 @@ define(
         Pages.getByName('category')
           .then(function(result) {
             vm.pageDataLoaded = !vm.pageDataLoaded;
-            vm.page = result;
-            vm.bannerImage = vm.page.custom_fields.banner_image;
+            vm.pageResult = result;
+            vm.bannerImage = vm.pageResult.custom_fields.banner_image;
             $scope.$emit('data.loaded');
-            console.log('result:', result);
           });
       }
 
@@ -125,15 +129,14 @@ define(
         }
       }
 
+      function bannerInit() {
+        _bannerEl.removeClass(_closedClassName);
+      }
+
       function closeBanner() {
-        $(".banner__md--close").toggle(function(){
-            $(this).animate({height:40},200);
-          },function(){
-            $(this).animate({height:10},200);
-          });
+        _bannerEl.toggleClass(_closedClassName);
       }
 
     }
   }
 );
-

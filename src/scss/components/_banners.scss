@@ -1,11 +1,17 @@
 .banner__md--wrapper {
-  height: 235px;
+  $banner-transition: height 1s;
+
+  height: 285px;
   margin-bottom: 3rem;
   overflow: hidden;
   position: relative;
+  transition: $banner-transition;
+  -moz-transition: $banner-transition;
+  -webkit-transition: $banner-transition;
 }
 
-.banner__md--close {
+.banner__md--close:before {
+  content: "Close";
   background-color: rgba(255,255,255, 0.5);
   color: $black;
   display: inline-block;
@@ -27,4 +33,12 @@
   height: auto;
   position: relative;
   transform: translateY(-30%);
+}
+
+.banner--closed {
+  height: 40px;
+}
+
+.banner--closed .banner__md--close:before {
+  content: "Open";
 }

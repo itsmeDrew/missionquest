@@ -68,7 +68,7 @@ define(
           if (_pages.length) {
             deferred.resolve(_pages);
           } else {
-            $http.get(config.api.posts + '?type[]=page&filter[pagename]=' + pageName)
+            $http.get(config.api.posts + '?type[]=page&filter[name]=' + pageName)
               .success(function(result) {
                 _pages = result[0];
 

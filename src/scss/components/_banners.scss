@@ -1,0 +1,30 @@
+.banner__md--wrapper {
+  height: 235px;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner__md--close {
+  background-color: rgba(255,255,255, 0.5);
+  color: $black;
+  display: inline-block;
+  font-size: $base-font-size - 5;
+  position: absolute;
+  padding: .25rem .5rem;
+  top: .5rem;
+  right: .5rem;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.banner__md--close:hover {
+  color: $mq--blue;
+}
+
+.banner__md--image {
+  width: 100%;
+  height: auto;
+  position: relative;
+  transform: translateY(-30%);
+}

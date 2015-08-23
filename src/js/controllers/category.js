@@ -9,7 +9,7 @@ define(
       .module('App.MqController.Category', [])
       .controller('CategoryController', CategoryController);
 
-    function CategoryController($location, $state, $rootScope, $scope, Products, ProductCategory, $stateParams) {
+    function CategoryController($location, $state, $rootScope, $scope, Products, Pages, ProductCategory, $stateParams) {
       var vm = this;
 
       vm.totalProducts = 0;
@@ -18,7 +18,9 @@ define(
       vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
+      vm.closeBanner = closeBanner;
       vm.facet = true;
+      vm.pageDataLoaded = false;
       vm.setFacet = setFacet;
       vm.updatePostsPerPage = updatePostsPerPage;
       vm.updateOrderBy = updateOrderBy;
@@ -51,10 +53,22 @@ define(
               vm.totalProducts = result.totalPosts;
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               vm.name = $stateParams.catSlug;
-              $scope.$emit('data.loaded');
+
+              getPageData();
             });
             $location.search('facet', vm.facet);
         }
+      }
+
+      function getPageData() {
+        Pages.getByName('category')
+          .then(function(result) {
+            vm.pageDataLoaded = !vm.pageDataLoaded;
+            vm.page = result;
+            vm.bannerImage = vm.page.custom_fields.banner_image;
+            $scope.$emit('data.loaded');
+            console.log('result:', result);
+          });
       }
 
       function nextPage() {
@@ -109,6 +123,14 @@ define(
           vm.facet = newFacet;
           updatePosts();
         }
+      }
+
+      function closeBanner() {
+        $(".banner__md--close").toggle(function(){
+            $(this).animate({height:40},200);
+          },function(){
+            $(this).animate({height:10},200);
+          });
       }
 
     }

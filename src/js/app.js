@@ -69,7 +69,7 @@ define(
       vm.menuOpen = false;
       vm.searchOpen = false;
       vm.perPage = 10;
-      vm.perPageOptions = [{'id': 1, 'value': 1}, {'id': 10, 'value': 10}, {'id': 20, 'value': 20}];
+      vm.perPageOptions = [{'id': 10, 'value': 10}, {'id': 25, 'value': 25}, {'id': 50, 'value': 50}];
       vm.orderByOptions = [{'id': 'name', 'value': 'name'}, {'id': 'ID', 'value': 'date'}];
       vm.setHero = setHero;
       vm.loaded = false;

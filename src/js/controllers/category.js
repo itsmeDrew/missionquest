@@ -20,7 +20,7 @@ define(
       vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;
-      vm.closeBanner = closeBanner;
+      vm.toggleBanner = toggleBanner;
       vm.bannerInit = bannerInit;
       vm.facet = true;
       vm.pageDataLoaded = false;
@@ -47,8 +47,6 @@ define(
               vm.totalPages = Math.ceil(vm.totalProducts / vm.perPage);
               $scope.$emit('data.loaded');
               vm.facet = $stateParams.facet;
-
-              bannerInit();
             });
         } else {
           Products.getByCategory(vm.catSlug, vm.page, vm.orderBy, vm.order, vm.perPage)
@@ -130,10 +128,16 @@ define(
       }
 
       function bannerInit() {
-        _bannerEl.removeClass(_closedClassName);
+        console.log($rootScope.bannerUserClosed);
+
+        if (!$rootScope.bannerUserClosed) {
+          _bannerEl.removeClass(_closedClassName);
+        }
       }
 
-      function closeBanner() {
+      function toggleBanner() {
+        $rootScope.bannerUserClosed = !$rootScope.bannerUserClosed;
+
         _bannerEl.toggleClass(_closedClassName);
       }
 

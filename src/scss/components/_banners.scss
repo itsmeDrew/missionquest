@@ -11,11 +11,11 @@
 }
 
 .banner__md--close:before {
-  content: "Close";
+  content: "-";
   background-color: rgba(255,255,255, 0.5);
   color: $black;
   display: inline-block;
-  font-size: $base-font-size - 5;
+  font-size: $base-font-size;
   position: absolute;
   padding: .25rem .5rem;
   top: .5rem;
@@ -24,8 +24,9 @@
   cursor: pointer;
 }
 
-.banner__md--close:hover {
-  color: $mq--blue;
+.banner__md--close:hover::before {
+  background-color: $mq--red;
+  color: $white;
 }
 
 .banner__md--image {
@@ -36,9 +37,9 @@
 }
 
 .banner--closed {
-  height: 40px;
+  height: 45px;
 }
 
 .banner--closed .banner__md--close:before {
-  content: "Open";
+  content: "+";
 }

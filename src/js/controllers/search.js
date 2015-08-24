@@ -30,14 +30,15 @@ define(
       updatePosts();
 
       function updatePosts() {
-        vm.loaded = false;
+        $scope.$emit('data.loading');
 
         Post.searchAll(vm.term)
           .then(function (result) {
             vm.results = result.posts;
             vm.totalResults = vm.results.length;
-            vm.loaded = true;
             vm.totalPages = Math.ceil(vm.totalResults / vm.perPage);
+
+            $scope.$emit('data.loaded');
           });
       }
 

@@ -16,7 +16,7 @@ define(
 
       vm.totalProducts = 0;
       vm.page = parseInt($location.search().page || 1, 10);
-      vm.perPage = 10;
+      vm.perPage = 8;
       vm.catSlug = $stateParams.catSlug;
       vm.nextPage = nextPage;
       vm.prevPage = prevPage;

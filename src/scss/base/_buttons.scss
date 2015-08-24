@@ -61,6 +61,13 @@
 
 }
 
+.btn-next:hover,
+.btn-prev:hover {
+  background-color: $mq--blue;
+  border-color: transparent;
+  color: $white;
+}
+
 .btn-social--wrapper {
   @extend .btn-primary--lines;
 

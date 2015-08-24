@@ -68,9 +68,9 @@ define(
       vm.email = "tom@missionquestadv.com";
       vm.menuOpen = false;
       vm.searchOpen = false;
-      vm.perPage = 10;
-      vm.perPageOptions = [{'id': 10, 'value': 10}, {'id': 25, 'value': 25}, {'id': 50, 'value': 50}];
-      vm.orderByOptions = [{'id': 'name', 'value': 'name'}, {'id': 'ID', 'value': 'date'}];
+      vm.perPage = 8;
+      vm.perPageOptions = [{'id': 8, 'value': 8}, {'id': 20, 'value': 20}, {'id': 40, 'value': 40}];
+      vm.orderByOptions = [{'id': 'ID', 'value': 'date'}, {'id': 'name', 'value': 'name'}];
       vm.setHero = setHero;
       vm.loaded = false;
 

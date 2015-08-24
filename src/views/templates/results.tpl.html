@@ -12,34 +12,46 @@
           class="category__input--select"
           ng-options="option.id as option.value for option in mq.perPageOptions"
           ng-model="search.perPage"
-          ng-change="search.updatePostsPerPage()"
+          ng-change="search.updatePostsPerPage(search.perPage)"
           ng-init="search.perPage=mq.perPage">
         </select>
+      </div>
+      <div class="category__filter">
+        <label class="category__label">order by</label>
+        <select
+          class="category__input--select"
+          ng-options="orderOption.id as orderOption.value for orderOption in mq.orderByOptions"
+          ng-model="orderOption.value"
+          ng-change="search.updateOrderBy(orderOption.value)"
+          ng-init="orderOption.value='ID'">
+        </select>
+        <i ng-click="search.updateOrder()" ng-if="search.order === 'ASC'" class="category__filter--toggle fa fa-arrow-up"></i>
+        <i ng-click="search.updateOrder()" ng-if="search.order === 'DESC' || search.order === ''" class="category__filter--toggle fa fa-arrow-down"></i>
       </div>
     </header>
     <div class="product-display__wrapper">
       <ul class="product-display__list">
-        <li class="product-display__item" ng-repeat="product in search.results | limitTo:result.search:search.page*search.perPage">
+        <li class="product-display__item" ng-repeat="product in search.results">
           <product-block></product-block>
         </li>
       </ul>
     </div>
     <div class="pagination--wrapper clearfix">
       <div class="pagination__buttons--wrapper">
-        <button class="btn-prev" ng-show="search.page > 0" ng-click="search.prevPage()">
+        <button class="btn-prev" ng-show="search.page > 1" ng-click="search.prevPage()">
           <i class="fa fa-arrow-left"></i>
         </button>
-        <button class="btn-next" ng-show="search.page + 1 !== search.totalPages" ng-click="search.nextPage()">
+        <button class="btn-next" ng-show="search.page !== search.totalPages" ng-click="search.nextPage()">
           <i class="fa fa-arrow-right"></i>
         </button>
       </div>
-      <span class="pagination__current-page text--capitalize">page {{ search.page + 1 }} out of {{ search.totalPages }}</span>
+      <span class="pagination__current-page text--capitalize">page {{ search.page }} out of {{ search.totalPages }}</span>
     </div>
 
-    <div ng-show="category.totalResults === 0">
+
+    <div ng-show="category.totalPosts === 0">
       <h2>no results to show</h2>
     </div>
   </div>
 </div>
-
 

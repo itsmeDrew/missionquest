@@ -80,9 +80,13 @@ define(
             return deferred.promise;
         }
 
-        function searchAll(term) {
+        function searchAll(term, orderBy, order, postsPerPage) {
           var params = {
-            'filter[s]': term
+            'type[]': 'products',
+            'filter[s]': term,
+            'filter[orderby]': orderBy || 'ID',
+            'filter[order]': order || 'DESC',
+            'filter[posts_per_page]': postsPerPage
           };
 
           return _makeRequest(config.api.posts, params);

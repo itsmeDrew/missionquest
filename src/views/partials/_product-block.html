@@ -1,5 +1,10 @@
 <div class="product-block--wrapper">
-  <div class="product-display__wrapper--image">
+  <div class="product-display__image--wrapper">
+    <div class="product-display__wrapper--features">
+      <div ng-if="product.custom_fields.featured_product" class="product-display__featured--wrapper text--capitalize">
+        featured
+      </div>
+    </div>
     <a ui-sref="home.product({ slug: product.slug })">
       <img
         class="product-display__image"
@@ -20,11 +25,6 @@
     </div>
     <div class="made-in-usa--wrapper">
       <img ng-if="product.custom_fields.made_in_usa" class="made-in-usa--image" src="../assets/img/ico-made-in-usa.jpg" alt="Made In USA">
-    </div>
-    <div class="product-display__wrapper--features">
-      <div ng-if="product.custom_fields.featured_product" class="product-display__featured--wrapper text--capitalize">
-        featured
-      </div>
     </div>
   </div>
 </div>

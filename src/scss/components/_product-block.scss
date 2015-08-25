@@ -1,14 +1,24 @@
 .product-block--wrapper {
   margin-bottom: 3rem;
   position: relative;
+  transform: scale(1,1);
+  transition: all .2s ease-in-out;
 }
 
 .product-block--wrapper:hover .product-display__link {
   color: $mq--blue;
 }
 
-.product-display__wrapper--image {
+.product-display__image--wrapper {
   margin-bottom: .85rem;
+}
+
+.product-block--wrapper:hover {
+  $product-block__hover--scale: 1.05;
+
+  transform: scale($product-block__hover--scale);
+  -moz-transform: scale($product-block__hover--scale);
+  -webkit-transform: scale($product-block__hover--scale);
 }
 
 .product-display__image {

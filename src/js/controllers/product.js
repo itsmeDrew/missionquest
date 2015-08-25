@@ -49,7 +49,22 @@ define(
           asNavFor: '.js-product-slider--display',
           dots: false,
           centerMode: true,
-          focusOnSelect: true
+          focusOnSelect: true,
+          responsive: [
+            {
+              breakpoint: 970,
+              settings: {
+                slidesToShow: 2,
+                dots: false
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
         });
 
         $scope.$emit('data.loaded');

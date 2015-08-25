@@ -15,7 +15,7 @@ define(
       vm.searchOpen = $scope.$parent.mq.searchOpen;
       vm.menuOpen = $scope.$parent.mq.menuOpen;
       vm.page = parseInt($location.search().page || 0, 10);
-      vm.perPage = 8;
+      vm.perPage = 20;
       vm.term = $location.$$search.terms;
       vm.updatePostsPerPage = updatePostsPerPage;
       vm.nextPage = nextPage;

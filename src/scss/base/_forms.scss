@@ -53,13 +53,19 @@ label {
 
 .form-quote-email__input {
   width: 100%;
+  height: $footer-cta--height;
 }
 
 .form-quote-email__btn--submit {
   float: right;
   width: 35%;
+  height: $footer-cta--height;
   color: $white;
   background-color: $mq--blue;
+
+  @include breakpointSmallerThan($breakpoint-xlarge) {
+    font-size: $base-font-size - 3;
+  }
 }
 
 .form-quote-email__confirmation-heading {

@@ -44,7 +44,7 @@
       </header>
       <section class="product-details--wrapper">
         <div class="product-details clearfix">
-          <div class="product-slider__controls">
+          <div ng-if="product.sliderImages.length > 1" class="product-slider__controls">
             <div class="js-product-slider--nav product-slider--wrapper">
               <div class="product-slider__slide" ng-repeat="image in product.sliderImages" repeat-complete="onComplete()">
                 <div class="product-slider__slide-content">

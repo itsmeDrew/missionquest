@@ -20,12 +20,24 @@
   }
 }
 
+.nav-main__wrapper .container {
+  @include breakpointSmallerThan($breakpoint-large) {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
 .nav-main__list-item--link {
   color: $nav-link-color;
   padding: 0 $nav-wrapper-padding;
   display: block;
   text-transform: uppercase;
   font-size: $base-font-size - 3px;
+
+  @include breakpointSmallerThan($breakpoint-large) {
+    padding: 0 $nav-wrapper-padding - 8;
+  }
 
   @include breakpointSmallerThan($breakpoint-medium) {
     font-size: $base-font-size + 9;

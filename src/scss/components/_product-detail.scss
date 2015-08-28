@@ -1,3 +1,18 @@
+.popup--dark {
+  @extend .loading__body;
+
+  background: $popup--bg;
+  z-index: $popup--index;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: 0.5s linear all;
+}
+
+.popup--dark.active {
+  opacity: 1;
+}
+
 section.product-details--wrapper .container {
   border-bottom: 2px solid white;
 }

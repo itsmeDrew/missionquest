@@ -1,3 +1,4 @@
+<div class="popup--dark" ng-class="{'active': quoteRequested}"></div>
 <div class="form-quote-product__wrapper">
   <form ng-submit="productForm.submitForm(3, product.item.title)" name="productForm.newsletter" ng-hide="productForm.newsletterSubmitted" novalidate>
     <div class="form-quote__input--wrapper">
@@ -7,11 +8,12 @@
     </div>
     <span class="form-quote-product__product-title disabled">Interested In: {{product.item.title}}</span>
     <button class="form-quote-product__btn--submit btn btn-quote">request a quote</button>
-    <button class="form-quote-product__btn--cancel btn btn-primary" ng-show="quoteRequested" ng-click="quoteRequested = false">cancel</button>
+    <button class="form-quote-product__btn--cancel btn btn-primary" ng-show="quoteRequested" ng-click="quoteRequested = false; mq.popup = false">cancel</button>
   </form>
   <div class="form-confirmation" ng-show="productForm.newsletterSubmitted">
     <i class="form-confirmation__icon fa fa-check-circle-o"></i>
     <p class="form-quote-product__confirmation-message">Thanks! We will be in touch soon with a quote on {{product.item.title}}. Meanwhile keep browsing!</p>
+    <button class="form-quote-product__btn--cancel btn-primary" ng-click="quoteRequested = false; mq.popup = false">close</button>
   </div>
 </div>
 

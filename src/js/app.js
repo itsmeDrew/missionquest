@@ -73,6 +73,7 @@ define(
       vm.orderByOptions = [{'id': 'ID', 'value': 'date'}, {'id': 'name', 'value': 'name'}];
       vm.setHero = setHero;
       vm.loaded = false;
+      vm.popup = false;
 
       $scope.$on('data.loaded', function() {
         vm.loaded = true;

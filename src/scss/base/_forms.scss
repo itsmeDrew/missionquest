@@ -82,6 +82,11 @@ label {
   background: $white;
   padding: 2rem;
   border: 3px solid $grey--subtle;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: $popup--index + 1000;
 }
 
 .form-quote-product__product-title {

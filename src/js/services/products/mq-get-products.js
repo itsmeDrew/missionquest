@@ -34,7 +34,7 @@ define(
              'type[]': 'products',
              'filter[taxonomy]': 'product_category',
              'filter[term]': cat,
-             'filter[orderby]': orderBy || 'ID',
+             'filter[orderby]': orderBy || 'menu_order',
              'filter[order]': order || 'DESC',
             'filter[posts_per_page]': postsPerPage
           };

@@ -39,17 +39,3 @@ $slick-font-path: "../fonts/";
 
 
 @import 'base/layout';
-
-.product-display__list {
-  @include cf();
-}
-
-.product-display__item {
-  @include breakpointLargerThan($breakpoint-lg) {
-    @include col(3/12, $cycle: 4);
-  }
-
-  @include breakpointSmallerThan($breakpoint-lg) {
-    @include col(4/12, $cycle: 3);
-  }
-}

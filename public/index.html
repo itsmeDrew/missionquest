@@ -21,9 +21,10 @@
 </head>
 <body
   ng-controller="MqController as mq"
-  ng-class="{ 'mobile-menu--active': mq.menuOpen, 'mobile-search--active': mq.searchOpen, 'hero': mq.hero, 'loading__body': !mq.loaded }"
+  ng-class="{ 'mobile-menu--active': mq.menuOpen, 'mobile-search--active': mq.searchOpen, 'hero': mq.hero, 'loading__body': !mq.loaded || mq.popup }"
 >
-  <loading></loading>
+  <loading ng-if="!mq.loaded"></loading>
+
   <div ui-view="header"></div>
   <div ui-view="content"></div>
   <div ui-view="footer"></div>

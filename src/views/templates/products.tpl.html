@@ -1,4 +1,5 @@
 <!-- product.item -->
+<form-quote-product ng-show="quoteRequested"></form-quote-product>
 <section class="product-details--wrapper">
   <div class="container row">
     <section class="product-slider col--sm-12 col--md-5 col--md-push-1">
@@ -54,8 +55,7 @@
             </div>
           </div>
         </div>
-        <a href="#" class="btn-quote" ng-click="quoteRequested = true" ng-hide="quoteRequested">get a quote</a>
-        <form-quote-product ng-show="quoteRequested"></form-quote-product>
+        <a href="#" class="btn-quote" ng-click="quoteRequested = true; mq.popup = true">get a quote</a>
       </section>
       <div class="product-details row">
         <div class="col--sm-12">

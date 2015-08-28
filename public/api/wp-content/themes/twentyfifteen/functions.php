@@ -391,10 +391,7 @@ function productCategoryRegister() {
   		'query_var' => true,
   		'rewrite' => array( 'slug' => 'product_categories', 'with_front' => true ),
   		'public' => true,
-  		'show_ui' => true,
-  		'show_tagcloud' => true,
-  		'_builtin' => false,
-  		'show_in_nav_menus' => false
+  		'show_ui' => true
   	)
   );
 
@@ -409,6 +406,7 @@ function productCategoryRegister() {
 	      'taxonomies' => array('product-category' ),
 	      'public' => true,
 	      'has_archive' => true,
+	  		'supports' => array( 'title', 'thumbnail', 'excerpt', 'page-attributes' )
 	    )
 	  );
 	}
@@ -472,3 +470,35 @@ function productCategoryRegister() {
 
 	add_filter( 'parse_query', 'taxonomy_filter_post_type_request' );
 	remove_filter( 'the_title', 'wptexturize' );
+
+	/**
+	 * ADD ORDER TO PRODUCTS CPT
+	 */
+
+function add_new_products_column($products_columns) {
+  $products_columns['menu_order'] = "Product Order";
+  return $products_columns;
+}
+add_action('manage_edit-products_columns', 'add_new_products_column');
+
+// show custom order
+function show_order_column($name){
+  global $post;
+
+  switch ($name) {
+    case 'menu_order':
+      $order = $post->menu_order;
+      echo $order;
+      break;
+   default:
+      break;
+   }
+}
+add_action('manage_products_posts_custom_column','show_order_column');
+
+// make sortable
+function order_column_register_sortable($columns){
+  $columns['menu_order'] = 'menu_order';
+  return $columns;
+}
+add_filter('manage_edit-products_sortable_columns','order_column_register_sortable');

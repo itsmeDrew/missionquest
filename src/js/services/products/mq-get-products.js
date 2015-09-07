@@ -51,16 +51,15 @@ define(
           return _makeRequest(config.api.posts, params);
         }
 
-        function getByFacet(cat, page, facet) {
+        function getByFacet(cat, page, facet, postsPerPage) {
           var deferred = $q.defer();
           var params = {
-             page: parseInt(page, 10),
-             'type[]': 'products',
-             'filter[taxonomy]': 'product_category',
-             'filter[term]': cat
+            type: 'products',
+            'filter[posts_per_page]': '-1',
+            'filter[taxonomy]': 'product_category',
+            'filter[term]': cat
           };
           var _facetProducts = [];
-
          $http.get(config.api.posts, { params: params || {} })
             .success(function(result) {
               for (var i = 0; i < result.length; i++) {

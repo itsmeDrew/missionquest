@@ -375,6 +375,12 @@ if( function_exists('get_fields') ){
     add_filter('json_prepare_post', 'wp_api_encode_acf', 10, 3);
 }
 
+add_filter( 'json_query_vars', 'slug_allow_meta' );
+function slug_allow_meta( $valid_vars ) {
+	$valid_vars = array_merge( $valid_vars, array( 'meta_key', 'meta_value' ) );
+	return $valid_vars;
+}
+
 /**
  * PRODUCTS POST TYPE
  * includes taxonomy

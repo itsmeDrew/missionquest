@@ -40,7 +40,7 @@ define(
         vm.totalProducts = 0;
 
         if (vm.facet) {
-          Products.getByFacet(vm.catSlug, vm.page, vm.facet)
+          Products.getByFacet(vm.catSlug, vm.page, vm.facet, vm.perPage)
             .then(function(result) {
               vm.products = result;
               vm.totalProducts = result.length;

@@ -59,14 +59,16 @@ define(
              'filter[taxonomy]': 'product_category',
              'filter[term]': cat
           };
-          var _facetProducts = [ ];
+          var _facetProducts = [];
 
          $http.get(config.api.posts, { params: params || {} })
             .success(function(result) {
               for (var i = 0; i < result.length; i++) {
                 var _productDetails = result[i].custom_fields.product_details[0];
 
-                if (_productDetails.gender[0] == facet || _productDetails.gender[1] == facet || facet === 'made_in_usa' && result[i].custom_fields.made_in_usa == !! facet) {
+                if (facet === 'made_in_usa' && result[i].custom_fields.made_in_usa == !! facet) {
+                  _facetProducts.push(result[i]);
+                } else if (_productDetails && _productDetails.gender[0] == facet || _productDetails && _productDetails.gender[1] == facet) {
                   _facetProducts.push(result[i]);
                 }
               };

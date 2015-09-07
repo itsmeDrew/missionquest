@@ -38,6 +38,7 @@ define(
 
       function updatePosts() {
         vm.totalProducts = 0;
+        console.log('facet', vm.facet);
 
         if (vm.facet) {
           Products.getByFacet(vm.catSlug, vm.page, vm.facet)
@@ -128,8 +129,6 @@ define(
       }
 
       function bannerInit() {
-        console.log($rootScope.bannerUserClosed);
-
         if (!$rootScope.bannerUserClosed) {
           _bannerEl.removeClass(_closedClassName);
         }

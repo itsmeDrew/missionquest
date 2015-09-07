@@ -82,6 +82,12 @@
   border: $product-slider__image--border;
 }
 
+.product-slider__color {
+  font-size: $base-font-size - 3;
+  color: $grey--medium;
+  margin: 1rem 0;
+}
+
 .product-slider--wrapper.slick-initialized .slick-slide {
   opacity: 0.4;
   margin: 0 10px;

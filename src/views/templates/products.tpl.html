@@ -8,6 +8,7 @@
           <div class="product-slider__slide" ng-repeat="image in product.sliderImages" repeat-complete="product.onComplete()">
             <div class="product-slider__slide-content">
               <img class="product-slider__image" src="{{ image.product_image.url }}" alt="{{ image.product_image.alt }}">
+              <span ng-if="image.product_image.alt" class="product-slider__color text--capitalize">product color: {{image.product_image.alt}}</span>
             </div>
           </div>
         </div>

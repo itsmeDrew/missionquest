@@ -19,6 +19,7 @@ define(
       vm.sliderImages = vm.customFields.product_images;
       vm.madeInUsa = vm.customFields.made_in_usa;
       vm.onComplete = onComplete;
+      vm.showColor = false;
 
       $scope.$emit('data.loading');
 

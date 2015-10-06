@@ -21,8 +21,6 @@ define(
           vm.submitForm = submitForm;
           vm.newsletterSubmitted = false;
 
-          getForms();
-
           function submitForm(formID) {
             if (vm.newsletter.$invalid) return;
 
@@ -35,10 +33,6 @@ define(
                 vm.newsletterSubmitted = true;
               }
             });
-          }
-
-          function getForms() {
-            Forms.getForms();
           }
 
         },

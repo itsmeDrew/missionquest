@@ -15,8 +15,8 @@ define(
         var expiration = 3600; // 1 hr
         var unixtime = parseInt(d.getTime() / 1000);
         var future_unixtime = unixtime + expiration;
-        var publicKey = "32e6b14260";
-        var privateKey = "c840d382671d193";
+        var publicKey = "32e6b142601";
+        var privateKey = "c840d382671d1931";
         var methodGet = "GET";
         var methodPost = "POST";
         var apiRoute = 'api/gravityformsapi/'

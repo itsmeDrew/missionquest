@@ -508,3 +508,8 @@ function order_column_register_sortable($columns){
   return $columns;
 }
 add_filter('manage_edit-products_sortable_columns','order_column_register_sortable');
+/**
+ * ALLOW GRAVITY FORMS CROSS ORIGIN
+ */
+
+add_filter( 'allowed_http_origin', '__return_true' );

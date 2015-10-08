@@ -103,6 +103,7 @@ define(
                 totalPages: parseInt(headers('X-WP-TotalPages'), 10),
                 totalPosts: parseInt(headers('X-WP-Total'), 10),
               };
+
               deferred.resolve(response);
             })
             .error(function(result) {

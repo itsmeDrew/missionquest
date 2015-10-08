@@ -31,6 +31,7 @@ define(
       function onComplete() {
         if (! _called) {
           _called = true;
+        } else {
           return;
         }
 

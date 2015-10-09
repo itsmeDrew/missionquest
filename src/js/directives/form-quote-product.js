@@ -21,13 +21,14 @@ define(
           vm.submitForm = submitForm;
           vm.newsletterSubmitted = false;
 
-          function submitForm(formID, interestedProduct) {
+          function submitForm(formID, interestedProduct, name) {
             if (vm.newsletter.$invalid) return;
 
             Forms.submitForm({
               input_values: {
                 input_1: vm.email,
-                input_2: interestedProduct
+                input_2: interestedProduct,
+                input_3: name
               }
             }, formID).success(function(data) {
               if (data.response.is_valid) {

@@ -78,7 +78,11 @@ label {
  * FORM QUOTE - PRODUCT
  */
 
-.form-quote-product__wrapper {
+.form-quote-product--wrapper .form-quote__input--wrapper {
+  margin: .5rem 0;
+}
+
+.form-quote-product--wrapper {
   background: $white;
   padding: 2rem;
   border: 3px solid $grey--subtle;
@@ -89,16 +93,13 @@ label {
   z-index: $popup--index + 1000;
 }
 
-.form-quote-product__product-title {
-  margin: 1rem 0;
-}
-
 .form-quote-product__input,
 .form-quote-product__btn--submit {
-  width: 100%
+  width: 100%;
 }
 
 .form-quote-product__product-title {
+  margin-bottom: 1rem;
   display: block;
 }
 
@@ -106,7 +107,7 @@ label {
   @extend .form-quote-product__btn--submit;
 
   margin-top: 1rem;
-  background-color: $tar;
+  background-color: $black;
   color: $white;
 }
 

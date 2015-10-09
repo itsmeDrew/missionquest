@@ -1,10 +1,15 @@
 <div class="popup--dark" ng-class="{'active': quoteRequested}"></div>
-<div class="form-quote-product__wrapper">
-  <form ng-submit="productForm.submitForm(3, product.item.title)" name="productForm.newsletter" ng-hide="productForm.newsletterSubmitted" novalidate>
+<div class="form-quote-product--wrapper">
+  <form ng-submit="productForm.submitForm(3, product.item.title, productForm.name)" name="productForm.newsletter" ng-hide="productForm.newsletterSubmitted" novalidate>
+    <div class="form-quote__input--wrapper">
+      <input class="form-quote-product__input text--lowercase" name="input_3" type="text" placeholder="full name" ng-model="productForm.name" required ng-name>
+      <span class="error text--uppercase" ng-show="productForm.newsletter.input_3.$error.required && productForm.newsletter.$dirty">Required!</span>
+      <span class="error text--uppercase" ng-show="productForm.newsletter.input_3.$error.name && productForm.newsletter.$dirty">Name Is Required!</span>
+    </div>
     <div class="form-quote__input--wrapper">
       <input class="form-quote-product__input text--lowercase" name="input_1" type="email" placeholder="email address" ng-model="productForm.email" required ng-email>
       <span class="error text--uppercase" ng-show="productForm.newsletter.input_1.$error.required && productForm.newsletter.$dirty">Required!</span>
-      <span class="error text--uppercase" ng-show="productForm.newsletter.input_1.$error.email && productForm.newsletter.$dirty">Email Is Required!</span>
+      <span class="error text--uppercase" ng-show="productForm.newsletter.input_1.$error.email && productForm.newsletter.$dirty">Invalid Email</span>
     </div>
     <span class="form-quote-product__product-title disabled">Interested In: {{product.item.title}}</span>
     <button class="form-quote-product__btn--submit btn btn-quote">request a quote</button>

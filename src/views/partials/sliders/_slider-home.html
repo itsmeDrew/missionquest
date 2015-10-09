@@ -1,9 +1,11 @@
 <div class="js-home-slider home-slider--wrapper" ng-init="mq.setHero()">
   <div class="home-slider__slide" style="background: url('{{ slide.slide_image.url }}') no-repeat center;" ng-repeat="slide in home.sliderImages" repeat-complete="onComplete()" bind-once>
     <div class="container">
-      <div class="home-slider__heading--wrapper">
-        <h2 class="home-slider__heading" style="color: {{ slide.slide_text_color }}">{{ slide.slide_text }}</h2>
+      <div class="home-slider__heading--wrapper" style="top: {{ slide.slide_text_placement }}px;">
+        <h2 ng-if="slide.slide_text_line_one" class="home-slider__heading--primary text--uppercase" style="color: {{ slide.slide_text_color }}">{{ slide.slide_text_line_one }}</h2>
+       <h2 ng-if="slide.slide_text_line_two" class="home-slider__heading--secondary text--uppercase" style="color: {{ slide.slide_text_color }}">{{ slide.slide_text_line_two }}</h2>
         <a
+          ng-show="slide.slide_button_text"
           class="home-slider__cta"
           style="background-color: {{ slide.slide_button_color }}"
           ui-sref="home.product({ postID: slide.slide_button_link.ID })">

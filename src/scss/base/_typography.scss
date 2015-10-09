@@ -16,11 +16,7 @@ h2 {
   font-family: $font-family-sans-serif;
   line-height: $base-line-height;
   color: $base-font-color;
-  font-size: $base-font-size * 2.625;
-
-  @include breakpointSmallerThan($breakpoint-medium) {
-    font-size: $base-font-size * 2;
-  }
+  font-size: $base-font-size * 2;
 
   @include breakpointSmallerThan($breakpoint-small) {
     font-size: $base-font-size * 1.5;

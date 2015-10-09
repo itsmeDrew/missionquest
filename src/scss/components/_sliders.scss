@@ -42,20 +42,26 @@
   @include breakpointLargerThan($breakpoint-small) {
     position: relative;
     left: 0;
-    transform: translateY(40%);
-    -webkit-transform: translateY(40%);
     width: $slider-heading-width;
   }
 
 }
 
-.home-slider__heading {
+.home-slider__heading--primary {
   @include breakpointLargerThan($breakpoint-small) {
-    text-transform: uppercase;
-    font-size: $base-font-size * 4;
+    font-size: $base-font-size + 52;
     font-weight: 800;
     line-height: 1.2;
+    letter-spacing: 12px;
   }
+}
+
+.home-slider__heading--secondary {
+  @extend .home-slider__heading--primary;
+
+  font-weight: 700;
+  font-size: $base-font-size * 2;
+  letter-spacing: 5px;
 }
 
 .home-slider__cta {

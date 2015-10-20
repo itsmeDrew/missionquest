@@ -30,6 +30,7 @@
 
 .home-slider__slide {
   position: relative;
+
   @include breakpointLargerThan($breakpoint-medium) {
     height: $slider-height--xlarge;
   }

@@ -30,7 +30,7 @@ define(
             element.slick({
               dots: true,
               arrows: true,
-              autoplay: false,
+              autoplay: true,
               responsive: [
                 {
                   breakpoint: breakpointSmall,

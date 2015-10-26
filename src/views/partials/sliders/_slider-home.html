@@ -1,5 +1,5 @@
 <div class="js-home-slider home-slider--wrapper" ng-init="mq.setHero()">
-  <div class="home-slider__slide" style="background: url('{{ slide.slide_image.url }}') no-repeat center; background-size: 100%;" ng-repeat="slide in home.sliderImages" repeat-complete="onComplete()" bind-once>
+  <div class="home-slider__slide" style="background: url('{{ slide.slide_image.url }}') no-repeat center; background-size: cover;" ng-repeat="slide in home.sliderImages" repeat-complete="onComplete()" bind-once>
     <div class="container">
       <div class="home-slider__heading--wrapper" style="top: {{ slide.slide_text_placement }}px;">
         <h2 ng-if="slide.slide_text_line_one" class="home-slider__heading--primary text--uppercase" style="color: {{ slide.slide_text_color }}">{{ slide.slide_text_line_one }}</h2>

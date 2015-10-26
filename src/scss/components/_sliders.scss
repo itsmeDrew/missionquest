@@ -35,17 +35,22 @@
     height: $slider-height--xlarge;
   }
   @include breakpointSmallerThan($breakpoint-medium) {
-    height: $slider-height--small;
+    height: $slider-height--medium;
   }
 }
 
 .home-slider__heading--wrapper {
-  @include breakpointLargerThan($breakpoint-small) {
-    position: relative;
-    left: 0;
-    width: $slider-heading-width;
+  position: relative;
+  left: 0;
+  width: 100%;
+
+  @include breakpointBetween($breakpoint-small, $breakpoint-medium) {
+    top: $slider-height--medium / 2 - 85 !important; // top is set in WP - override for mobile
   }
 
+  @include breakpointSmallerThan($breakpoint-small) {
+    top: 200px !important; // top is set in WP - override for mobile
+  }
 }
 
 .home-slider__heading--primary {

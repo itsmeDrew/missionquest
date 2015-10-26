@@ -25,8 +25,6 @@ define(
             vm.customFields = vm.page.custom_fields;
             vm.sliderImages = vm.customFields.slider_images;
             $scope.$emit('data.loaded');
-
-            console.log('vm.sliderImages:', vm.sliderImages);
           });
 
         getRecentProducts();

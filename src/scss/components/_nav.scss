@@ -69,3 +69,10 @@
   padding: 20px;
   opacity: 1;
 }
+
+.mobile-menu--active {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

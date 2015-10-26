@@ -10,7 +10,7 @@
         <h2 class="category__heading text--capitalize">{{category.name}}</h2>
         <h2 ng-if="category.facet" class="category__heading text--capitalize">Filter: {{category.facet}}</h2>
       </div>
-      <div class="category__filter">
+      <div class="category__filter hidden--sm">
         <label class="category__label">products per page</label>
         <select
           class="category__input--select"
@@ -20,7 +20,7 @@
           ng-init="category.perPage=mq.perPage">
         </select>
       </div>
-      <div class="category__filter">
+      <div class="category__filter hidden--sm">
         <label class="category__label">order by</label>
         <select
           class="category__input--select"

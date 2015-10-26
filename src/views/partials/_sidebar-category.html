@@ -1,13 +1,3 @@
-<div class="category-sidebar--wrapper hidden--sm" ng-init="sidebar.categories">
-  <div class="category-sidebar__list-group">
-    <h4 class="category-sidebar__heading text--uppercase">product categories</h4>
-    <ul class="category-sidebar__list">
-      <li ng-repeat="cat in sidebar.categories | orderBy: 'name'" class="category-sidebar__list-item">
-        <a href="#" ng-click="sidebar.switchState(cat.slug)" class="category-sidebar__link text--capitalize">{{ cat.name }}</a>
-      </li>
-    </ul>
-  </div>
-</div>
 <div class="category-sidebar--wrapper" ng-show="sidebar.children.length">
   <div class="category-sidebar__list-group">
     <h4 class="category-sidebar__heading text--uppercase">{{sidebar.catSlug}} categories</h4>

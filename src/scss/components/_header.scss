@@ -65,6 +65,13 @@
     font-size: $base-font-size;
     background: $mq--blue;
     border: none;
+    border-radius: 0;
+  }
+}
+
+.header-mobile__search--input {
+  @include breakpointLargerThan($breakpoint-medium) {
+    display: none;
   }
 }
 

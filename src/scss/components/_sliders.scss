@@ -45,11 +45,11 @@
   width: 100%;
 
   @include breakpointBetween($breakpoint-small, $breakpoint-medium) {
-    top: $slider-height--medium / 2 - 85 !important; // top is set in WP - override for mobile
+    top: $slider-height--medium / 2 - 85 !important; // top is set in WP - override for tablet
   }
 
   @include breakpointSmallerThan($breakpoint-small) {
-    top: 200px !important; // top is set in WP - override for mobile
+    top: 100px !important; // top is set in WP - override for mobile
   }
 }
 
